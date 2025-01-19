@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class Laffy {
+    static List list = new List();
 
     public static void horizontalLine() {
         System.out.println("____________________________________________________________");
@@ -25,17 +26,34 @@ public class Laffy {
         horizontalLine();
     }
 
+    public static void addTask(String task) {
+        horizontalLine();
+        System.out.println("added: " + task);
+        horizontalLine();
+    }
+
+    public static void commandParse() {
+        System.out.print("> ");
+        String cmd = new Scanner(System.in).nextLine();
+        switch (cmd) {
+            case "bye":
+                bye();
+                break;
+            case "list":
+                echo(list.toString());
+                commandParse();
+                break;
+            default:
+                list.add(cmd);
+                echo("added: " + cmd);
+                commandParse();
+
+        }
+    }
+
     public static void main(String[] args) {
         greet();
-        while (true) {
-            System.out.print("> ");
-            String input = new Scanner(System.in).nextLine();
-            if (input.equals("bye")) {
-                break;
-            } else {
-                echo(input);
-            }
-        }
-        bye();
+
+        commandParse();
     }
 }

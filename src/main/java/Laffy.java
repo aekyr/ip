@@ -26,61 +26,14 @@ public class Laffy {
         horizontalLine();
     }
 
-    public static boolean markArgIsValid(String arg) {
-        try {
-            Integer.parseInt(arg);
-        } catch (NumberFormatException e) {
-            return false;
-        }
-        return list.isValidIndex(Integer.parseInt(arg) - 1);
-    }
-
-    public static void markAsDone(String arg) {
-        if (!markArgIsValid(arg)) {
-            echo("Usage: mark <index>");
-            return;
-        }
-        int markIndex = Integer.parseInt(arg) - 1;
-        if (list.get(markIndex).isDone()) {
-            echo("Task is already marked as done!");
-        } else {
-            list.markAsDone(markIndex);
-            echo("Nice! I've marked this task as done: \n  "
-                    + list.get(markIndex).toString());
-        }
-    }
-
-    public static void unmarkAsDone(String arg) {
-        if (!markArgIsValid(arg)) {
-            echo("Invalid index!");
-            return;
-        }
-        int markIndex = Integer.parseInt(arg) - 1;
-        if (!list.get(markIndex).isDone()) {
-            echo("Task is already marked as not done!");
-        } else {
-            list.markAsUndone(markIndex);
-            echo("Ok, I've marked this task as not yet done: \n  "
-                    + list.get(markIndex).toString());
-        }
-    }
-
-    public static void addTodo(String arg) {
-        ToDo todo = list.addTodo(arg);
-        echo("Got it. I've added this task: \n  "
-                + todo.toString());
-    }
-
     public static void addDeadline(String arg) {
         String[] args = arg.split(" /by ", 2);
         if (args.length < 2) {
             echo("Invalid deadline format!");
             return;
         }
-
-        Deadline deadline = list.addDeadline(args[0], args[1]);
         echo("Got it. I've added this task: \n  "
-                + deadline.toString());
+                + list.addDeadline(args[0], args[1]));
     }
 
     public static void addEvent(String arg) {
@@ -90,62 +43,39 @@ public class Laffy {
             echo("Invalid event format!");
             return;
         }
-
-        Event event = list.addEvent(args[0], args2[0], args2[1]);
         echo("Got it. I've added this task: \n  "
-                + event.toString());
+                + list.addEvent(args[0], args2[0], args2[1]));
     }
 
-    public static void commandParse() {
+    public static void chat(ListCommandParser parser) {
         System.out.print("> ");
         String cmd = new Scanner(System.in).nextLine();
         String[] cmdArgs = cmd.split(" ", 2);
         String keyword = cmdArgs[0];
-        String arg = "";
-        if (cmdArgs.length > 1) {
-            arg = cmdArgs[1];
+        String args = "";
+        if (cmdArgs.length == 2) {
+            args = cmdArgs[1];
         }
+
         switch (keyword) {
             case "":
-                commandParse();
+                chat(parser);
                 break;
             case "bye":
                 bye();
                 break;
-            case "list":
-                echo(list.toString());
-                commandParse();
-                break;
-            case "mark":
-                markAsDone(arg);
-                commandParse();
-                break;
-            case "unmark":
-                unmarkAsDone(arg);
-                commandParse();
-                break;
-            case "todo":
-                addTodo(arg);
-                commandParse();
-                break;
-            case "deadline":
-                addDeadline(arg);
-                commandParse();
-                break;
-            case "event":
-                addEvent(arg);
-                commandParse();
-                break;
             default:
-                echo("I'm sorry, but I don't know what that means");
-                commandParse();
+                Command command = parser.parse(keyword, args);
+                echo(command.execute());
+                chat(parser);
 
         }
     }
 
     public static void main(String[] args) {
+        ListCommandParser parser = new ListCommandParser(list);
         greet();
 
-        commandParse();
+        chat(parser);
     }
 }

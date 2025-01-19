@@ -47,9 +47,15 @@ public class Laffy {
                 + list.addEvent(args[0], args2[0], args2[1]));
     }
 
-    public static void chat(ListCommandParser parser) {
+    public static void chat(Scanner sc, ListCommandParser parser) {
         System.out.print("> ");
-        String cmd = new Scanner(System.in).nextLine();
+        String cmd = "";
+        try {
+            cmd = sc.nextLine();
+        } catch (Exception e) {
+            echo("Scanner could not find next line, assumed End of Test");
+            return;
+        }
         String[] cmdArgs = cmd.split(" ", 2);
         String keyword = cmdArgs[0];
         String args = "";
@@ -59,7 +65,7 @@ public class Laffy {
 
         switch (keyword) {
             case "":
-                chat(parser);
+                chat(sc, parser);
                 break;
             case "bye":
                 bye();
@@ -67,15 +73,16 @@ public class Laffy {
             default:
                 Command command = parser.parse(keyword, args);
                 echo(command.execute());
-                chat(parser);
+                chat(sc, parser);
 
         }
     }
 
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
         ListCommandParser parser = new ListCommandParser(list);
         greet();
 
-        chat(parser);
+        chat(sc, parser);
     }
 }

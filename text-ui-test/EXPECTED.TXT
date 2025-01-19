@@ -2,9 +2,383 @@ ____________________________________________________________
 Hello! I'm L.A.F.F.Y
 What can I do for you?
 ____________________________________________________________
->
->
+> > ____________________________________________________________
+There are no tasks in the list.
 ____________________________________________________________
+> ____________________________________________________________
+Description cannot be empty.
+Usage: todo <description>
+____________________________________________________________
+> ____________________________________________________________
 Got it. I've added this task:
-  [T][ ] read book
+  [T][ ] todotest1
+Now you have 1 tasks in the list.
+____________________________________________________________
+> ____________________________________________________________
+Got it. I've added this task:
+  [T][ ] todotest2
+Now you have 2 tasks in the list.
+____________________________________________________________
+> ____________________________________________________________
+Got it. I've added this task:
+  [T][ ] todotest3
+Now you have 3 tasks in the list.
+____________________________________________________________
+> ____________________________________________________________
+Here are the tasks in your list:
+1. [T][ ] todotest1
+2. [T][ ] todotest2
+3. [T][ ] todotest3
+____________________________________________________________
+> ____________________________________________________________
+Description and time range cannot be empty.
+Usage: event <description> /from <start time> /to <end time>
+____________________________________________________________
+> ____________________________________________________________
+Description and time range cannot be empty.
+Usage: event <description> /from <start time> /to <end time>
+____________________________________________________________
+> ____________________________________________________________
+Description and time range cannot be empty.
+Usage: event <description> /from <start time> /to <end time>
+____________________________________________________________
+> ____________________________________________________________
+Description and time range cannot be empty.
+Usage: event <description> /from <start time> /to <end time>
+____________________________________________________________
+> ____________________________________________________________
+Description and time range cannot be empty.
+Usage: event <description> /from <start time> /to <end time>
+____________________________________________________________
+> ____________________________________________________________
+Got it. I've added this task:
+  [E][ ] eventtest1 (from: 214421 to: invaliddate)
+Now you have 4 tasks in the list.
+____________________________________________________________
+> ____________________________________________________________
+Got it. I've added this task:
+  [E][ ] eventtest2 (from: 35635 to: 3290)
+Now you have 5 tasks in the list.
+____________________________________________________________
+> ____________________________________________________________
+Got it. I've added this task:
+  [E][ ] eventtest3 (from: 346643 to: :-P)
+Now you have 6 tasks in the list.
+____________________________________________________________
+> ____________________________________________________________
+Here are the tasks in your list:
+1. [T][ ] todotest1
+2. [T][ ] todotest2
+3. [T][ ] todotest3
+4. [E][ ] eventtest1 (from: 214421 to: invaliddate)
+5. [E][ ] eventtest2 (from: 35635 to: 3290)
+6. [E][ ] eventtest3 (from: 346643 to: :-P)
+____________________________________________________________
+> ____________________________________________________________
+Description and deadline cannot be empty.
+Usage: deadline <description> /by <deadline>
+____________________________________________________________
+> ____________________________________________________________
+Description and deadline cannot be empty.
+Usage: deadline <description> /by <deadline>
+____________________________________________________________
+> ____________________________________________________________
+Description and deadline cannot be empty.
+Usage: deadline <description> /by <deadline>
+____________________________________________________________
+> ____________________________________________________________
+Description and deadline cannot be empty.
+Usage: deadline <description> /by <deadline>
+____________________________________________________________
+> ____________________________________________________________
+Got it. I've added this task:
+  [D][ ] deadlinetest1 (by: 234443)
+Now you have 7 tasks in the list.
+____________________________________________________________
+> ____________________________________________________________
+Got it. I've added this task:
+  [D][ ] deadlinetest2 (by: 2se4g5)
+Now you have 8 tasks in the list.
+____________________________________________________________
+> ____________________________________________________________
+Got it. I've added this task:
+  [D][ ] deadlinetest3 (by: 23f3rg)
+Now you have 9 tasks in the list.
+____________________________________________________________
+> ____________________________________________________________
+Here are the tasks in your list:
+1. [T][ ] todotest1
+2. [T][ ] todotest2
+3. [T][ ] todotest3
+4. [E][ ] eventtest1 (from: 214421 to: invaliddate)
+5. [E][ ] eventtest2 (from: 35635 to: 3290)
+6. [E][ ] eventtest3 (from: 346643 to: :-P)
+7. [D][ ] deadlinetest1 (by: 234443)
+8. [D][ ] deadlinetest2 (by: 2se4g5)
+9. [D][ ] deadlinetest3 (by: 23f3rg)
+____________________________________________________________
+> ____________________________________________________________
+Index must be an integer.
+Usage: mark <index>
+____________________________________________________________
+> ____________________________________________________________
+Index must be an integer.
+Usage: mark <index>
+____________________________________________________________
+> ____________________________________________________________
+Here are the tasks in your list:
+1. [T][ ] todotest1
+2. [T][ ] todotest2
+3. [T][ ] todotest3
+4. [E][ ] eventtest1 (from: 214421 to: invaliddate)
+5. [E][ ] eventtest2 (from: 35635 to: 3290)
+6. [E][ ] eventtest3 (from: 346643 to: :-P)
+7. [D][ ] deadlinetest1 (by: 234443)
+8. [D][ ] deadlinetest2 (by: 2se4g5)
+9. [D][ ] deadlinetest3 (by: 23f3rg)
+____________________________________________________________
+> ____________________________________________________________
+Index out of bounds.
+____________________________________________________________
+> ____________________________________________________________
+Index out of bounds.
+____________________________________________________________
+> ____________________________________________________________
+Here are the tasks in your list:
+1. [T][ ] todotest1
+2. [T][ ] todotest2
+3. [T][ ] todotest3
+4. [E][ ] eventtest1 (from: 214421 to: invaliddate)
+5. [E][ ] eventtest2 (from: 35635 to: 3290)
+6. [E][ ] eventtest3 (from: 346643 to: :-P)
+7. [D][ ] deadlinetest1 (by: 234443)
+8. [D][ ] deadlinetest2 (by: 2se4g5)
+9. [D][ ] deadlinetest3 (by: 23f3rg)
+____________________________________________________________
+> ____________________________________________________________
+Index out of bounds.
+____________________________________________________________
+> ____________________________________________________________
+Index out of bounds.
+____________________________________________________________
+> ____________________________________________________________
+Here are the tasks in your list:
+1. [T][ ] todotest1
+2. [T][ ] todotest2
+3. [T][ ] todotest3
+4. [E][ ] eventtest1 (from: 214421 to: invaliddate)
+5. [E][ ] eventtest2 (from: 35635 to: 3290)
+6. [E][ ] eventtest3 (from: 346643 to: :-P)
+7. [D][ ] deadlinetest1 (by: 234443)
+8. [D][ ] deadlinetest2 (by: 2se4g5)
+9. [D][ ] deadlinetest3 (by: 23f3rg)
+____________________________________________________________
+> ____________________________________________________________
+Nice! I've marked this task as done:
+  [T][X] todotest1
+____________________________________________________________
+> ____________________________________________________________
+Here are the tasks in your list:
+1. [T][X] todotest1
+2. [T][ ] todotest2
+3. [T][ ] todotest3
+4. [E][ ] eventtest1 (from: 214421 to: invaliddate)
+5. [E][ ] eventtest2 (from: 35635 to: 3290)
+6. [E][ ] eventtest3 (from: 346643 to: :-P)
+7. [D][ ] deadlinetest1 (by: 234443)
+8. [D][ ] deadlinetest2 (by: 2se4g5)
+9. [D][ ] deadlinetest3 (by: 23f3rg)
+____________________________________________________________
+> ____________________________________________________________
+Task is already marked as done!
+____________________________________________________________
+> ____________________________________________________________
+Here are the tasks in your list:
+1. [T][X] todotest1
+2. [T][ ] todotest2
+3. [T][ ] todotest3
+4. [E][ ] eventtest1 (from: 214421 to: invaliddate)
+5. [E][ ] eventtest2 (from: 35635 to: 3290)
+6. [E][ ] eventtest3 (from: 346643 to: :-P)
+7. [D][ ] deadlinetest1 (by: 234443)
+8. [D][ ] deadlinetest2 (by: 2se4g5)
+9. [D][ ] deadlinetest3 (by: 23f3rg)
+____________________________________________________________
+> ____________________________________________________________
+Ok, I've marked this task as not yet done:
+  [T][ ] todotest1
+____________________________________________________________
+> ____________________________________________________________
+Here are the tasks in your list:
+1. [T][ ] todotest1
+2. [T][ ] todotest2
+3. [T][ ] todotest3
+4. [E][ ] eventtest1 (from: 214421 to: invaliddate)
+5. [E][ ] eventtest2 (from: 35635 to: 3290)
+6. [E][ ] eventtest3 (from: 346643 to: :-P)
+7. [D][ ] deadlinetest1 (by: 234443)
+8. [D][ ] deadlinetest2 (by: 2se4g5)
+9. [D][ ] deadlinetest3 (by: 23f3rg)
+____________________________________________________________
+> ____________________________________________________________
+Task is already marked as not done!
+____________________________________________________________
+> ____________________________________________________________
+Here are the tasks in your list:
+1. [T][ ] todotest1
+2. [T][ ] todotest2
+3. [T][ ] todotest3
+4. [E][ ] eventtest1 (from: 214421 to: invaliddate)
+5. [E][ ] eventtest2 (from: 35635 to: 3290)
+6. [E][ ] eventtest3 (from: 346643 to: :-P)
+7. [D][ ] deadlinetest1 (by: 234443)
+8. [D][ ] deadlinetest2 (by: 2se4g5)
+9. [D][ ] deadlinetest3 (by: 23f3rg)
+____________________________________________________________
+> ____________________________________________________________
+Nice! I've marked this task as done:
+  [T][X] todotest1
+____________________________________________________________
+> ____________________________________________________________
+Here are the tasks in your list:
+1. [T][X] todotest1
+2. [T][ ] todotest2
+3. [T][ ] todotest3
+4. [E][ ] eventtest1 (from: 214421 to: invaliddate)
+5. [E][ ] eventtest2 (from: 35635 to: 3290)
+6. [E][ ] eventtest3 (from: 346643 to: :-P)
+7. [D][ ] deadlinetest1 (by: 234443)
+8. [D][ ] deadlinetest2 (by: 2se4g5)
+9. [D][ ] deadlinetest3 (by: 23f3rg)
+____________________________________________________________
+> ____________________________________________________________
+Nice! I've marked this task as done:
+  [T][X] todotest2
+____________________________________________________________
+> ____________________________________________________________
+Here are the tasks in your list:
+1. [T][X] todotest1
+2. [T][X] todotest2
+3. [T][ ] todotest3
+4. [E][ ] eventtest1 (from: 214421 to: invaliddate)
+5. [E][ ] eventtest2 (from: 35635 to: 3290)
+6. [E][ ] eventtest3 (from: 346643 to: :-P)
+7. [D][ ] deadlinetest1 (by: 234443)
+8. [D][ ] deadlinetest2 (by: 2se4g5)
+9. [D][ ] deadlinetest3 (by: 23f3rg)
+____________________________________________________________
+> ____________________________________________________________
+Nice! I've marked this task as done:
+  [T][X] todotest3
+____________________________________________________________
+> ____________________________________________________________
+Here are the tasks in your list:
+1. [T][X] todotest1
+2. [T][X] todotest2
+3. [T][X] todotest3
+4. [E][ ] eventtest1 (from: 214421 to: invaliddate)
+5. [E][ ] eventtest2 (from: 35635 to: 3290)
+6. [E][ ] eventtest3 (from: 346643 to: :-P)
+7. [D][ ] deadlinetest1 (by: 234443)
+8. [D][ ] deadlinetest2 (by: 2se4g5)
+9. [D][ ] deadlinetest3 (by: 23f3rg)
+____________________________________________________________
+> ____________________________________________________________
+Nice! I've marked this task as done:
+  [E][X] eventtest1 (from: 214421 to: invaliddate)
+____________________________________________________________
+> ____________________________________________________________
+Here are the tasks in your list:
+1. [T][X] todotest1
+2. [T][X] todotest2
+3. [T][X] todotest3
+4. [E][X] eventtest1 (from: 214421 to: invaliddate)
+5. [E][ ] eventtest2 (from: 35635 to: 3290)
+6. [E][ ] eventtest3 (from: 346643 to: :-P)
+7. [D][ ] deadlinetest1 (by: 234443)
+8. [D][ ] deadlinetest2 (by: 2se4g5)
+9. [D][ ] deadlinetest3 (by: 23f3rg)
+____________________________________________________________
+> ____________________________________________________________
+Nice! I've marked this task as done:
+  [E][X] eventtest2 (from: 35635 to: 3290)
+____________________________________________________________
+> ____________________________________________________________
+Here are the tasks in your list:
+1. [T][X] todotest1
+2. [T][X] todotest2
+3. [T][X] todotest3
+4. [E][X] eventtest1 (from: 214421 to: invaliddate)
+5. [E][X] eventtest2 (from: 35635 to: 3290)
+6. [E][ ] eventtest3 (from: 346643 to: :-P)
+7. [D][ ] deadlinetest1 (by: 234443)
+8. [D][ ] deadlinetest2 (by: 2se4g5)
+9. [D][ ] deadlinetest3 (by: 23f3rg)
+____________________________________________________________
+> ____________________________________________________________
+Nice! I've marked this task as done:
+  [E][X] eventtest3 (from: 346643 to: :-P)
+____________________________________________________________
+> ____________________________________________________________
+Here are the tasks in your list:
+1. [T][X] todotest1
+2. [T][X] todotest2
+3. [T][X] todotest3
+4. [E][X] eventtest1 (from: 214421 to: invaliddate)
+5. [E][X] eventtest2 (from: 35635 to: 3290)
+6. [E][X] eventtest3 (from: 346643 to: :-P)
+7. [D][ ] deadlinetest1 (by: 234443)
+8. [D][ ] deadlinetest2 (by: 2se4g5)
+9. [D][ ] deadlinetest3 (by: 23f3rg)
+____________________________________________________________
+> ____________________________________________________________
+Nice! I've marked this task as done:
+  [D][X] deadlinetest1 (by: 234443)
+____________________________________________________________
+> ____________________________________________________________
+Here are the tasks in your list:
+1. [T][X] todotest1
+2. [T][X] todotest2
+3. [T][X] todotest3
+4. [E][X] eventtest1 (from: 214421 to: invaliddate)
+5. [E][X] eventtest2 (from: 35635 to: 3290)
+6. [E][X] eventtest3 (from: 346643 to: :-P)
+7. [D][X] deadlinetest1 (by: 234443)
+8. [D][ ] deadlinetest2 (by: 2se4g5)
+9. [D][ ] deadlinetest3 (by: 23f3rg)
+____________________________________________________________
+> ____________________________________________________________
+Nice! I've marked this task as done:
+  [D][X] deadlinetest2 (by: 2se4g5)
+____________________________________________________________
+> ____________________________________________________________
+Here are the tasks in your list:
+1. [T][X] todotest1
+2. [T][X] todotest2
+3. [T][X] todotest3
+4. [E][X] eventtest1 (from: 214421 to: invaliddate)
+5. [E][X] eventtest2 (from: 35635 to: 3290)
+6. [E][X] eventtest3 (from: 346643 to: :-P)
+7. [D][X] deadlinetest1 (by: 234443)
+8. [D][X] deadlinetest2 (by: 2se4g5)
+9. [D][ ] deadlinetest3 (by: 23f3rg)
+____________________________________________________________
+> ____________________________________________________________
+Nice! I've marked this task as done:
+  [D][X] deadlinetest3 (by: 23f3rg)
+____________________________________________________________
+> ____________________________________________________________
+Here are the tasks in your list:
+1. [T][X] todotest1
+2. [T][X] todotest2
+3. [T][X] todotest3
+4. [E][X] eventtest1 (from: 214421 to: invaliddate)
+5. [E][X] eventtest2 (from: 35635 to: 3290)
+6. [E][X] eventtest3 (from: 346643 to: :-P)
+7. [D][X] deadlinetest1 (by: 234443)
+8. [D][X] deadlinetest2 (by: 2se4g5)
+9. [D][X] deadlinetest3 (by: 23f3rg)
+____________________________________________________________
+> ____________________________________________________________
+Bye. Hope to see you again soon!
 ____________________________________________________________

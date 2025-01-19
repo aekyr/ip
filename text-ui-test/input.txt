@@ -1,4 +1,60 @@
 
+list
 todo
-todo
-todo read book
+todo todotest1
+todo todotest2
+todo todotest3
+list
+event
+event /from 390239 /to 13413413
+event failevent1 /from  /to 141412
+event failevent2 /from /to 124421
+event failevent3 /from iuhwf /to
+event eventtest1 /from 214421 /to invaliddate
+event eventtest2 /from 35635 /to 3290
+event eventtest3 /from 346643 /to :-P
+list
+deadline
+deadline /by
+deadline faildeadline1 /by
+deadline /by faildeadline2
+deadline deadlinetest1 /by 234443
+deadline deadlinetest2 /by 2se4g5
+deadline deadlinetest3 /by 23f3rg
+list
+mark
+unmark
+list
+mark 0
+unmark 0
+list
+mark 10
+unmark 10
+list
+mark 1
+list
+mark 1
+list
+unmark 1
+list
+unmark 1
+list
+mark 1
+list
+mark 2
+list
+mark 3
+list
+mark 4
+list
+mark 5
+list
+mark 6
+list
+mark 7
+list
+mark 8
+list
+mark 9
+list
+bye

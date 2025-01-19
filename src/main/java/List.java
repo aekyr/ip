@@ -41,7 +41,7 @@ public class List {
             return "Task is already marked as done!";
         } else {
             this.tasks.get(index).markAsDone();
-            return "Nice! I've marked this task as done: \n  "
+            return "Nice! I've marked this task as done:\n  "
                     + this.tasks.get(index).toString();
         }
     }
@@ -53,7 +53,7 @@ public class List {
             return "Task is already marked as not done!";
         } else {
             this.tasks.get(index).markAsUndone();
-            return "Ok, I've marked this task as not yet done: \n  "
+            return "Ok, I've marked this task as not yet done:\n  "
                     + this.tasks.get(index).toString();
         }
     }

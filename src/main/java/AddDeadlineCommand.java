@@ -1,4 +1,5 @@
 public class AddDeadlineCommand extends Command {
+    public static final String COMMAND_WORD = "deadline";
     private String desc;
     private String by;
 
@@ -18,11 +19,20 @@ public class AddDeadlineCommand extends Command {
     @Override
     public String execute() {
         if (!isValid) {
-            return "Description and deadline cannot be empty.\nUsage: deadline <description> /by <deadline>";
+            return "Description and deadline cannot be empty.\n" + getUsage();
         } else {
             return "Got it. I've added this task:\n  "
                     + super.list.addDeadline(desc, by)
                     + "\nNow you have " + super.list.size() + " tasks in the list.";
         }
+    }
+
+
+    public static String getDescription() {
+        return COMMAND_WORD + " <description> /by <deadline>";
+    }
+
+    public static String getUsage() {
+        return Command.getUsage() + getDescription();
     }
 }

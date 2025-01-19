@@ -1,5 +1,6 @@
 public class MarkCommand extends Command {
     protected final int index;
+    public static final String COMMAND_WORD = "mark";
 
     public MarkCommand(List list, String args) {
         super(list);
@@ -17,10 +18,18 @@ public class MarkCommand extends Command {
     @Override
     public String execute() {
         if (!isValid) {
-            return "Index must be an integer.\nUsage: mark <index>";
+            return "Index must be an integer.\n" + getUsage();
         } else {
             return super.list.markAsDone(this.index);
         }
+    }
+
+    public static String getDescription() {
+        return COMMAND_WORD + " <index>";
+    }
+
+    public static String getUsage() {
+        return Command.getUsage() + getDescription();
     }
 
 }

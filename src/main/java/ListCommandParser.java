@@ -8,22 +8,22 @@ public class ListCommandParser {
     public Command parse(String keyword, String args) {
         Command command = null;
         switch (keyword) {
-            case "list":
+            case ListCommand.COMMAND_WORD:
                 command = new ListCommand(this.list);
                 break;
-            case "mark":
+            case MarkCommand.COMMAND_WORD:
                 command = new MarkCommand(this.list, args);
                 break;
-            case "unmark":
+            case UnmarkCommand.COMMAND_WORD:
                 command = new UnmarkCommand(this.list, args);
                 break;
-            case "todo":
+            case AddTodoCommand.COMMAND_WORD:
                 command = new AddTodoCommand(this.list, args);
                 break;
-            case "deadline":
+            case AddDeadlineCommand.COMMAND_WORD:
                 command = new AddDeadlineCommand(this.list, args);
                 break;
-            case "event":
+            case AddEventCommand.COMMAND_WORD:
                 command = new AddEventCommand(this.list, args);
                 break;
             default:

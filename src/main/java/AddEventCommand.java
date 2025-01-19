@@ -1,4 +1,5 @@
 public class AddEventCommand extends Command {
+    public static final String COMMAND_WORD = "event";
     private String desc;
     private String from;
     private String to;
@@ -26,11 +27,19 @@ public class AddEventCommand extends Command {
     @Override
     public String execute() {
         if (!isValid) {
-            return "Description and time range cannot be empty.\nUsage: event <description> /from <start time> /to <end time>";
+            return "Description and time range cannot be empty.\n" + getUsage();
         } else {
             return "Got it. I've added this task:\n  "
                     + super.list.addEvent(desc, from, to)
                     + "\nNow you have " + super.list.size() + " tasks in the list.";
         }
+    }
+
+    public static String getDescription() {
+        return COMMAND_WORD + " <description> /from <start time> /to <end time>";
+    }
+
+    public static String getUsage() {
+        return Command.getUsage() + getDescription();
     }
 }

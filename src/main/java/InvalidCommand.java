@@ -1,4 +1,5 @@
 public class InvalidCommand extends Command {
+    public static final String COMMAND_WORD = "invalid";
 
     public InvalidCommand(List list) {
         super(list);
@@ -8,16 +9,31 @@ public class InvalidCommand extends Command {
     @Override
     public String execute() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Invalid command. Please enter a valid command.\n");
-        sb.append("Valid commands are:\n");
-        sb.append("1. list\n");
-        sb.append("2. todo <description>\n");
-        sb.append("3. deadline <description> /by <deadline>\n");
-        sb.append("4. event <description> /at <time>\n");
-        sb.append("5. mark <index>\n");
-        sb.append("6. unmark <index>\n");
-        sb.append("7. bye\n");
+        sb.append(this.getUsage());
+        sb.append("\n");
+        sb.append("Here are the available commands:");
+        sb.append("\n1. ");
+        sb.append(ListCommand.getDescription());
+        sb.append("\n2. ");
+        sb.append(AddTodoCommand.getDescription());
+        sb.append("\n3. ");
+        sb.append(AddDeadlineCommand.getDescription());
+        sb.append("\n4. ");
+        sb.append(AddEventCommand.getDescription());
+        sb.append("\n5. ");
+        sb.append(MarkCommand.getDescription());
+        sb.append("\n6. ");
+        sb.append(UnmarkCommand.getDescription());
+
 
         return sb.toString();
+    }
+
+    public static String getDescription() {
+        return "";
+    }
+
+    public static String getUsage() {
+        return "Invalid command. Please enter a valid command.";
     }
 }

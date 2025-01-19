@@ -3,6 +3,16 @@ Hello! I'm L.A.F.F.Y
 What can I do for you?
 ____________________________________________________________
 > > ____________________________________________________________
+Invalid command. Please enter a valid command.
+Here are the available commands:
+1. list
+2. todo <description>
+3. deadline <description> /by <deadline>
+4. event <description> /from <start time> /to <end time>
+5. mark <index>
+6. unmark <index>
+____________________________________________________________
+> ____________________________________________________________
 There are no tasks in the list.
 ____________________________________________________________
 > ____________________________________________________________
@@ -123,7 +133,7 @@ Usage: mark <index>
 ____________________________________________________________
 > ____________________________________________________________
 Index must be an integer.
-Usage: mark <index>
+Usage: unmark <index>
 ____________________________________________________________
 > ____________________________________________________________
 Here are the tasks in your list:

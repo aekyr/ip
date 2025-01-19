@@ -28,27 +28,6 @@ public class Laffy {
         horizontalLine();
     }
 
-    public static void addDeadline(String arg) {
-        String[] args = arg.split(" /by ", 2);
-        if (args.length < 2) {
-            echo("Invalid deadline format!");
-            return;
-        }
-        echo("Got it. I've added this task: \n  "
-                + taskList.addDeadline(args[0], args[1]));
-    }
-
-    public static void addEvent(String arg) {
-        String[] args = arg.split(" /from ", 2);
-        String[] args2 = args[1].split(" /to ", 2);
-        if (args2.length < 2) {
-            echo("Invalid event format!");
-            return;
-        }
-        echo("Got it. I've added this task: \n  "
-                + taskList.addEvent(args[0], args2[0], args2[1]));
-    }
-
     public static void chat(Scanner sc, ListCommandParser parser) {
         System.out.print("> ");
         String cmd = "";

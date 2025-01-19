@@ -1,4 +1,4 @@
-public class UnmarkCommand extends MarkCommand {
+class UnmarkCommand extends IndexedCommand {
     public static final String COMMAND_WORD = "unmark";
 
     public UnmarkCommand(List list, String args) {

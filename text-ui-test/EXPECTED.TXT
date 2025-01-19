@@ -11,6 +11,7 @@ Here are the available commands:
 4. event <description> /from <start time> /to <end time>
 5. mark <index>
 6. unmark <index>
+7. delete <index>
 ____________________________________________________________
 > ____________________________________________________________
 There are no tasks in the list.
@@ -388,6 +389,61 @@ Here are the tasks in your list:
 7. [D][X] deadlinetest1 (by: 234443)
 8. [D][X] deadlinetest2 (by: 2se4g5)
 9. [D][X] deadlinetest3 (by: 23f3rg)
+____________________________________________________________
+> ____________________________________________________________
+Index must be an integer.
+Usage: delete <index>
+____________________________________________________________
+> ____________________________________________________________
+Index out of bounds.
+____________________________________________________________
+> ____________________________________________________________
+Index out of bounds.
+____________________________________________________________
+> ____________________________________________________________
+Noted. I've removed this task:
+  [D][X] deadlinetest3 (by: 23f3rg)
+Now you have 8 tasks in the list.
+____________________________________________________________
+> ____________________________________________________________
+Here are the tasks in your list:
+1. [T][X] todotest1
+2. [T][X] todotest2
+3. [T][X] todotest3
+4. [E][X] eventtest1 (from: 214421 to: invaliddate)
+5. [E][X] eventtest2 (from: 35635 to: 3290)
+6. [E][X] eventtest3 (from: 346643 to: :-P)
+7. [D][X] deadlinetest1 (by: 234443)
+8. [D][X] deadlinetest2 (by: 2se4g5)
+____________________________________________________________
+> ____________________________________________________________
+Noted. I've removed this task:
+  [E][X] eventtest3 (from: 346643 to: :-P)
+Now you have 7 tasks in the list.
+____________________________________________________________
+> ____________________________________________________________
+Here are the tasks in your list:
+1. [T][X] todotest1
+2. [T][X] todotest2
+3. [T][X] todotest3
+4. [E][X] eventtest1 (from: 214421 to: invaliddate)
+5. [E][X] eventtest2 (from: 35635 to: 3290)
+6. [D][X] deadlinetest1 (by: 234443)
+7. [D][X] deadlinetest2 (by: 2se4g5)
+____________________________________________________________
+> ____________________________________________________________
+Noted. I've removed this task:
+  [T][X] todotest3
+Now you have 6 tasks in the list.
+____________________________________________________________
+> ____________________________________________________________
+Here are the tasks in your list:
+1. [T][X] todotest1
+2. [T][X] todotest2
+3. [E][X] eventtest1 (from: 214421 to: invaliddate)
+4. [E][X] eventtest2 (from: 35635 to: 3290)
+5. [D][X] deadlinetest1 (by: 234443)
+6. [D][X] deadlinetest2 (by: 2se4g5)
 ____________________________________________________________
 > ____________________________________________________________
 Bye. Hope to see you again soon!

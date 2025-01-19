@@ -26,6 +26,9 @@ public class ListCommandParser {
             case AddEventCommand.COMMAND_WORD:
                 command = new AddEventCommand(this.list, args);
                 break;
+            case DeleteCommand.COMMAND_WORD:
+                command = new DeleteCommand(this.list, args);
+                break;
             default:
                 command = new InvalidCommand(this.list);
         }

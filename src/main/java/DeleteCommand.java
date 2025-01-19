@@ -1,7 +1,7 @@
-public class MarkCommand extends IndexedCommand {
-    public static final String COMMAND_WORD = "mark";
+public class DeleteCommand extends IndexedCommand {
+    public static final String COMMAND_WORD = "delete";
 
-    public MarkCommand(List list, String args) {
+    public DeleteCommand(List list, String args) {
         super(list, args);
     }
 
@@ -10,7 +10,7 @@ public class MarkCommand extends IndexedCommand {
         if (!isValid) {
             return "Index must be an integer.\n" + getUsage();
         } else {
-            return super.list.markAsDone(this.index);
+            return super.list.delete(this.index);
         }
     }
 
@@ -21,5 +21,4 @@ public class MarkCommand extends IndexedCommand {
     public static String getUsage() {
         return Command.getUsage() + getDescription();
     }
-
 }

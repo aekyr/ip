@@ -58,6 +58,18 @@ public class List {
         }
     }
 
+    public String delete(int index) {
+        if (!isValidIndex(index)) {
+            return "Index out of bounds.";
+        } else {
+            Task task = this.tasks.get(index);
+            this.tasks.remove(index);
+            return "Noted. I've removed this task:\n  "
+                    + task.toString()
+                    + "\nNow you have " + this.tasks.size() + " tasks in the list.";
+        }
+    }
+
     public boolean isValidIndex(int index) {
         return index >= 0 && index < this.tasks.size();
     }

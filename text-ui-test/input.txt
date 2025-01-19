@@ -58,4 +58,13 @@ mark 8
 list
 mark 9
 list
+delete
+delete 0
+delete 10
+delete 9
+list
+delete 6
+list
+delete 3
+list
 bye

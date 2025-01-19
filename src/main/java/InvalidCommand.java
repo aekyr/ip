@@ -24,6 +24,8 @@ public class InvalidCommand extends Command {
         sb.append(MarkCommand.getDescription());
         sb.append("\n6. ");
         sb.append(UnmarkCommand.getDescription());
+        sb.append("\n7. ");
+        sb.append(DeleteCommand.getDescription());
 
 
         return sb.toString();

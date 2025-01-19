@@ -1,8 +1,10 @@
+import TaskList.TaskList;
+
 public class MarkCommand extends IndexedCommand {
     public static final String COMMAND_WORD = "mark";
 
-    public MarkCommand(List list, String args) {
-        super(list, args);
+    public MarkCommand(TaskList taskList, String args) {
+        super(taskList, args);
     }
 
     @Override
@@ -10,7 +12,7 @@ public class MarkCommand extends IndexedCommand {
         if (!isValid) {
             return "Index must be an integer.\n" + getUsage();
         } else {
-            return super.list.markAsDone(this.index);
+            return super.taskList.markAsDone(this.index);
         }
     }
 

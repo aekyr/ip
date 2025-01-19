@@ -1,8 +1,10 @@
+import TaskList.TaskList;
+
 public class InvalidCommand extends Command {
     public static final String COMMAND_WORD = "invalid";
 
-    public InvalidCommand(List list) {
-        super(list);
+    public InvalidCommand(TaskList taskList) {
+        super(taskList);
         this.isValid = true;
     }
 

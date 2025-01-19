@@ -1,10 +1,12 @@
+import TaskList.TaskList;
+
 public class AddDeadlineCommand extends Command {
     public static final String COMMAND_WORD = "deadline";
     private String desc;
     private String by;
 
-    public AddDeadlineCommand(List list, String args) {
-        super(list);
+    public AddDeadlineCommand(TaskList taskList, String args) {
+        super(taskList);
         String[] arr = args.split(" /by ");
         if (arr.length == 2) {
             this.desc = arr[0];
@@ -22,8 +24,8 @@ public class AddDeadlineCommand extends Command {
             return "Description and deadline cannot be empty.\n" + getUsage();
         } else {
             return "Got it. I've added this task:\n  "
-                    + super.list.addDeadline(desc, by)
-                    + "\nNow you have " + super.list.size() + " tasks in the list.";
+                    + super.taskList.addDeadline(desc, by)
+                    + "\nNow you have " + super.taskList.size() + " tasks in the list.";
         }
     }
 

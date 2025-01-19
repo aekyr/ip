@@ -1,10 +1,12 @@
+import TaskList.TaskList;
+
 abstract class Command {
-    protected List list;
+    protected TaskList taskList;
     protected boolean isValid;
     public static final String COMMAND_WORD = "command";
 
-    public Command (List list) {
-        this.list = list;
+    public Command (TaskList taskList) {
+        this.taskList = taskList;
         this.isValid = false;
     }
     public abstract String execute();

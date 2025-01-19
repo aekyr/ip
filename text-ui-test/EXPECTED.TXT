@@ -14,7 +14,15 @@ Here are the available commands:
 7. delete <index>
 ____________________________________________________________
 > ____________________________________________________________
-There are no tasks in the list.
+Invalid command. Please enter a valid command.
+Here are the available commands:
+1. list
+2. todo <description>
+3. deadline <description> /by <deadline>
+4. event <description> /from <start time> /to <end time>
+5. mark <index>
+6. unmark <index>
+7. delete <index>
 ____________________________________________________________
 > ____________________________________________________________
 Description cannot be empty.
@@ -36,10 +44,15 @@ Got it. I've added this task:
 Now you have 3 tasks in the list.
 ____________________________________________________________
 > ____________________________________________________________
-Here are the tasks in your list:
-1. [T][ ] todotest1
-2. [T][ ] todotest2
-3. [T][ ] todotest3
+Invalid command. Please enter a valid command.
+Here are the available commands:
+1. list
+2. todo <description>
+3. deadline <description> /by <deadline>
+4. event <description> /from <start time> /to <end time>
+5. mark <index>
+6. unmark <index>
+7. delete <index>
 ____________________________________________________________
 > ____________________________________________________________
 Description and time range cannot be empty.
@@ -77,13 +90,15 @@ Got it. I've added this task:
 Now you have 6 tasks in the list.
 ____________________________________________________________
 > ____________________________________________________________
-Here are the tasks in your list:
-1. [T][ ] todotest1
-2. [T][ ] todotest2
-3. [T][ ] todotest3
-4. [E][ ] eventtest1 (from: 214421 to: invaliddate)
-5. [E][ ] eventtest2 (from: 35635 to: 3290)
-6. [E][ ] eventtest3 (from: 346643 to: :-P)
+Invalid command. Please enter a valid command.
+Here are the available commands:
+1. list
+2. todo <description>
+3. deadline <description> /by <deadline>
+4. event <description> /from <start time> /to <end time>
+5. mark <index>
+6. unmark <index>
+7. delete <index>
 ____________________________________________________________
 > ____________________________________________________________
 Description and deadline cannot be empty.
@@ -117,16 +132,15 @@ Got it. I've added this task:
 Now you have 9 tasks in the list.
 ____________________________________________________________
 > ____________________________________________________________
-Here are the tasks in your list:
-1. [T][ ] todotest1
-2. [T][ ] todotest2
-3. [T][ ] todotest3
-4. [E][ ] eventtest1 (from: 214421 to: invaliddate)
-5. [E][ ] eventtest2 (from: 35635 to: 3290)
-6. [E][ ] eventtest3 (from: 346643 to: :-P)
-7. [D][ ] deadlinetest1 (by: 234443)
-8. [D][ ] deadlinetest2 (by: 2se4g5)
-9. [D][ ] deadlinetest3 (by: 23f3rg)
+Invalid command. Please enter a valid command.
+Here are the available commands:
+1. list
+2. todo <description>
+3. deadline <description> /by <deadline>
+4. event <description> /from <start time> /to <end time>
+5. mark <index>
+6. unmark <index>
+7. delete <index>
 ____________________________________________________________
 > ____________________________________________________________
 Index must be an integer.
@@ -137,16 +151,15 @@ Index must be an integer.
 Usage: unmark <index>
 ____________________________________________________________
 > ____________________________________________________________
-Here are the tasks in your list:
-1. [T][ ] todotest1
-2. [T][ ] todotest2
-3. [T][ ] todotest3
-4. [E][ ] eventtest1 (from: 214421 to: invaliddate)
-5. [E][ ] eventtest2 (from: 35635 to: 3290)
-6. [E][ ] eventtest3 (from: 346643 to: :-P)
-7. [D][ ] deadlinetest1 (by: 234443)
-8. [D][ ] deadlinetest2 (by: 2se4g5)
-9. [D][ ] deadlinetest3 (by: 23f3rg)
+Invalid command. Please enter a valid command.
+Here are the available commands:
+1. list
+2. todo <description>
+3. deadline <description> /by <deadline>
+4. event <description> /from <start time> /to <end time>
+5. mark <index>
+6. unmark <index>
+7. delete <index>
 ____________________________________________________________
 > ____________________________________________________________
 Index out of bounds.
@@ -155,16 +168,15 @@ ____________________________________________________________
 Index out of bounds.
 ____________________________________________________________
 > ____________________________________________________________
-Here are the tasks in your list:
-1. [T][ ] todotest1
-2. [T][ ] todotest2
-3. [T][ ] todotest3
-4. [E][ ] eventtest1 (from: 214421 to: invaliddate)
-5. [E][ ] eventtest2 (from: 35635 to: 3290)
-6. [E][ ] eventtest3 (from: 346643 to: :-P)
-7. [D][ ] deadlinetest1 (by: 234443)
-8. [D][ ] deadlinetest2 (by: 2se4g5)
-9. [D][ ] deadlinetest3 (by: 23f3rg)
+Invalid command. Please enter a valid command.
+Here are the available commands:
+1. list
+2. todo <description>
+3. deadline <description> /by <deadline>
+4. event <description> /from <start time> /to <end time>
+5. mark <index>
+6. unmark <index>
+7. delete <index>
 ____________________________________________________________
 > ____________________________________________________________
 Index out of bounds.
@@ -173,222 +185,208 @@ ____________________________________________________________
 Index out of bounds.
 ____________________________________________________________
 > ____________________________________________________________
-Here are the tasks in your list:
-1. [T][ ] todotest1
-2. [T][ ] todotest2
-3. [T][ ] todotest3
-4. [E][ ] eventtest1 (from: 214421 to: invaliddate)
-5. [E][ ] eventtest2 (from: 35635 to: 3290)
-6. [E][ ] eventtest3 (from: 346643 to: :-P)
-7. [D][ ] deadlinetest1 (by: 234443)
-8. [D][ ] deadlinetest2 (by: 2se4g5)
-9. [D][ ] deadlinetest3 (by: 23f3rg)
+Invalid command. Please enter a valid command.
+Here are the available commands:
+1. list
+2. todo <description>
+3. deadline <description> /by <deadline>
+4. event <description> /from <start time> /to <end time>
+5. mark <index>
+6. unmark <index>
+7. delete <index>
 ____________________________________________________________
 > ____________________________________________________________
 Nice! I've marked this task as done:
   [T][X] todotest1
 ____________________________________________________________
 > ____________________________________________________________
-Here are the tasks in your list:
-1. [T][X] todotest1
-2. [T][ ] todotest2
-3. [T][ ] todotest3
-4. [E][ ] eventtest1 (from: 214421 to: invaliddate)
-5. [E][ ] eventtest2 (from: 35635 to: 3290)
-6. [E][ ] eventtest3 (from: 346643 to: :-P)
-7. [D][ ] deadlinetest1 (by: 234443)
-8. [D][ ] deadlinetest2 (by: 2se4g5)
-9. [D][ ] deadlinetest3 (by: 23f3rg)
+Invalid command. Please enter a valid command.
+Here are the available commands:
+1. list
+2. todo <description>
+3. deadline <description> /by <deadline>
+4. event <description> /from <start time> /to <end time>
+5. mark <index>
+6. unmark <index>
+7. delete <index>
 ____________________________________________________________
 > ____________________________________________________________
-Task is already marked as done!
+TaskList.Task is already marked as done!
 ____________________________________________________________
 > ____________________________________________________________
-Here are the tasks in your list:
-1. [T][X] todotest1
-2. [T][ ] todotest2
-3. [T][ ] todotest3
-4. [E][ ] eventtest1 (from: 214421 to: invaliddate)
-5. [E][ ] eventtest2 (from: 35635 to: 3290)
-6. [E][ ] eventtest3 (from: 346643 to: :-P)
-7. [D][ ] deadlinetest1 (by: 234443)
-8. [D][ ] deadlinetest2 (by: 2se4g5)
-9. [D][ ] deadlinetest3 (by: 23f3rg)
+Invalid command. Please enter a valid command.
+Here are the available commands:
+1. list
+2. todo <description>
+3. deadline <description> /by <deadline>
+4. event <description> /from <start time> /to <end time>
+5. mark <index>
+6. unmark <index>
+7. delete <index>
 ____________________________________________________________
 > ____________________________________________________________
 Ok, I've marked this task as not yet done:
   [T][ ] todotest1
 ____________________________________________________________
 > ____________________________________________________________
-Here are the tasks in your list:
-1. [T][ ] todotest1
-2. [T][ ] todotest2
-3. [T][ ] todotest3
-4. [E][ ] eventtest1 (from: 214421 to: invaliddate)
-5. [E][ ] eventtest2 (from: 35635 to: 3290)
-6. [E][ ] eventtest3 (from: 346643 to: :-P)
-7. [D][ ] deadlinetest1 (by: 234443)
-8. [D][ ] deadlinetest2 (by: 2se4g5)
-9. [D][ ] deadlinetest3 (by: 23f3rg)
+Invalid command. Please enter a valid command.
+Here are the available commands:
+1. list
+2. todo <description>
+3. deadline <description> /by <deadline>
+4. event <description> /from <start time> /to <end time>
+5. mark <index>
+6. unmark <index>
+7. delete <index>
 ____________________________________________________________
 > ____________________________________________________________
-Task is already marked as not done!
+TaskList.Task is already marked as not done!
 ____________________________________________________________
 > ____________________________________________________________
-Here are the tasks in your list:
-1. [T][ ] todotest1
-2. [T][ ] todotest2
-3. [T][ ] todotest3
-4. [E][ ] eventtest1 (from: 214421 to: invaliddate)
-5. [E][ ] eventtest2 (from: 35635 to: 3290)
-6. [E][ ] eventtest3 (from: 346643 to: :-P)
-7. [D][ ] deadlinetest1 (by: 234443)
-8. [D][ ] deadlinetest2 (by: 2se4g5)
-9. [D][ ] deadlinetest3 (by: 23f3rg)
+Invalid command. Please enter a valid command.
+Here are the available commands:
+1. list
+2. todo <description>
+3. deadline <description> /by <deadline>
+4. event <description> /from <start time> /to <end time>
+5. mark <index>
+6. unmark <index>
+7. delete <index>
 ____________________________________________________________
 > ____________________________________________________________
 Nice! I've marked this task as done:
   [T][X] todotest1
 ____________________________________________________________
 > ____________________________________________________________
-Here are the tasks in your list:
-1. [T][X] todotest1
-2. [T][ ] todotest2
-3. [T][ ] todotest3
-4. [E][ ] eventtest1 (from: 214421 to: invaliddate)
-5. [E][ ] eventtest2 (from: 35635 to: 3290)
-6. [E][ ] eventtest3 (from: 346643 to: :-P)
-7. [D][ ] deadlinetest1 (by: 234443)
-8. [D][ ] deadlinetest2 (by: 2se4g5)
-9. [D][ ] deadlinetest3 (by: 23f3rg)
+Invalid command. Please enter a valid command.
+Here are the available commands:
+1. list
+2. todo <description>
+3. deadline <description> /by <deadline>
+4. event <description> /from <start time> /to <end time>
+5. mark <index>
+6. unmark <index>
+7. delete <index>
 ____________________________________________________________
 > ____________________________________________________________
 Nice! I've marked this task as done:
   [T][X] todotest2
 ____________________________________________________________
 > ____________________________________________________________
-Here are the tasks in your list:
-1. [T][X] todotest1
-2. [T][X] todotest2
-3. [T][ ] todotest3
-4. [E][ ] eventtest1 (from: 214421 to: invaliddate)
-5. [E][ ] eventtest2 (from: 35635 to: 3290)
-6. [E][ ] eventtest3 (from: 346643 to: :-P)
-7. [D][ ] deadlinetest1 (by: 234443)
-8. [D][ ] deadlinetest2 (by: 2se4g5)
-9. [D][ ] deadlinetest3 (by: 23f3rg)
+Invalid command. Please enter a valid command.
+Here are the available commands:
+1. list
+2. todo <description>
+3. deadline <description> /by <deadline>
+4. event <description> /from <start time> /to <end time>
+5. mark <index>
+6. unmark <index>
+7. delete <index>
 ____________________________________________________________
 > ____________________________________________________________
 Nice! I've marked this task as done:
   [T][X] todotest3
 ____________________________________________________________
 > ____________________________________________________________
-Here are the tasks in your list:
-1. [T][X] todotest1
-2. [T][X] todotest2
-3. [T][X] todotest3
-4. [E][ ] eventtest1 (from: 214421 to: invaliddate)
-5. [E][ ] eventtest2 (from: 35635 to: 3290)
-6. [E][ ] eventtest3 (from: 346643 to: :-P)
-7. [D][ ] deadlinetest1 (by: 234443)
-8. [D][ ] deadlinetest2 (by: 2se4g5)
-9. [D][ ] deadlinetest3 (by: 23f3rg)
+Invalid command. Please enter a valid command.
+Here are the available commands:
+1. list
+2. todo <description>
+3. deadline <description> /by <deadline>
+4. event <description> /from <start time> /to <end time>
+5. mark <index>
+6. unmark <index>
+7. delete <index>
 ____________________________________________________________
 > ____________________________________________________________
 Nice! I've marked this task as done:
   [E][X] eventtest1 (from: 214421 to: invaliddate)
 ____________________________________________________________
 > ____________________________________________________________
-Here are the tasks in your list:
-1. [T][X] todotest1
-2. [T][X] todotest2
-3. [T][X] todotest3
-4. [E][X] eventtest1 (from: 214421 to: invaliddate)
-5. [E][ ] eventtest2 (from: 35635 to: 3290)
-6. [E][ ] eventtest3 (from: 346643 to: :-P)
-7. [D][ ] deadlinetest1 (by: 234443)
-8. [D][ ] deadlinetest2 (by: 2se4g5)
-9. [D][ ] deadlinetest3 (by: 23f3rg)
+Invalid command. Please enter a valid command.
+Here are the available commands:
+1. list
+2. todo <description>
+3. deadline <description> /by <deadline>
+4. event <description> /from <start time> /to <end time>
+5. mark <index>
+6. unmark <index>
+7. delete <index>
 ____________________________________________________________
 > ____________________________________________________________
 Nice! I've marked this task as done:
   [E][X] eventtest2 (from: 35635 to: 3290)
 ____________________________________________________________
 > ____________________________________________________________
-Here are the tasks in your list:
-1. [T][X] todotest1
-2. [T][X] todotest2
-3. [T][X] todotest3
-4. [E][X] eventtest1 (from: 214421 to: invaliddate)
-5. [E][X] eventtest2 (from: 35635 to: 3290)
-6. [E][ ] eventtest3 (from: 346643 to: :-P)
-7. [D][ ] deadlinetest1 (by: 234443)
-8. [D][ ] deadlinetest2 (by: 2se4g5)
-9. [D][ ] deadlinetest3 (by: 23f3rg)
+Invalid command. Please enter a valid command.
+Here are the available commands:
+1. list
+2. todo <description>
+3. deadline <description> /by <deadline>
+4. event <description> /from <start time> /to <end time>
+5. mark <index>
+6. unmark <index>
+7. delete <index>
 ____________________________________________________________
 > ____________________________________________________________
 Nice! I've marked this task as done:
   [E][X] eventtest3 (from: 346643 to: :-P)
 ____________________________________________________________
 > ____________________________________________________________
-Here are the tasks in your list:
-1. [T][X] todotest1
-2. [T][X] todotest2
-3. [T][X] todotest3
-4. [E][X] eventtest1 (from: 214421 to: invaliddate)
-5. [E][X] eventtest2 (from: 35635 to: 3290)
-6. [E][X] eventtest3 (from: 346643 to: :-P)
-7. [D][ ] deadlinetest1 (by: 234443)
-8. [D][ ] deadlinetest2 (by: 2se4g5)
-9. [D][ ] deadlinetest3 (by: 23f3rg)
+Invalid command. Please enter a valid command.
+Here are the available commands:
+1. list
+2. todo <description>
+3. deadline <description> /by <deadline>
+4. event <description> /from <start time> /to <end time>
+5. mark <index>
+6. unmark <index>
+7. delete <index>
 ____________________________________________________________
 > ____________________________________________________________
 Nice! I've marked this task as done:
   [D][X] deadlinetest1 (by: 234443)
 ____________________________________________________________
 > ____________________________________________________________
-Here are the tasks in your list:
-1. [T][X] todotest1
-2. [T][X] todotest2
-3. [T][X] todotest3
-4. [E][X] eventtest1 (from: 214421 to: invaliddate)
-5. [E][X] eventtest2 (from: 35635 to: 3290)
-6. [E][X] eventtest3 (from: 346643 to: :-P)
-7. [D][X] deadlinetest1 (by: 234443)
-8. [D][ ] deadlinetest2 (by: 2se4g5)
-9. [D][ ] deadlinetest3 (by: 23f3rg)
+Invalid command. Please enter a valid command.
+Here are the available commands:
+1. list
+2. todo <description>
+3. deadline <description> /by <deadline>
+4. event <description> /from <start time> /to <end time>
+5. mark <index>
+6. unmark <index>
+7. delete <index>
 ____________________________________________________________
 > ____________________________________________________________
 Nice! I've marked this task as done:
   [D][X] deadlinetest2 (by: 2se4g5)
 ____________________________________________________________
 > ____________________________________________________________
-Here are the tasks in your list:
-1. [T][X] todotest1
-2. [T][X] todotest2
-3. [T][X] todotest3
-4. [E][X] eventtest1 (from: 214421 to: invaliddate)
-5. [E][X] eventtest2 (from: 35635 to: 3290)
-6. [E][X] eventtest3 (from: 346643 to: :-P)
-7. [D][X] deadlinetest1 (by: 234443)
-8. [D][X] deadlinetest2 (by: 2se4g5)
-9. [D][ ] deadlinetest3 (by: 23f3rg)
+Invalid command. Please enter a valid command.
+Here are the available commands:
+1. list
+2. todo <description>
+3. deadline <description> /by <deadline>
+4. event <description> /from <start time> /to <end time>
+5. mark <index>
+6. unmark <index>
+7. delete <index>
 ____________________________________________________________
 > ____________________________________________________________
 Nice! I've marked this task as done:
   [D][X] deadlinetest3 (by: 23f3rg)
 ____________________________________________________________
 > ____________________________________________________________
-Here are the tasks in your list:
-1. [T][X] todotest1
-2. [T][X] todotest2
-3. [T][X] todotest3
-4. [E][X] eventtest1 (from: 214421 to: invaliddate)
-5. [E][X] eventtest2 (from: 35635 to: 3290)
-6. [E][X] eventtest3 (from: 346643 to: :-P)
-7. [D][X] deadlinetest1 (by: 234443)
-8. [D][X] deadlinetest2 (by: 2se4g5)
-9. [D][X] deadlinetest3 (by: 23f3rg)
+Invalid command. Please enter a valid command.
+Here are the available commands:
+1. list
+2. todo <description>
+3. deadline <description> /by <deadline>
+4. event <description> /from <start time> /to <end time>
+5. mark <index>
+6. unmark <index>
+7. delete <index>
 ____________________________________________________________
 > ____________________________________________________________
 Index must be an integer.
@@ -406,15 +404,15 @@ Noted. I've removed this task:
 Now you have 8 tasks in the list.
 ____________________________________________________________
 > ____________________________________________________________
-Here are the tasks in your list:
-1. [T][X] todotest1
-2. [T][X] todotest2
-3. [T][X] todotest3
-4. [E][X] eventtest1 (from: 214421 to: invaliddate)
-5. [E][X] eventtest2 (from: 35635 to: 3290)
-6. [E][X] eventtest3 (from: 346643 to: :-P)
-7. [D][X] deadlinetest1 (by: 234443)
-8. [D][X] deadlinetest2 (by: 2se4g5)
+Invalid command. Please enter a valid command.
+Here are the available commands:
+1. list
+2. todo <description>
+3. deadline <description> /by <deadline>
+4. event <description> /from <start time> /to <end time>
+5. mark <index>
+6. unmark <index>
+7. delete <index>
 ____________________________________________________________
 > ____________________________________________________________
 Noted. I've removed this task:
@@ -422,14 +420,15 @@ Noted. I've removed this task:
 Now you have 7 tasks in the list.
 ____________________________________________________________
 > ____________________________________________________________
-Here are the tasks in your list:
-1. [T][X] todotest1
-2. [T][X] todotest2
-3. [T][X] todotest3
-4. [E][X] eventtest1 (from: 214421 to: invaliddate)
-5. [E][X] eventtest2 (from: 35635 to: 3290)
-6. [D][X] deadlinetest1 (by: 234443)
-7. [D][X] deadlinetest2 (by: 2se4g5)
+Invalid command. Please enter a valid command.
+Here are the available commands:
+1. list
+2. todo <description>
+3. deadline <description> /by <deadline>
+4. event <description> /from <start time> /to <end time>
+5. mark <index>
+6. unmark <index>
+7. delete <index>
 ____________________________________________________________
 > ____________________________________________________________
 Noted. I've removed this task:
@@ -437,13 +436,15 @@ Noted. I've removed this task:
 Now you have 6 tasks in the list.
 ____________________________________________________________
 > ____________________________________________________________
-Here are the tasks in your list:
-1. [T][X] todotest1
-2. [T][X] todotest2
-3. [E][X] eventtest1 (from: 214421 to: invaliddate)
-4. [E][X] eventtest2 (from: 35635 to: 3290)
-5. [D][X] deadlinetest1 (by: 234443)
-6. [D][X] deadlinetest2 (by: 2se4g5)
+Invalid command. Please enter a valid command.
+Here are the available commands:
+1. list
+2. todo <description>
+3. deadline <description> /by <deadline>
+4. event <description> /from <start time> /to <end time>
+5. mark <index>
+6. unmark <index>
+7. delete <index>
 ____________________________________________________________
 > ____________________________________________________________
 Bye. Hope to see you again soon!

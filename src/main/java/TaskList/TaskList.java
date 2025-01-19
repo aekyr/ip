@@ -1,10 +1,12 @@
+package TaskList;
+
 import java.util.ArrayList;
 
-public class List {
+public class TaskList {
     //    stores the list of tasks
     private ArrayList<Task> tasks;
 
-    public List() {
+    public TaskList() {
         this.tasks = new ArrayList<>();
     }
 
@@ -38,7 +40,7 @@ public class List {
         if (!isValidIndex(index)) {
             return "Index out of bounds.";
         } else if (this.tasks.get(index).isDone()) {
-            return "Task is already marked as done!";
+            return "TaskList.Task is already marked as done!";
         } else {
             this.tasks.get(index).markAsDone();
             return "Nice! I've marked this task as done:\n  "
@@ -50,7 +52,7 @@ public class List {
         if (!isValidIndex(index)) {
             return "Index out of bounds.";
         } else if (!this.tasks.get(index).isDone()) {
-            return "Task is already marked as not done!";
+            return "TaskList.Task is already marked as not done!";
         } else {
             this.tasks.get(index).markAsUndone();
             return "Ok, I've marked this task as not yet done:\n  "

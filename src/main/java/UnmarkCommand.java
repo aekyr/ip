@@ -1,8 +1,10 @@
+import TaskList.TaskList;
+
 class UnmarkCommand extends IndexedCommand {
     public static final String COMMAND_WORD = "unmark";
 
-    public UnmarkCommand(List list, String args) {
-        super(list, args);
+    public UnmarkCommand(TaskList taskList, String args) {
+        super(taskList, args);
     }
 
     @Override
@@ -10,7 +12,7 @@ class UnmarkCommand extends IndexedCommand {
         if (!isValid) {
             return "Index must be an integer.\n" + getUsage();
         } else {
-            return super.list.markAsUndone(this.index);
+            return super.taskList.markAsUndone(this.index);
         }
     }
 

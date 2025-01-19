@@ -1,8 +1,10 @@
+import TaskList.TaskList;
+
 public class DeleteCommand extends IndexedCommand {
     public static final String COMMAND_WORD = "delete";
 
-    public DeleteCommand(List list, String args) {
-        super(list, args);
+    public DeleteCommand(TaskList taskList, String args) {
+        super(taskList, args);
     }
 
     @Override
@@ -10,7 +12,7 @@ public class DeleteCommand extends IndexedCommand {
         if (!isValid) {
             return "Index must be an integer.\n" + getUsage();
         } else {
-            return super.list.delete(this.index);
+            return super.taskList.delete(this.index);
         }
     }
 

@@ -1,11 +1,11 @@
 
 hello
-list
+taskList
 todo
 todo todotest1
 todo todotest2
 todo todotest3
-list
+taskList
 event
 event /from 390239 /to 13413413
 event failevent1 /from  /to 141412
@@ -14,7 +14,7 @@ event failevent3 /from iuhwf /to
 event eventtest1 /from 214421 /to invaliddate
 event eventtest2 /from 35635 /to 3290
 event eventtest3 /from 346643 /to :-P
-list
+taskList
 deadline
 deadline /by
 deadline faildeadline1 /by
@@ -22,49 +22,49 @@ deadline /by faildeadline2
 deadline deadlinetest1 /by 234443
 deadline deadlinetest2 /by 2se4g5
 deadline deadlinetest3 /by 23f3rg
-list
+taskList
 mark
 unmark
-list
+taskList
 mark 0
 unmark 0
-list
+taskList
 mark 10
 unmark 10
-list
+taskList
 mark 1
-list
+taskList
 mark 1
-list
+taskList
 unmark 1
-list
+taskList
 unmark 1
-list
+taskList
 mark 1
-list
+taskList
 mark 2
-list
+taskList
 mark 3
-list
+taskList
 mark 4
-list
+taskList
 mark 5
-list
+taskList
 mark 6
-list
+taskList
 mark 7
-list
+taskList
 mark 8
-list
+taskList
 mark 9
-list
+taskList
 delete
 delete 0
 delete 10
 delete 9
-list
+taskList
 delete 6
-list
+taskList
 delete 3
-list
+taskList
 bye

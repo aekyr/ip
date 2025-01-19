@@ -1,13 +1,15 @@
+import TaskList.TaskList;
+
 public class ListCommand extends Command {
     public static final String COMMAND_WORD = "list";
 
-    public ListCommand(List list) {
-        super(list);
+    public ListCommand(TaskList taskList) {
+        super(taskList);
     }
 
     @Override
     public String execute() {
-        return super.list.toString();
+        return super.taskList.toString();
     }
 
     public static String getDescription() {

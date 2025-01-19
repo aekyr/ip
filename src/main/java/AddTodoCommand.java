@@ -1,9 +1,11 @@
+import TaskList.TaskList;
+
 public class AddTodoCommand extends Command {
     public static final String COMMAND_WORD = "todo";
     private String desc;
 
-    public AddTodoCommand(List list, String args) {
-        super(list);
+    public AddTodoCommand(TaskList taskList, String args) {
+        super(taskList);
         if (args.isEmpty() || args.isBlank()) {
             this.isValid = false;
         } else {
@@ -18,8 +20,8 @@ public class AddTodoCommand extends Command {
             return "Description cannot be empty.\n" + getUsage();
         } else {
             return "Got it. I've added this task:\n  "
-                    + super.list.addTodo(desc)
-                    + "\nNow you have " + super.list.size() + " tasks in the list.";
+                    + super.taskList.addTodo(desc)
+                    + "\nNow you have " + super.taskList.size() + " tasks in the list.";
         }
     }
 

@@ -1,7 +1,9 @@
+import TaskList.TaskList;
+
 import java.util.Scanner;
 
 public class Laffy {
-    static List list = new List();
+    static TaskList taskList = new TaskList();
 
     public static void horizontalLine() {
         System.out.println("____________________________________________________________");
@@ -33,7 +35,7 @@ public class Laffy {
             return;
         }
         echo("Got it. I've added this task: \n  "
-                + list.addDeadline(args[0], args[1]));
+                + taskList.addDeadline(args[0], args[1]));
     }
 
     public static void addEvent(String arg) {
@@ -44,7 +46,7 @@ public class Laffy {
             return;
         }
         echo("Got it. I've added this task: \n  "
-                + list.addEvent(args[0], args2[0], args2[1]));
+                + taskList.addEvent(args[0], args2[0], args2[1]));
     }
 
     public static void chat(Scanner sc, ListCommandParser parser) {
@@ -80,7 +82,7 @@ public class Laffy {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        ListCommandParser parser = new ListCommandParser(list);
+        ListCommandParser parser = new ListCommandParser(taskList);
         greet();
 
         chat(sc, parser);

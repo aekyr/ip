@@ -1,11 +1,13 @@
+import TaskList.TaskList;
+
 public class AddEventCommand extends Command {
     public static final String COMMAND_WORD = "event";
     private String desc;
     private String from;
     private String to;
 
-    public AddEventCommand(List list, String args) {
-        super(list);
+    public AddEventCommand(TaskList taskList, String args) {
+        super(taskList);
         String[] arr = args.split(" /from ");
         if (arr.length == 2) {
             String[] arr2 = arr[1].split(" /to ");
@@ -30,8 +32,8 @@ public class AddEventCommand extends Command {
             return "Description and time range cannot be empty.\n" + getUsage();
         } else {
             return "Got it. I've added this task:\n  "
-                    + super.list.addEvent(desc, from, to)
-                    + "\nNow you have " + super.list.size() + " tasks in the list.";
+                    + super.taskList.addEvent(desc, from, to)
+                    + "\nNow you have " + super.taskList.size() + " tasks in the list.";
         }
     }
 

@@ -1,9 +1,11 @@
+import TaskList.TaskList;
+
 public class IndexedCommand extends Command {
     protected final int index;
     public static final String COMMAND_WORD = "indexed";
 
-    public IndexedCommand(List list, String args) {
-        super(list);
+    public IndexedCommand(TaskList taskList, String args) {
+        super(taskList);
         try {
             Integer.parseInt(args.trim());
         } catch (NumberFormatException e) {

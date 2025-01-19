@@ -26,21 +26,71 @@ public class Laffy {
         horizontalLine();
     }
 
-    public static void addTask(String task) {
-        horizontalLine();
-        System.out.println("added: " + task);
-        horizontalLine();
+    public static boolean markArgIsValid(String arg) {
+        try {
+            Integer.parseInt(arg);
+        } catch (NumberFormatException e) {
+            return false;
+        }
+        return list.isValidIndex(Integer.parseInt(arg));
+    }
+
+    public static void markAsDone(String arg) {
+        if (!markArgIsValid(arg)) {
+            echo("Invalid index!");
+            return;
+        }
+        int markIndex = Integer.parseInt(arg) - 1;
+        if (list.get(markIndex).isDone()) {
+            echo("Task is already marked as done!");
+        } else {
+            list.markAsDone(markIndex);
+            echo("Nice! I've marked this task as done: \n  "
+                    + list.get(markIndex).toString());
+        }
+    }
+
+    public static void unmarkAsDone(String arg) {
+        if (!markArgIsValid(arg)) {
+            echo("Invalid index!");
+            return;
+        }
+        int markIndex = Integer.parseInt(arg) - 1;
+        if (!list.get(markIndex).isDone()) {
+            echo("Task is already marked as not done!");
+        } else {
+            list.markAsUndone(markIndex);
+            echo("Ok, I've marked this task as not yet done: \n  "
+                    + list.get(markIndex).toString());
+        }
     }
 
     public static void commandParse() {
         System.out.print("> ");
         String cmd = new Scanner(System.in).nextLine();
-        switch (cmd) {
+        String[] cmdArgs = cmd.split(" ", 2);
+        String keyword = cmdArgs[0];
+        String arg = "";
+        if (cmdArgs.length > 1) {
+            arg = cmdArgs[1];
+        }
+        switch (keyword) {
+            case "":
+                commandParse();
+                break;
             case "bye":
                 bye();
                 break;
             case "list":
                 echo(list.toString());
+                commandParse();
+                break;
+            case "mark":
+                markAsDone(arg);
+                commandParse();
+                break;
+            case "unmark":
+                unmarkAsDone(arg);
                 commandParse();
                 break;
             default:

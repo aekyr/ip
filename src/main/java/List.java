@@ -16,6 +16,18 @@ public class List {
         return this.tasks.get(index);
     }
 
+    public void markAsDone(int index) {
+        this.tasks.get(index).markAsDone();
+    }
+
+    public void markAsUndone(int index) {
+        this.tasks.get(index).markAsUndone();
+    }
+
+    public boolean isValidIndex(int index) {
+        return index >= 0 && index < this.tasks.size();
+    }
+
     public String toString() {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < this.tasks.size(); i++) {

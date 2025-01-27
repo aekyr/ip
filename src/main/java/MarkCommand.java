@@ -1,8 +1,8 @@
 public class MarkCommand extends IndexedCommand {
     public static final String COMMAND_WORD = "mark";
 
-    public MarkCommand(TaskList taskList, String args) {
-        super(taskList, args);
+    public MarkCommand(TaskList taskList, Storage storage, String args) {
+        super(taskList, storage, args);
     }
 
     @Override

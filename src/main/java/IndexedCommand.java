@@ -2,8 +2,8 @@ public class IndexedCommand extends Command {
     protected final int index;
     public static final String COMMAND_WORD = "indexed";
 
-    public IndexedCommand(TaskList taskList, String args) {
-        super(taskList);
+    public IndexedCommand(TaskList taskList, Storage storage, String args) {
+        super(taskList, storage);
         try {
             Integer.parseInt(args.trim());
         } catch (NumberFormatException e) {

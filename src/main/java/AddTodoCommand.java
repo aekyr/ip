@@ -2,8 +2,8 @@ public class AddTodoCommand extends Command {
     public static final String COMMAND_WORD = "todo";
     private String desc;
 
-    public AddTodoCommand(TaskList taskList, String args) {
-        super(taskList);
+    public AddTodoCommand(TaskList taskList, Storage storage, String args) {
+        super(taskList, storage);
         if (args.isEmpty() || args.isBlank()) {
             this.isValid = false;
         } else {

@@ -1,13 +1,18 @@
 abstract class Command {
-    protected TaskList taskList;
-    protected boolean isValid;
+    protected final TaskList taskList;
+    protected final Storage storage;
+    public boolean isValid;
     public static final String COMMAND_WORD = "command";
 
-    public Command (TaskList taskList) {
+    public Command (TaskList taskList, Storage storage) {
         this.taskList = taskList;
+        this.storage = storage;
         this.isValid = false;
     }
-    public abstract String execute();
+    public String execute() {
+        this.storage.saveData(this.taskList.toTasksData());
+        return "";
+    };
 
     public static String getDescription() {
         return "";

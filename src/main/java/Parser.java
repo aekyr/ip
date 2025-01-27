@@ -1,37 +1,22 @@
 public class Parser {
-    private TaskList taskList;
+    private final TaskList taskList;
+    private final Storage storage;
 
-    public Parser(TaskList taskList) {
+    public Parser(TaskList taskList, Storage storage) {
         this.taskList = taskList;
+        this.storage = storage;
     }
 
     public Command parse(String keyword, String args) {
-        Command command = null;
-        switch (keyword) {
-        case ListCommand.COMMAND_WORD:
-            command = new ListCommand(this.taskList);
-            break;
-        case MarkCommand.COMMAND_WORD:
-            command = new MarkCommand(this.taskList, args);
-            break;
-        case UnmarkCommand.COMMAND_WORD:
-            command = new UnmarkCommand(this.taskList, args);
-            break;
-        case AddTodoCommand.COMMAND_WORD:
-            command = new AddTodoCommand(this.taskList, args);
-            break;
-        case AddDeadlineCommand.COMMAND_WORD:
-            command = new AddDeadlineCommand(this.taskList, args);
-            break;
-        case AddEventCommand.COMMAND_WORD:
-            command = new AddEventCommand(this.taskList, args);
-            break;
-        case DeleteCommand.COMMAND_WORD:
-            command = new DeleteCommand(this.taskList, args);
-            break;
-        default:
-            command = new InvalidCommand(this.taskList);
-        }
-        return command;
+        return switch (keyword) {
+            case ListCommand.COMMAND_WORD -> new ListCommand(this.taskList, this.storage);
+            case MarkCommand.COMMAND_WORD -> new MarkCommand(this.taskList, this.storage, args);
+            case UnmarkCommand.COMMAND_WORD -> new UnmarkCommand(this.taskList, this.storage, args);
+            case AddTodoCommand.COMMAND_WORD -> new AddTodoCommand(this.taskList, this.storage, args);
+            case AddDeadlineCommand.COMMAND_WORD -> new AddDeadlineCommand(this.taskList, this.storage, args);
+            case AddEventCommand.COMMAND_WORD -> new AddEventCommand(this.taskList, this.storage, args);
+            case DeleteCommand.COMMAND_WORD -> new DeleteCommand(this.taskList, this.storage, args);
+            default -> new InvalidCommand(this.taskList, this.storage);
+        };
     }
 }

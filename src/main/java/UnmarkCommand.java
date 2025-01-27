@@ -1,8 +1,8 @@
 class UnmarkCommand extends IndexedCommand {
     public static final String COMMAND_WORD = "unmark";
 
-    public UnmarkCommand(TaskList taskList, String args) {
-        super(taskList, args);
+    public UnmarkCommand(TaskList taskList, Storage storage, String args) {
+        super(taskList, storage, args);
     }
 
     @Override

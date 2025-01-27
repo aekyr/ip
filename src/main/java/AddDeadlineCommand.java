@@ -4,8 +4,8 @@ public class AddDeadlineCommand extends Command {
     private String by;
     private String whyInvalid = "";
 
-    public AddDeadlineCommand(TaskList taskList, String args) {
-        super(taskList);
+    public AddDeadlineCommand(TaskList taskList, Storage storage, String args) {
+        super(taskList, storage);
         String[] arr = args.split(" /by ");
         if (arr.length == 2) {
             this.desc = arr[0];

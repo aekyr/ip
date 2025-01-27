@@ -1,8 +1,8 @@
 public class DeleteCommand extends IndexedCommand {
     public static final String COMMAND_WORD = "delete";
 
-    public DeleteCommand(TaskList taskList, String args) {
-        super(taskList, args);
+    public DeleteCommand(TaskList taskList, Storage storage, String args) {
+        super(taskList, storage, args);
     }
 
     @Override

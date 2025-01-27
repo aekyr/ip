@@ -5,8 +5,8 @@ public class AddEventCommand extends Command {
     private String to;
     private String whyInvalid = "";
 
-    public AddEventCommand(TaskList taskList, String args) {
-        super(taskList);
+    public AddEventCommand(TaskList taskList, Storage storage, String args) {
+        super(taskList, storage);
         String[] arr = args.split(" /from ");
         if (arr.length == 2) {
             String[] arr2 = arr[1].split(" /to ");

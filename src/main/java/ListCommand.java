@@ -1,8 +1,8 @@
 public class ListCommand extends Command {
     public static final String COMMAND_WORD = "list";
 
-    public ListCommand(TaskList taskList) {
-        super(taskList);
+    public ListCommand(TaskList taskList, Storage storage) {
+        super(taskList, storage);
     }
 
     @Override

@@ -20,7 +20,9 @@ public class IndexedCommand extends Command {
         if (!isValid) {
             return "Index must be an integer.\n" + getUsage();
         } else {
-            return "";
+            String result = "";
+            super.execute();
+            return result;
         }
     }
 

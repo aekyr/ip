@@ -10,7 +10,9 @@ public class DeleteCommand extends IndexedCommand {
         if (!isValid) {
             return "Index must be an integer.\n" + getUsage();
         } else {
-            return super.taskList.delete(this.index);
+            String result = super.taskList.delete(this.index);
+            super.execute();
+            return result;
         }
     }
 

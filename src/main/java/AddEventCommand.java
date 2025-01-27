@@ -40,9 +40,11 @@ public class AddEventCommand extends Command {
         if (!isValid) {
             return this.whyInvalid + getUsage();
         } else {
-            return "Got it. I've added this task:\n  "
+            String result = "Got it. I've added this task:\n  "
                     + super.taskList.addEvent(desc, from, to)
                     + "\nNow you have " + super.taskList.size() + " tasks in the list.";
+            super.execute();
+            return result;
         }
     }
 

@@ -17,9 +17,11 @@ public class AddTodoCommand extends Command {
         if (!isValid) {
             return "Description cannot be empty.\n" + getUsage();
         } else {
-            return "Got it. I've added this task:\n  "
+            String result =  "Got it. I've added this task:\n  "
                     + super.taskList.addTodo(desc)
                     + "\nNow you have " + super.taskList.size() + " tasks in the list.";
+            super.execute();
+            return result;
         }
     }
 

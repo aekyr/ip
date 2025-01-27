@@ -10,7 +10,9 @@ public class MarkCommand extends IndexedCommand {
         if (!isValid) {
             return "Index must be an integer.\n" + getUsage();
         } else {
-            return super.taskList.markAsDone(this.index);
+            String result = super.taskList.markAsDone(this.index);
+            super.execute();
+            return result;
         }
     }
 

@@ -10,6 +10,7 @@ abstract class Command {
         this.isValid = false;
     }
     public String execute() {
+        // executes after all children have done so
         this.storage.saveData(this.taskList.toTasksData());
         return "";
     };

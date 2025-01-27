@@ -7,7 +7,9 @@ public class ListCommand extends Command {
 
     @Override
     public String execute() {
-        return super.taskList.toString();
+        String result = super.taskList.toString();
+        super.execute();
+        return result;
     }
 
     public static String getDescription() {

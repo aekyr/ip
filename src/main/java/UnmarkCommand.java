@@ -10,7 +10,9 @@ class UnmarkCommand extends IndexedCommand {
         if (!isValid) {
             return "Index must be an integer.\n" + getUsage();
         } else {
-            return super.taskList.markAsUndone(this.index);
+            String result = super.taskList.markAsUndone(this.index);
+            super.execute();
+            return result;
         }
     }
 

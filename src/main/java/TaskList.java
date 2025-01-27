@@ -1,5 +1,3 @@
-package tasklist;
-
 import java.util.ArrayList;
 
 public class TaskList {

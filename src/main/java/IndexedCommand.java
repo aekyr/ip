@@ -1,5 +1,3 @@
-import tasklist.TaskList;
-
 public class IndexedCommand extends Command {
     protected final int index;
     public static final String COMMAND_WORD = "indexed";

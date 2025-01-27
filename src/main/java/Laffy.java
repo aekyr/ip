@@ -1,5 +1,3 @@
-import tasklist.TaskList;
-
 import java.util.Scanner;
 
 public class Laffy {

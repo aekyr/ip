@@ -1,5 +1,3 @@
-import tasklist.TaskList;
-
 public class InvalidCommand extends Command {
     public static final String COMMAND_WORD = "invalid";
 

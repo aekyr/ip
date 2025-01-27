@@ -1,5 +1,3 @@
-import tasklist.TaskList;
-
 public class AddTodoCommand extends Command {
     public static final String COMMAND_WORD = "todo";
     private String desc;

@@ -1,5 +1,3 @@
-package tasklist;
-
 public class Task {
     private String desc;
     private boolean isDone;

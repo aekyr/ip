@@ -1,7 +1,7 @@
-public class ListCommandParser {
+public class Parser {
     private TaskList taskList;
 
-    public ListCommandParser(TaskList taskList) {
+    public Parser(TaskList taskList) {
         this.taskList = taskList;
     }
 

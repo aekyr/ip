@@ -2,7 +2,6 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -128,7 +127,7 @@ public class Laffy {
         horizontalLine();
     }
 
-    public void chat(Scanner sc, ListCommandParser parser) {
+    public void chat(Scanner sc, Parser parser) {
         System.out.print("> ");
         String cmd = "";
         try {
@@ -172,7 +171,7 @@ public class Laffy {
 
     public void run() {
         Scanner sc = new Scanner(System.in);
-        ListCommandParser parser = new ListCommandParser(taskList);
+        Parser parser = new Parser(taskList);
         greet();
 
         chat(sc, parser);

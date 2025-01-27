@@ -118,8 +118,12 @@ public class TaskList {
         }
         StringBuilder sb = new StringBuilder();
         sb.append("Here are the tasks in your list:\n");
+        int sizeMagnitude = (int) Math.log10(this.tasks.size()) + 1;
+        String space = " ";
         for (int i = 0; i < this.tasks.size(); i++) {
-            sb.append(i + 1).append(". ")
+            int iMagnitude = (int) Math.log10(i + 1) + 1;
+            sb.append(i + 1)
+                    .append(".").append(space.repeat(sizeMagnitude-iMagnitude + 1))
                     .append(this.tasks.get(i).toString());
             if (i != this.tasks.size() - 1) sb.append("\n");
         }

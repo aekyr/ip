@@ -1,19 +1,19 @@
 abstract class Command {
-    protected final TaskList taskList;
-    protected final Storage storage;
     public boolean isValid;
     public static final String COMMAND_WORD = "command";
 
-    public Command (TaskList taskList, Storage storage) {
-        this.taskList = taskList;
-        this.storage = storage;
+    public Command () {
         this.isValid = false;
     }
-    public String execute() {
+    public String execute(TaskList taskList, Ui ui, Storage storage) {
         // executes after all children have done so
-        this.storage.saveData(this.taskList.toTasksData());
+        storage.saveData(taskList.toTasksData());
         return "";
     };
+
+    public boolean isExit() {
+        return false;
+    }
 
     public static String getDescription() {
         return "";
@@ -22,4 +22,5 @@ abstract class Command {
     public static String getUsage() {
         return "Usage: " ;
     }
+
 }

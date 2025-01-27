@@ -1,17 +1,17 @@
 public class DeleteCommand extends IndexedCommand {
     public static final String COMMAND_WORD = "delete";
 
-    public DeleteCommand(TaskList taskList, Storage storage, String args) {
-        super(taskList, storage, args);
+    public DeleteCommand(String args) {
+        super(args);
     }
 
     @Override
-    public String execute() {
+    public String execute(TaskList taskList, Ui ui, Storage storage) {
         if (!isValid) {
             return "Index must be an integer.\n" + getUsage();
         } else {
-            String result = super.taskList.delete(this.index);
-            super.execute();
+            String result = taskList.delete(this.index);
+            super.execute(taskList, ui, storage);
             return result;
         }
     }

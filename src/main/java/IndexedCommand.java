@@ -2,8 +2,8 @@ public class IndexedCommand extends Command {
     protected final int index;
     public static final String COMMAND_WORD = "indexed";
 
-    public IndexedCommand(TaskList taskList, Storage storage, String args) {
-        super(taskList, storage);
+    public IndexedCommand(String args) {
+        super();
         try {
             Integer.parseInt(args.trim());
         } catch (NumberFormatException e) {
@@ -16,12 +16,12 @@ public class IndexedCommand extends Command {
     }
 
     @Override
-    public String execute() {
+    public String execute(TaskList taskList, Ui ui, Storage storage) {
         if (!isValid) {
             return "Index must be an integer.\n" + getUsage();
         } else {
             String result = "";
-            super.execute();
+            super.execute(taskList, ui, storage);
             return result;
         }
     }

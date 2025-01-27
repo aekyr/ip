@@ -3,7 +3,7 @@ ____________________________________________________________
 Hello! I'm L.A.F.F.Y
 What can I do for you?
 ____________________________________________________________
-> > ____________________________________________________________
+> ____________________________________________________________
 Invalid command. Please enter a valid command.
 Here are the available commands:
 1. list
@@ -13,6 +13,7 @@ Here are the available commands:
 5. mark <index>
 6. unmark <index>
 7. delete <index>
+8. bye
 ____________________________________________________________
 > ____________________________________________________________
 There are no tasks in the list.

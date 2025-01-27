@@ -5,8 +5,7 @@ public class AddEventCommand extends Command {
     private String to;
     private String whyInvalid = "";
 
-    public AddEventCommand(TaskList taskList, Storage storage, String args) {
-        super(taskList, storage);
+    public AddEventCommand(String args) {
         String[] arr = args.split(" /from ");
         if (arr.length == 2) {
             String[] arr2 = arr[1].split(" /to ");
@@ -36,14 +35,14 @@ public class AddEventCommand extends Command {
     }
 
     @Override
-    public String execute() {
+    public String execute(TaskList taskList, Ui ui, Storage storage) {
         if (!isValid) {
             return this.whyInvalid + getUsage();
         } else {
             String result = "Got it. I've added this task:\n  "
-                    + super.taskList.addEvent(desc, from, to)
-                    + "\nNow you have " + super.taskList.size() + " tasks in the list.";
-            super.execute();
+                    + taskList.addEvent(desc, from, to)
+                    + "\nNow you have " + taskList.size() + " tasks in the list.";
+            super.execute(taskList, ui, storage);
             return result;
         }
     }

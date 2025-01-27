@@ -22,7 +22,21 @@ public class Laffy {
         Scanner sc = new Scanner(System.in);
         Parser parser = new Parser(taskList, storage);
         ui.greet();
-        ui.chat(sc, parser);
+        boolean isExit = false;
+        while (!isExit) {
+            System.out.print("> ");
+            try {
+                String fullCommand = ui.readCommand();
+                ui.showLine(); // show the divider line ("_______")
+                Command c = Parser.parse(fullCommand);
+                ui.echo(c.execute(taskList, ui, storage));
+                isExit = c.isExit();
+            } catch (Exception e) {
+                ui.showError(e.getMessage());
+            } finally {
+                ui.showLine();
+            }
+        }
     }
 
     public static void main(String[] args) throws IOException {

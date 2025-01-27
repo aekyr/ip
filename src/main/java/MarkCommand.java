@@ -1,17 +1,17 @@
 public class MarkCommand extends IndexedCommand {
     public static final String COMMAND_WORD = "mark";
 
-    public MarkCommand(TaskList taskList, Storage storage, String args) {
-        super(taskList, storage, args);
+    public MarkCommand(String args) {
+        super(args);
     }
 
     @Override
-    public String execute() {
+    public String execute(TaskList taskList, Ui ui, Storage storage) {
         if (!isValid) {
             return "Index must be an integer.\n" + getUsage();
         } else {
-            String result = super.taskList.markAsDone(this.index);
-            super.execute();
+            String result = taskList.markAsDone(this.index);
+            super.execute(taskList, ui, storage);
             return result;
         }
     }

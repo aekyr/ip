@@ -4,8 +4,8 @@ public class AddDeadlineCommand extends Command {
     private String by;
     private String whyInvalid = "";
 
-    public AddDeadlineCommand(TaskList taskList, Storage storage, String args) {
-        super(taskList, storage);
+    public AddDeadlineCommand(String args) {
+        super();
         String[] arr = args.split(" /by ");
         if (arr.length == 2) {
             this.desc = arr[0];
@@ -26,14 +26,14 @@ public class AddDeadlineCommand extends Command {
     }
 
     @Override
-    public String execute() {
+    public String execute(TaskList taskList, Ui ui, Storage storage) {
         if (!isValid) {
             return this.whyInvalid + getUsage();
         } else {
             String result = "Got it. I've added this task:\n  "
-                    + super.taskList.addDeadline(desc, by)
-                    + "\nNow you have " + super.taskList.size() + " tasks in the list.";
-            super.execute();
+                    + taskList.addDeadline(desc, by)
+                    + "\nNow you have " + taskList.size() + " tasks in the list.";
+            super.execute(taskList, ui, storage);
             return result;
         }
     }

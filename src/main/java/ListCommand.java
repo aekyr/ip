@@ -1,14 +1,14 @@
 public class ListCommand extends Command {
     public static final String COMMAND_WORD = "list";
 
-    public ListCommand(TaskList taskList, Storage storage) {
-        super(taskList, storage);
+    public ListCommand() {
+        super();
     }
 
     @Override
-    public String execute() {
-        String result = super.taskList.toString();
-        super.execute();
+    public String execute(TaskList taskList, Ui ui, Storage storage) {
+        String result = taskList.toString();
+        super.execute(taskList, ui, storage);
         return result;
     }
 

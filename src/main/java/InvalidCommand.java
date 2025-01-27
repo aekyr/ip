@@ -1,13 +1,13 @@
 public class InvalidCommand extends Command {
     public static final String COMMAND_WORD = "invalid";
 
-    public InvalidCommand(TaskList taskList, Storage storage) {
-        super(taskList, storage);
+    public InvalidCommand() {
+        super();
         this.isValid = true;
     }
 
     @Override
-    public String execute() {
+    public String execute(TaskList taskList, Ui ui, Storage storage) {
         StringBuilder sb = new StringBuilder();
         sb.append(InvalidCommand.getUsage());
         sb.append("\n");
@@ -26,6 +26,8 @@ public class InvalidCommand extends Command {
         sb.append(UnmarkCommand.getDescription());
         sb.append("\n7. ");
         sb.append(DeleteCommand.getDescription());
+        sb.append("\n8. ");
+        sb.append(ExitCommand.getDescription());
 
 
         return sb.toString();

@@ -2,8 +2,7 @@ public class AddTodoCommand extends Command {
     public static final String COMMAND_WORD = "todo";
     private String desc;
 
-    public AddTodoCommand(TaskList taskList, Storage storage, String args) {
-        super(taskList, storage);
+    public AddTodoCommand(String args) {
         if (args.isEmpty() || args.isBlank()) {
             this.isValid = false;
         } else {
@@ -13,14 +12,14 @@ public class AddTodoCommand extends Command {
     }
 
     @Override
-    public String execute() {
+    public String execute(TaskList taskList, Ui ui, Storage storage) {
         if (!isValid) {
             return "Description cannot be empty.\n" + getUsage();
         } else {
             String result =  "Got it. I've added this task:\n  "
-                    + super.taskList.addTodo(desc)
-                    + "\nNow you have " + super.taskList.size() + " tasks in the list.";
-            super.execute();
+                    + taskList.addTodo(desc)
+                    + "\nNow you have " + taskList.size() + " tasks in the list.";
+            super.execute(taskList, ui, storage);
             return result;
         }
     }

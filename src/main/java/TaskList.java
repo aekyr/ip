@@ -8,6 +8,40 @@ public class TaskList {
         this.tasks = new ArrayList<>();
     }
 
+    public TaskList(ArrayList<ArrayList<String>> tasksData) {
+        this.tasks = new ArrayList<>();
+        for (ArrayList<String> taskData : tasksData) {
+            String taskType = taskData.get(0);
+            boolean isDone = taskData.get(1).equals("1");
+            String desc = taskData.get(2);
+            switch (taskType) {
+                case "T":
+                    this.tasks.add(new ToDo(desc, isDone));
+                    break;
+                case "D":
+                    String by = taskData.get(3);
+                    this.tasks.add(new Deadline(desc, isDone, by));
+                    break;
+                case "E":
+                    String from = taskData.get(3);
+                    String to = taskData.get(4);
+                    this.tasks.add(new Event(desc, isDone, from, to));
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
+    public ArrayList<ArrayList<String>> toTasksData() {
+        ArrayList<ArrayList<String>> tasksData = new ArrayList<>();
+        for (Task task : this.tasks) {
+            ArrayList<String> taskData = new ArrayList<>();
+            tasksData.add(task.toTaskData());
+        }
+        return tasksData;
+    }
+
     public String addTodo (String desc) {
         ToDo todo = new ToDo(desc);
         this.tasks.add(todo);

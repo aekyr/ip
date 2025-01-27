@@ -1,11 +1,14 @@
 import java.io.File;
+import java.io.FileWriter;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Laffy {
-    static TaskList taskList = new TaskList();
+    private final TaskList taskList;
+    private final String filepath;
 
     public static boolean isValidType(String type) {
         return type.equals("T") || type.equals("D") || type.equals("E");
@@ -31,15 +34,18 @@ public class Laffy {
         return !to.isBlank() && !to.isEmpty();
     }
 
-    public static ArrayList<ArrayList<String>> loadData() throws FileNotFoundException, IOException {
+    public static ArrayList<ArrayList<String>> loadData(String filepath) throws IOException {
 
         // load data from file
         ArrayList<ArrayList<String>> tasksData = new ArrayList<>(); // [type, isDone, desc, by, from, to]
         try {
-            File file = new File("data/laffy.txt");
+            File file = new File(filepath);
             Scanner sc = new Scanner(file);
             while (sc.hasNextLine()) {
                 String line = sc.nextLine();
+                if (line.isBlank() || line.isEmpty()) {
+                    break;
+                }
                 String[] task = line.split(" \\| ");
                 String type = task[0];
                 String isDone = task[1];
@@ -78,37 +84,51 @@ public class Laffy {
             return tasksData;
         } catch (FileNotFoundException e) {
             System.out.println("File not found, creating new file");
-            File file = new File("data/laffy.txt");
+            File file = new File(filepath);
             boolean mkdirSuccess = file.getParentFile().mkdirs();
             boolean fileSuccess = file.createNewFile();
         }
         return tasksData;
     }
 
-    public static void horizontalLine() {
+    public static void saveData(String filepath, ArrayList<ArrayList<String>> tasksData) {
+        try {
+            File file = new File(filepath);
+            FileWriter fileWriter = new FileWriter(file);
+            for (ArrayList<String> taskData : tasksData) {
+                String line = String.join(" | ", taskData);
+                fileWriter.write(line + "\n");
+            }
+            fileWriter.close();
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+        }
+    }
+
+    public void horizontalLine() {
         System.out.println("____________________________________________________________");
     }
 
-    public static void greet() {
+    public void greet() {
         horizontalLine();
         System.out.println("Hello! I'm L.A.F.F.Y");
         System.out.println("What can I do for you?");
         horizontalLine();
     }
 
-    public static void bye() {
+    public void bye() {
         horizontalLine();
         System.out.println("Bye. Hope to see you again soon!");
         horizontalLine();
     }
 
-    public static void echo(String input) {
+    public void echo(String input) {
         horizontalLine();
         System.out.println(input);
         horizontalLine();
     }
 
-    public static void chat(Scanner sc, ListCommandParser parser) {
+    public void chat(Scanner sc, ListCommandParser parser) {
         System.out.print("> ");
         String cmd = "";
         try {
@@ -134,16 +154,32 @@ public class Laffy {
             default:
                 Command command = parser.parse(keyword, args);
                 echo(command.execute());
+                saveData(this.filepath, this.taskList.toTasksData());
                 chat(sc, parser);
 
         }
     }
 
-    public static void main(String[] args) {
+    public Laffy(String filepath) throws IOException {
+        this.filepath = filepath;
+        ArrayList<ArrayList<String>> loadedData = loadData(filepath);
+        if (loadedData.isEmpty()) {
+            this.taskList = new TaskList();
+        } else {
+            this.taskList = new TaskList(loadedData);
+        };
+    }
+
+    public void run() {
         Scanner sc = new Scanner(System.in);
         ListCommandParser parser = new ListCommandParser(taskList);
         greet();
 
         chat(sc, parser);
+
+    }
+
+    public static void main(String[] args) throws IOException {
+        new Laffy("../data/laffy.txt").run();
     }
 }

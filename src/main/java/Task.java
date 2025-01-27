@@ -1,6 +1,7 @@
-package TaskList;
+import java.util.ArrayList;
 
 public class Task {
+    private String type = "I";
     private String desc;
     private boolean isDone;
 
@@ -9,7 +10,12 @@ public class Task {
         this.isDone = false;
     }
 
-    public String getDesc() {
+    public Task(String desc, boolean isDone) {
+        this.desc = desc;
+        this.isDone = isDone;
+    }
+
+    public String getDescription() {
         return this.desc;
     }
 
@@ -34,5 +40,13 @@ public class Task {
         StringBuilder sb = new StringBuilder();
         sb.append("[").append(this.getStatusIcon()).append("] ").append(this.desc);
         return sb.toString();
+    }
+
+    public ArrayList<String> toTaskData() {
+        ArrayList<String> taskData = new ArrayList<>();
+        taskData.add(this.type);
+        taskData.add(this.isDone ? "1" : "0");
+        taskData.add(this.desc);
+        return taskData;
     }
 }

@@ -1,5 +1,3 @@
-package TaskList;
-
 import java.util.ArrayList;
 
 public class TaskList {
@@ -8,6 +6,40 @@ public class TaskList {
 
     public TaskList() {
         this.tasks = new ArrayList<>();
+    }
+
+    public TaskList(ArrayList<ArrayList<String>> tasksData) {
+        this.tasks = new ArrayList<>();
+        for (ArrayList<String> taskData : tasksData) {
+            String taskType = taskData.get(0);
+            boolean isDone = taskData.get(1).equals("1");
+            String desc = taskData.get(2);
+            switch (taskType) {
+                case "T":
+                    this.tasks.add(new ToDo(desc, isDone));
+                    break;
+                case "D":
+                    String by = taskData.get(3);
+                    this.tasks.add(new Deadline(desc, isDone, by));
+                    break;
+                case "E":
+                    String from = taskData.get(3);
+                    String to = taskData.get(4);
+                    this.tasks.add(new Event(desc, isDone, from, to));
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
+    public ArrayList<ArrayList<String>> toTasksData() {
+        ArrayList<ArrayList<String>> tasksData = new ArrayList<>();
+        for (Task task : this.tasks) {
+            ArrayList<String> taskData = new ArrayList<>();
+            tasksData.add(task.toTaskData());
+        }
+        return tasksData;
     }
 
     public String addTodo (String desc) {
@@ -40,7 +72,7 @@ public class TaskList {
         if (!isValidIndex(index)) {
             return "Index out of bounds.";
         } else if (this.tasks.get(index).isDone()) {
-            return "TaskList.Task is already marked as done!";
+            return "Task is already marked as done!";
         } else {
             this.tasks.get(index).markAsDone();
             return "Nice! I've marked this task as done:\n  "
@@ -52,7 +84,7 @@ public class TaskList {
         if (!isValidIndex(index)) {
             return "Index out of bounds.";
         } else if (!this.tasks.get(index).isDone()) {
-            return "TaskList.Task is already marked as not done!";
+            return "Task is already marked as not done!";
         } else {
             this.tasks.get(index).markAsUndone();
             return "Ok, I've marked this task as not yet done:\n  "

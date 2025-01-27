@@ -1,5 +1,3 @@
-import TaskList.TaskList;
-
 class UnmarkCommand extends IndexedCommand {
     public static final String COMMAND_WORD = "unmark";
 

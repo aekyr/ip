@@ -1,5 +1,3 @@
-import TaskList.TaskList;
-
 public class ListCommand extends Command {
     public static final String COMMAND_WORD = "list";
 

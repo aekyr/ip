@@ -1,5 +1,3 @@
-import TaskList.TaskList;
-
 public class InvalidCommand extends Command {
     public static final String COMMAND_WORD = "invalid";
 
@@ -11,7 +9,7 @@ public class InvalidCommand extends Command {
     @Override
     public String execute() {
         StringBuilder sb = new StringBuilder();
-        sb.append(this.getUsage());
+        sb.append(InvalidCommand.getUsage());
         sb.append("\n");
         sb.append("Here are the available commands:");
         sb.append("\n1. ");

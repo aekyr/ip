@@ -1,5 +1,3 @@
-import TaskList.TaskList;
-
 abstract class Command {
     protected TaskList taskList;
     protected boolean isValid;

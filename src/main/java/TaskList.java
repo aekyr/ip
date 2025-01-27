@@ -1,3 +1,4 @@
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class TaskList {
@@ -19,12 +20,12 @@ public class TaskList {
                     this.tasks.add(new ToDo(desc, isDone));
                     break;
                 case "D":
-                    String by = taskData.get(3);
+                    LocalDateTime by = TaskDateAPI.parseFromStorage(taskData.get(3));
                     this.tasks.add(new Deadline(desc, isDone, by));
                     break;
                 case "E":
-                    String from = taskData.get(3);
-                    String to = taskData.get(4);
+                    LocalDateTime from = TaskDateAPI.parseFromStorage(taskData.get(3));
+                    LocalDateTime to = TaskDateAPI.parseFromStorage(taskData.get(4));
                     this.tasks.add(new Event(desc, isDone, from, to));
                     break;
                 default:
@@ -48,15 +49,18 @@ public class TaskList {
         return todo.toString();
     }
 
-    public String addDeadline (String desc, String by) {
-        Deadline deadline = new Deadline(desc, by);
-        this.tasks.add(new Deadline(desc, by));
+    public String addDeadline (String desc, String byStr) {
+        LocalDateTime byDateTime = TaskDateAPI.parseDateTime(byStr);
+        Deadline deadline = new Deadline(desc, byDateTime);
+        this.tasks.add(new Deadline(desc, byDateTime));
         return deadline.toString();
     }
 
-    public String addEvent (String desc, String from, String to) {
-        Event event = new Event(desc, from, to);
-        this.tasks.add(new Event(desc, from, to));
+    public String addEvent (String desc, String fromStr, String toStr) {
+        LocalDateTime fromDateTime = TaskDateAPI.parseDateTime(fromStr);
+        LocalDateTime toDateTime = TaskDateAPI.parseDateTime(toStr);
+        Event event = new Event(desc, fromDateTime, toDateTime);
+        this.tasks.add(new Event(desc, fromDateTime, toDateTime));
         return event.toString();
     }
 

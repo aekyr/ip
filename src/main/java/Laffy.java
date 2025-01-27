@@ -180,6 +180,6 @@ public class Laffy {
     }
 
     public static void main(String[] args) throws IOException {
-        new Laffy("../data/laffy.txt").run();
+        new Laffy("data/laffy.txt").run();
     }
 }

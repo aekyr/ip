@@ -1,4 +1,4 @@
-import TaskList.TaskList;
+import tasklist.TaskList;
 
 import java.util.Scanner;
 

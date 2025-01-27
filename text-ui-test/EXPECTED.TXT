@@ -211,7 +211,7 @@ Here are the available commands:
 7. delete <index>
 ____________________________________________________________
 > ____________________________________________________________
-TaskList.Task is already marked as done!
+Task is already marked as done!
 ____________________________________________________________
 > ____________________________________________________________
 Invalid command. Please enter a valid command.
@@ -240,7 +240,7 @@ Here are the available commands:
 7. delete <index>
 ____________________________________________________________
 > ____________________________________________________________
-TaskList.Task is already marked as not done!
+Task is already marked as not done!
 ____________________________________________________________
 > ____________________________________________________________
 Invalid command. Please enter a valid command.

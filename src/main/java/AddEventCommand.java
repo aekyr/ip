@@ -1,4 +1,4 @@
-import TaskList.TaskList;
+import tasklist.TaskList;
 
 public class AddEventCommand extends Command {
     public static final String COMMAND_WORD = "event";

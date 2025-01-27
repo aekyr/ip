@@ -1,4 +1,4 @@
-import TaskList.TaskList;
+import tasklist.TaskList;
 
 abstract class Command {
     protected TaskList taskList;

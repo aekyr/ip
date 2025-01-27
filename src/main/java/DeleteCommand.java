@@ -1,4 +1,4 @@
-import TaskList.TaskList;
+import tasklist.TaskList;
 
 public class DeleteCommand extends IndexedCommand {
     public static final String COMMAND_WORD = "delete";

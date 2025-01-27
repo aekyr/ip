@@ -1,4 +1,4 @@
-import TaskList.TaskList;
+import tasklist.TaskList;
 
 public class ListCommand extends Command {
     public static final String COMMAND_WORD = "list";

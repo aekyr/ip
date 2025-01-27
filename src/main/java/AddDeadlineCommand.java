@@ -2,6 +2,7 @@ public class AddDeadlineCommand extends Command {
     public static final String COMMAND_WORD = "deadline";
     private String desc;
     private String by;
+    private String whyInvalid = "";
 
     public AddDeadlineCommand(TaskList taskList, String args) {
         super(taskList);
@@ -11,7 +12,15 @@ public class AddDeadlineCommand extends Command {
             this.by = arr[1];
             this.isValid = !this.desc.isBlank() && !this.desc.isEmpty()
                     && !this.by.isBlank() && !this.by.isEmpty();
+            if (!this.isValid) {
+                this.whyInvalid = "Description and deadline cannot be empty.\n";
+            }
+            this.isValid = isValid && TaskDateAPI.isValidDateTime(this.by);
+            if (!this.isValid) {
+                this.whyInvalid = "Invalid deadline format. Please use dd-MM-yy[ HHMM].\n";
+            }
         } else {
+            this.whyInvalid = "Description and deadline cannot be empty.\n";
             this.isValid = false;
         }
     }
@@ -19,7 +28,7 @@ public class AddDeadlineCommand extends Command {
     @Override
     public String execute() {
         if (!isValid) {
-            return "Description and deadline cannot be empty.\n" + getUsage();
+            return this.whyInvalid + getUsage();
         } else {
             return "Got it. I've added this task:\n  "
                     + super.taskList.addDeadline(desc, by)
@@ -29,7 +38,7 @@ public class AddDeadlineCommand extends Command {
 
 
     public static String getDescription() {
-        return COMMAND_WORD + " <description> /by <deadline>";
+        return COMMAND_WORD + " <description> /by <deadline: dd-MM-yy[ HHMM]>";
     }
 
     public static String getUsage() {

@@ -3,6 +3,7 @@ public class AddEventCommand extends Command {
     private String desc;
     private String from;
     private String to;
+    private String whyInvalid = "";
 
     public AddEventCommand(TaskList taskList, String args) {
         super(taskList);
@@ -16,10 +17,20 @@ public class AddEventCommand extends Command {
                 this.isValid = !this.desc.isBlank() && !this.desc.isEmpty()
                         && !this.from.isBlank() && !this.from.isEmpty()
                         && !this.to.isBlank() && !this.to.isEmpty();
+                if (!this.isValid) {
+                    this.whyInvalid = "Description, start time and end time cannot be empty.\n";
+                }
+                this.isValid = isValid && TaskDateAPI.isValidDateTime(this.from)
+                        && TaskDateAPI.isValidDateTime(this.to);
+                if (!this.isValid) {
+                    this.whyInvalid = "Invalid start time or end time format. Please use dd-MM-yy[ HHMM].\n";
+                }
             } else {
+                this.whyInvalid = "Description, start time and end time cannot be empty.\n";
                 this.isValid = false;
             }
         } else {
+            this.whyInvalid = "Description, start time and end time cannot be empty.\n";
             this.isValid = false;
         }
     }
@@ -27,7 +38,7 @@ public class AddEventCommand extends Command {
     @Override
     public String execute() {
         if (!isValid) {
-            return "Description and time range cannot be empty.\n" + getUsage();
+            return this.whyInvalid + getUsage();
         } else {
             return "Got it. I've added this task:\n  "
                     + super.taskList.addEvent(desc, from, to)
@@ -36,7 +47,7 @@ public class AddEventCommand extends Command {
     }
 
     public static String getDescription() {
-        return COMMAND_WORD + " <description> /from <start time> /to <end time>";
+        return COMMAND_WORD + " <description> /from <start time: dd-MM-yy[ HHMM]> /to <end time: dd-MM-yy[ HHMM]>";
     }
 
     public static String getUsage() {

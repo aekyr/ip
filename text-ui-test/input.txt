@@ -1,70 +1,52 @@
 
 hello
-taskList
+list
 todo
 todo todotest1
 todo todotest2
 todo todotest3
-taskList
+list
 event
-event /from 390239 /to 13413413
-event failevent1 /from  /to 141412
-event failevent2 /from /to 124421
-event failevent3 /from iuhwf /to
-event eventtest1 /from 214421 /to invaliddate
-event eventtest2 /from 35635 /to 3290
-event eventtest3 /from 346643 /to :-P
-taskList
+event /from /to
+event fail /from /to
+event /from fail /to
+event /from /to fail
+event failduetoinvaliddate /from 234443 /to 234443
+event failduetoinvaliddate /from favre /to 24554
+event failduetoinvaliddate /from 6576 /to ar
+event failduetoinvaliddate /from 27-01-2025 1800 /to 28-01-2025 1900
+event eventtest1 /from 27-01-26 1800 /to 28-01-26 1900
+event eventtest2 /from 27-01-25 1800 /to 28-01-25 1900
+event eventtest3 /from 27-01-25 /to 28-01-25
+event eventtest4 /from 27-01-25 1900 /to 28-01-25
 deadline
 deadline /by
-deadline faildeadline1 /by
-deadline /by faildeadline2
-deadline deadlinetest1 /by 234443
-deadline deadlinetest2 /by 2se4g5
-deadline deadlinetest3 /by 23f3rg
-taskList
+deadline fail /by
+deadline /by fail
+deadline failduetoinvaliddate /by 234443
+deadline failduetoinvaliddate /by favre
+deadline failduetoinvaliddate /by 27-01-2025 1800
+deadline deadlinetest1 /by 27-01-26
+deadline deadlinetest2 /by 27-01-25
+deadline deadlinetest3 /by 27-01-25 1900
+list
 mark
-unmark
-taskList
+mark 1
+mark 1
+mark 2
+mark 3
+mark 4
+unmark 1
+unmark 1
 mark 0
 unmark 0
-taskList
-mark 10
-unmark 10
-taskList
-mark 1
-taskList
-mark 1
-taskList
-unmark 1
-taskList
-unmark 1
-taskList
-mark 1
-taskList
-mark 2
-taskList
-mark 3
-taskList
-mark 4
-taskList
-mark 5
-taskList
-mark 6
-taskList
 mark 7
-taskList
-mark 8
-taskList
-mark 9
-taskList
+unmark 7
+list
 delete
 delete 0
 delete 10
-delete 9
-taskList
-delete 6
-taskList
+delete 7
 delete 3
-taskList
 bye
+

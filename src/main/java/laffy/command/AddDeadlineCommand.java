@@ -8,7 +8,7 @@ import laffy.command.exceptions.TooManyArguments;
 import laffy.tasklist.TaskDateAPI;
 import laffy.tasklist.TaskList;
 import laffy.Ui;
-import laffy.tasklist.exceptions.TasklistException;
+import laffy.tasklist.exceptions.TaskListException;
 
 public class AddDeadlineCommand extends Command {
     public static final String COMMAND_WORD = "deadline";
@@ -16,6 +16,15 @@ public class AddDeadlineCommand extends Command {
     private final String desc;
     private final String by;
 
+    /**
+     * Constructor for AddDeadlineCommand.
+     *
+     * @param args The arguments to be parsed.
+     * @throws BlankArgument If the description or deadline is empty.
+     * @throws InvalidDatetimeFormat If the deadline is not in the correct format.
+     * @throws MissingKeywordFlag If the keyword flag by is not present in the command.
+     * @throws TooManyArguments If there are too many arguments in the command.
+     */
     public AddDeadlineCommand(String args)
             throws BlankArgument, InvalidDatetimeFormat, MissingKeywordFlag, TooManyArguments {
         super(args);
@@ -43,7 +52,7 @@ public class AddDeadlineCommand extends Command {
     }
 
     @Override
-    public String execute(TaskList taskList, Ui ui, Storage storage) throws TasklistException {
+    public String execute(TaskList taskList, Ui ui, Storage storage) throws TaskListException {
         String result = "Got it. I've added this task:\n  "
                 + taskList.addDeadline(desc, by)
                 + "\nNow you have " + taskList.size() + " tasks in the list.";

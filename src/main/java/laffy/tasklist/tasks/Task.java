@@ -42,6 +42,13 @@ public class Task {
         return "[" + this.getStatusIcon() + "] " + this.getDescription();
     }
 
+    /**
+     * Converts the task to data format.
+     * The data format is a list of strings, where each string
+     * represents a field of the task. Used by Storage to save data to file.
+     *
+     * @return The data of the task.
+     */
     public ArrayList<String> toTaskData() {
         ArrayList<String> taskData = new ArrayList<>();
         taskData.add(this.type);

@@ -7,7 +7,7 @@ import laffy.command.exceptions.MissingKeywordFlag;
 import laffy.tasklist.TaskDateAPI;
 import laffy.tasklist.TaskList;
 import laffy.Ui;
-import laffy.tasklist.exceptions.TasklistException;
+import laffy.tasklist.exceptions.TaskListException;
 
 public class AddEventCommand extends Command {
     public static final String COMMAND_WORD = "event";
@@ -16,6 +16,14 @@ public class AddEventCommand extends Command {
     private String from;
     private String to;
 
+    /**
+     * Constructor for AddEventCommand.
+     *
+     * @param args The arguments to be parsed.
+     * @throws BlankArgument If the description, from, or to is empty.
+     * @throws InvalidDatetimeFormat If the from or to is not in the correct format.
+     * @throws MissingKeywordFlag If the keyword flag is not present in the command.
+     */
     public AddEventCommand(String args) throws BlankArgument, MissingKeywordFlag, InvalidDatetimeFormat {
         super(args);
         super.checkKeywordFlagIsPresent(args, "/from");
@@ -48,7 +56,7 @@ public class AddEventCommand extends Command {
     }
 
     @Override
-    public String execute(TaskList taskList, Ui ui, Storage storage) throws TasklistException {
+    public String execute(TaskList taskList, Ui ui, Storage storage) throws TaskListException {
         String result = "Got it. I've added this task:\n  "
                 + taskList.addEvent(desc, from, to)
                 + "\nNow you have " + taskList.size() + " tasks in the list.";

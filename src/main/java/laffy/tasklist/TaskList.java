@@ -14,10 +14,18 @@ public class TaskList {
     //    stores the list of tasks
     private final ArrayList<Task> tasks;
 
+    /**
+     * Constructor for TaskList.
+     */
     public TaskList() {
         this.tasks = new ArrayList<>();
     }
 
+    /**
+     * Constructor for TaskList. Used when loading data from file.
+     *
+     * @param tasksData The data of the tasks.
+     */
     public TaskList(ArrayList<ArrayList<String>> tasksData) {
         this.tasks = new ArrayList<>();
         for (ArrayList<String> taskData : tasksData) {
@@ -43,6 +51,13 @@ public class TaskList {
         }
     }
 
+    /**
+     * Converts the tasks in the TaskList to data format.
+     * The data format is a list of lists, where each inner list
+     * represents a task. Used by Storage to save data to file.
+     *
+     * @return The data of the tasks.
+     */
     public ArrayList<ArrayList<String>> toTasksData() {
         ArrayList<ArrayList<String>> tasksData = new ArrayList<>();
         for (Task task : this.tasks) {
@@ -55,12 +70,25 @@ public class TaskList {
         return this.tasks.size();
     }
 
+    /**
+     * Adds a ToDo task to the TaskList.
+     *
+     * @param desc The description of the task.
+     * @return The string representation of the task.
+     */
     public String addTodo(String desc) {
         ToDo todo = new ToDo(desc);
         this.tasks.add(todo);
         return todo.toString();
     }
 
+    /**
+     * Adds a Deadline task to the TaskList.
+     *
+     * @param desc  The description of the task.
+     * @param byStr The deadline of the task.
+     * @return The string representation of the task.
+     */
     public String addDeadline(String desc, String byStr) {
         LocalDateTime byDateTime = TaskDateAPI.parseDateTime(byStr);
         Deadline deadline = new Deadline(desc, byDateTime);
@@ -68,6 +96,14 @@ public class TaskList {
         return deadline.toString();
     }
 
+    /**
+     * Adds an Event task to the TaskList.
+     *
+     * @param desc  The description of the task.
+     * @param fromStr The start time of the event.
+     * @param toStr The end time of the event.
+     * @return The string representation of the task.
+     */
     public String addEvent(String desc, String fromStr, String toStr) {
         LocalDateTime fromDateTime = TaskDateAPI.parseDateTime(fromStr);
         LocalDateTime toDateTime = TaskDateAPI.parseDateTime(toStr);
@@ -76,6 +112,16 @@ public class TaskList {
         return event.toString();
     }
 
+    /**
+     * Marks a task as done.
+     * The task must be marked as not done before it can be marked as done.
+     * If the task is already done, the method will return a message indicating that
+     * the task is already marked as done.
+     *
+     * @param index The index of the task to be marked as done.
+     * @return The string representation of the task.
+     * @throws IndexOutOfRange If the index is out of range.
+     */
     public String markAsDone(int index) throws IndexOutOfRange {
         checkIndexAndThrow(index);
         if (this.tasks.get(index).isDone()) {
@@ -87,6 +133,16 @@ public class TaskList {
         }
     }
 
+    /**
+     * Marks a task as not done.
+     * The task must be marked as done before it can be marked as not done.
+     * If the task is not done, the method will return a message indicating that
+     * the task is already marked as not done.
+     *
+     * @param index The index of the task to be marked as not done.
+     * @return The string representation of the task.
+     * @throws IndexOutOfRange If the index is out of range.
+     */
     public String markAsUndone(int index) throws IndexOutOfRange {
         checkIndexAndThrow(index);
         if (!this.tasks.get(index).isDone()) {
@@ -98,6 +154,13 @@ public class TaskList {
         }
     }
 
+    /**
+     * Deletes a task from the TaskList.
+     *
+     * @param index The index of the task to be deleted.
+     * @return The string representation of the task.
+     * @throws IndexOutOfRange If the index is out of range.
+     */
     public String delete(int index) throws IndexOutOfRange {
         checkIndexAndThrow(index);
         Task task = this.tasks.get(index);
@@ -107,10 +170,17 @@ public class TaskList {
                 + "\nNow you have " + this.tasks.size() + " tasks in the list.";
     }
 
+
     public boolean isValidIndex(int index) {
         return index >= 0 && index < this.size();
     }
 
+    /**
+     * Checks if the index is out of range.
+     *
+     * @param index The index to be checked.
+     * @throws IndexOutOfRange If the index is out of range.
+     */
     public void checkIndexAndThrow(int index) throws IndexOutOfRange {
         if (!isValidIndex(index)) {
             throw new IndexOutOfRange("Valid index range is 1 to " + this.tasks.size());

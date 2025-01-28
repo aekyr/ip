@@ -7,6 +7,12 @@ import laffy.Ui;
 public class InvalidCommand extends Command {
     public static final String COMMAND_WORD = "invalid";
 
+    /**
+     * Constructor for InvalidCommand.
+     * Always valid, as it is a catch-all command.
+     *
+     * @param args The arguments to be parsed.
+     */
     public InvalidCommand(String args) {
         super(args);
         this.isValid = true;

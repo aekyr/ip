@@ -1,5 +1,7 @@
 package laffy;
 
+import laffy.command.Command;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -22,7 +24,6 @@ public class Laffy {
 
     public void run() {
         Scanner sc = new Scanner(System.in);
-        Parser parser = new Parser(taskList, storage);
         ui.greet();
         boolean isExit = false;
         while (!isExit) {

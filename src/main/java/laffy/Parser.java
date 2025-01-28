@@ -1,13 +1,8 @@
 package laffy;
 
-public class Parser {
-    private final TaskList taskList;
-    private final Storage storage;
+import laffy.command.*;
 
-    public Parser(TaskList taskList, Storage storage) {
-        this.taskList = taskList;
-        this.storage = storage;
-    }
+public class Parser {
 
     public static Command parse(String fullCommand) {
         String[] cmdArgs = fullCommand.split(" ", 2);

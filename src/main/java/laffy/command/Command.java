@@ -1,6 +1,10 @@
-package laffy;
+package laffy.command;
 
-abstract class Command {
+import laffy.Storage;
+import laffy.TaskList;
+import laffy.Ui;
+
+public abstract class Command {
     public boolean isValid;
     public static final String COMMAND_WORD = "command";
 

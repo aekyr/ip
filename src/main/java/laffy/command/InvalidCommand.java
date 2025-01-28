@@ -1,4 +1,8 @@
-package laffy;
+package laffy.command;
+
+import laffy.Storage;
+import laffy.TaskList;
+import laffy.Ui;
 
 public class InvalidCommand extends Command {
     public static final String COMMAND_WORD = "invalid";

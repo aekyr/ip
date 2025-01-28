@@ -1,4 +1,9 @@
-package laffy;
+package laffy.command;
+
+import laffy.Storage;
+import laffy.TaskDateAPI;
+import laffy.TaskList;
+import laffy.Ui;
 
 public class AddDeadlineCommand extends Command {
     public static final String COMMAND_WORD = "deadline";

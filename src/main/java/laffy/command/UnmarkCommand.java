@@ -1,9 +1,13 @@
-package laffy;
+package laffy.command;
 
-public class MarkCommand extends IndexedCommand {
-    public static final String COMMAND_WORD = "mark";
+import laffy.Storage;
+import laffy.TaskList;
+import laffy.Ui;
 
-    public MarkCommand(String args) {
+public class UnmarkCommand extends IndexedCommand {
+    public static final String COMMAND_WORD = "unmark";
+
+    public UnmarkCommand(String args) {
         super(args);
     }
 
@@ -12,7 +16,7 @@ public class MarkCommand extends IndexedCommand {
         if (!isValid) {
             return "Index must be an integer.\n" + getUsage();
         } else {
-            String result = taskList.markAsDone(this.index);
+            String result = taskList.markAsUndone(this.index);
             super.execute(taskList, ui, storage);
             return result;
         }
@@ -25,5 +29,4 @@ public class MarkCommand extends IndexedCommand {
     public static String getUsage() {
         return Command.getUsage() + getDescription();
     }
-
 }

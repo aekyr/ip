@@ -51,33 +51,29 @@ public class TaskList {
         return tasksData;
     }
 
-    public String addTodo (String desc) {
+    public int size() {
+        return this.tasks.size();
+    }
+
+    public String addTodo(String desc) {
         ToDo todo = new ToDo(desc);
         this.tasks.add(todo);
         return todo.toString();
     }
 
-    public String addDeadline (String desc, String byStr) {
+    public String addDeadline(String desc, String byStr) {
         LocalDateTime byDateTime = TaskDateAPI.parseDateTime(byStr);
         Deadline deadline = new Deadline(desc, byDateTime);
         this.tasks.add(new Deadline(desc, byDateTime));
         return deadline.toString();
     }
 
-    public String addEvent (String desc, String fromStr, String toStr) {
+    public String addEvent(String desc, String fromStr, String toStr) {
         LocalDateTime fromDateTime = TaskDateAPI.parseDateTime(fromStr);
         LocalDateTime toDateTime = TaskDateAPI.parseDateTime(toStr);
         Event event = new Event(desc, fromDateTime, toDateTime);
         this.tasks.add(new Event(desc, fromDateTime, toDateTime));
         return event.toString();
-    }
-
-    public Task get(int index) {
-        return this.tasks.get(index);
-    }
-
-    public int size() {
-        return this.tasks.size();
     }
 
     public String markAsDone(int index) throws IndexOutOfRange {
@@ -112,7 +108,7 @@ public class TaskList {
     }
 
     public boolean isValidIndex(int index) {
-        return index >= 0 && index < this.tasks.size();
+        return index >= 0 && index < this.size();
     }
 
     public void checkIndexAndThrow(int index) throws IndexOutOfRange {

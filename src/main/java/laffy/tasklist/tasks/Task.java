@@ -3,8 +3,8 @@ package laffy.tasklist.tasks;
 import java.util.ArrayList;
 
 public class Task {
-    private String type = "I";
-    private String desc;
+    private final String type = "I";
+    private final String desc;
     private boolean isDone;
 
     public Task(String desc) {
@@ -17,12 +17,12 @@ public class Task {
         this.isDone = isDone;
     }
 
-    public String getDescription() {
-        return this.desc;
+    private String getStatusIcon() {
+        return (isDone ? "X" : " "); // mark done task with X
     }
 
-    public String getStatusIcon() {
-        return (isDone ? "X" : " "); // mark done task with X
+    public String getDescription() {
+        return this.desc;
     }
 
     public void markAsDone() {
@@ -39,9 +39,7 @@ public class Task {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("[").append(this.getStatusIcon()).append("] ").append(this.desc);
-        return sb.toString();
+        return "[" + this.getStatusIcon() + "] " + this.getDescription();
     }
 
     public ArrayList<String> toTaskData() {

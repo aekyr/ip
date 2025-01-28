@@ -27,12 +27,14 @@ public class InvalidCommand extends Command {
         sb.append("\n4. ");
         sb.append(AddEventCommand.getDescription());
         sb.append("\n5. ");
-        sb.append(MarkCommand.getDescription());
+        sb.append(FindCommand.getDescription());
         sb.append("\n6. ");
-        sb.append(UnmarkCommand.getDescription());
+        sb.append(MarkCommand.getDescription());
         sb.append("\n7. ");
-        sb.append(DeleteCommand.getDescription());
+        sb.append(UnmarkCommand.getDescription());
         sb.append("\n8. ");
+        sb.append(DeleteCommand.getDescription());
+        sb.append("\n9. ");
         sb.append(ExitCommand.getDescription());
         return sb.toString();
     }

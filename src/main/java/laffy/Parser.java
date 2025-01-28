@@ -22,6 +22,7 @@ public class Parser {
             case AddDeadlineCommand.COMMAND_WORD -> new AddDeadlineCommand(args);
             case AddEventCommand.COMMAND_WORD -> new AddEventCommand(args);
             case DeleteCommand.COMMAND_WORD -> new DeleteCommand(args);
+            case FindCommand.COMMAND_WORD -> new FindCommand(args);
             default -> new InvalidCommand(args);
         };
     }

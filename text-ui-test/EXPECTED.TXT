@@ -10,10 +10,11 @@ Here are the available commands:
 2. todo <description>
 3. deadline <description> /by <deadline: dd-MM-yy[ HHMM]>
 4. event <description> /from <start time: dd-MM-yy[ HHMM]> /to <end time: dd-MM-yy[ HHMM]>
-5. mark <index>
-6. unmark <index>
-7. delete <index>
-8. bye
+5. find <keyword>
+6. mark <index>
+7. unmark <index>
+8. delete <index>
+9. bye
 ____________________________________________________________
 > ____________________________________________________________
 There are no tasks in the list.
@@ -165,6 +166,40 @@ ____________________________________________________________
 Got it. I've added this task:
   [D][ ] deadlinetest3 (by: Monday, 27/01, 07:00pm)
 Now you have 10 tasks in the list.
+____________________________________________________________
+> ____________________________________________________________
+[PARSE-ERROR]: Missing argument. Search keyword cannot be empty.
+Usage: find <keyword>
+
+____________________________________________________________
+> ____________________________________________________________
+Here are the matching tasks in your list:
+1.  [T][ ] todotest1
+2.  [T][ ] todotest2
+3.  [T][ ] todotest3
+4.  [E][ ] eventtest1 (from: Tuesday, 27/01/2026, 06:00pm to: Wednesday, 28/01/2026, 07:00pm)
+5.  [E][ ] eventtest2 (from: Monday, 27/01, 06:00pm to: Tuesday, 28/01, 07:00pm)
+6.  [E][ ] eventtest3 (from: Monday, 27/01, 12:00am to: Tuesday, 28/01, 12:00am)
+7.  [E][ ] eventtest4 (from: Monday, 27/01, 07:00pm to: Tuesday, 28/01, 12:00am)
+8.  [D][ ] deadlinetest1 (by: Tuesday, 27/01/2026, 12:00am)
+9.  [D][ ] deadlinetest2 (by: Monday, 27/01, 12:00am)
+10. [D][ ] deadlinetest3 (by: Monday, 27/01, 07:00pm)
+____________________________________________________________
+> ____________________________________________________________
+Here are the matching tasks in your list:
+1. [E][ ] eventtest1 (from: Tuesday, 27/01/2026, 06:00pm to: Wednesday, 28/01/2026, 07:00pm)
+2. [E][ ] eventtest2 (from: Monday, 27/01, 06:00pm to: Tuesday, 28/01, 07:00pm)
+3. [E][ ] eventtest3 (from: Monday, 27/01, 12:00am to: Tuesday, 28/01, 12:00am)
+4. [E][ ] eventtest4 (from: Monday, 27/01, 07:00pm to: Tuesday, 28/01, 12:00am)
+____________________________________________________________
+> ____________________________________________________________
+Here are the matching tasks in your list:
+1. [T][ ] todotest1
+2. [E][ ] eventtest1 (from: Tuesday, 27/01/2026, 06:00pm to: Wednesday, 28/01/2026, 07:00pm)
+3. [D][ ] deadlinetest1 (by: Tuesday, 27/01/2026, 12:00am)
+____________________________________________________________
+> ____________________________________________________________
+No tasks found with the keyword: none
 ____________________________________________________________
 > ____________________________________________________________
 Here are the tasks in your list:

@@ -7,7 +7,7 @@ import laffy.Ui;
 import laffy.tasklist.exceptions.TaskListException;
 
 public class AddTodoCommand extends Command {
-    public static final String COMMAND_WORD = "todo";
+    private static final String COMMAND_WORD = "todo";
     private final String desc;
 
     /**
@@ -19,21 +19,20 @@ public class AddTodoCommand extends Command {
     public AddTodoCommand(String args) throws BlankArgument {
         super(args);
         if (args.isEmpty() || args.isBlank()) {
-            this.isValid = false;
+            this.setValid(false);
             throw new BlankArgument("Description cannot be empty.\n" + getUsage());
         } else {
-            this.isValid = true;
+            this.setValid(false);
         }
         this.desc = args.trim();
     }
 
     @Override
-    public String execute(TaskList taskList, Ui ui, Storage storage) throws TaskListException {
-        String result =  "Got it. I've added this task:\n  "
+    public void execute(TaskList taskList, Ui ui, Storage storage) throws TaskListException {
+        ui.echo("Got it. I've added this task:\n  "
                 + taskList.addTodo(desc)
-                + "\nNow you have " + taskList.size() + " tasks in the list.";
+                + "\nNow you have " + taskList.size() + " tasks in the list.");
         super.execute(taskList, ui, storage);
-        return result;
     }
 
     public static String getDescription() {
@@ -42,5 +41,9 @@ public class AddTodoCommand extends Command {
 
     public String getUsage() {
         return super.getUsage() + getDescription();
+    }
+
+    public static String getCommandWord() {
+        return COMMAND_WORD;
     }
 }

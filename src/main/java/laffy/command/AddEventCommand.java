@@ -12,9 +12,9 @@ import laffy.tasklist.exceptions.TaskListException;
 public class AddEventCommand extends Command {
     public static final String COMMAND_WORD = "event";
 
-    private String desc;
-    private String from;
-    private String to;
+    private final String desc;
+    private final String from;
+    private final String to;
 
     /**
      * Constructor for AddEventCommand.
@@ -30,38 +30,36 @@ public class AddEventCommand extends Command {
         super.checkKeywordFlagIsPresent(args, "/to");
         String[] arr = args.split(" /from ");
         if (arr.length != 2) {
-            this.isValid = false;
+            this.setValid(false);
             throw new BlankArgument("Description, from, and to cannot be empty.\n" + getUsage());
         }
         String[] arr2 = arr[1].split(" /to ");
         if (arr2.length != 2) {
-            this.isValid = false;
+            this.setValid(false);
             throw new BlankArgument("Description, from, and to cannot be empty.\n" + getUsage());
         }
         this.desc = arr[0].trim();
         this.from = arr2[0].trim();
         this.to = arr2[1].trim();
-        this.isValid = !this.desc.isBlank() && !this.desc.isEmpty()
+        this.setValid(!this.desc.isBlank() && !this.desc.isEmpty()
                 && !this.from.isBlank() && !this.from.isEmpty()
-                && !this.to.isBlank() && !this.to.isEmpty();
-        if (!this.isValid) {
+                && !this.to.isBlank() && !this.to.isEmpty());
+        if (!this.isValid()) {
             throw new BlankArgument("Description, from, and to cannot be empty.\n" + getUsage());
         }
-        this.isValid = isValid && TaskDateAPI.isValidDateTime(this.from)
-                && TaskDateAPI.isValidDateTime(this.to);
-        if (!this.isValid) {
+        this.setValid(TaskDateAPI.isValidDateTime(this.from) && TaskDateAPI.isValidDateTime(this.to));
+        if (!this.isValid()) {
             throw new InvalidDatetimeFormat(this.from + " and " + this.to);
         }
 
     }
 
     @Override
-    public String execute(TaskList taskList, Ui ui, Storage storage) throws TaskListException {
-        String result = "Got it. I've added this task:\n  "
+    public void execute(TaskList taskList, Ui ui, Storage storage) throws TaskListException {
+        ui.echo("Got it. I've added this task:\n  "
                 + taskList.addEvent(desc, from, to)
-                + "\nNow you have " + taskList.size() + " tasks in the list.";
+                + "\nNow you have " + taskList.size() + " tasks in the list.");
         super.execute(taskList, ui, storage);
-        return result;
     }
 
     public static String getDescription() {
@@ -70,5 +68,9 @@ public class AddEventCommand extends Command {
 
     public String getUsage() {
         return super.getUsage() + getDescription();
+    }
+
+    public static String getCommandWord() {
+        return COMMAND_WORD;
     }
 }

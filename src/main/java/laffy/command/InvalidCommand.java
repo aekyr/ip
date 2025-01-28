@@ -15,11 +15,10 @@ public class InvalidCommand extends Command {
      */
     public InvalidCommand(String args) {
         super(args);
-        this.isValid = true;
     }
 
     @Override
-    public String execute(TaskList taskList, Ui ui, Storage storage) {
+    public void execute(TaskList taskList, Ui ui, Storage storage) {
         StringBuilder sb = new StringBuilder();
         sb.append(InvalidCommand.getDescription());
         sb.append("\n");
@@ -40,7 +39,7 @@ public class InvalidCommand extends Command {
         sb.append(DeleteCommand.getDescription());
         sb.append("\n8. ");
         sb.append(ExitCommand.getDescription());
-        return sb.toString();
+        ui.echo(sb.toString());
     }
 
     public static String getDescription() {
@@ -49,5 +48,9 @@ public class InvalidCommand extends Command {
 
     public String getUsage() {
         return "";
+    }
+
+    public static String getCommandWord() {
+        return COMMAND_WORD;
     }
 }

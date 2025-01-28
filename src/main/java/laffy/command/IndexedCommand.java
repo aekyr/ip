@@ -8,8 +8,8 @@ import laffy.tasklist.exceptions.TaskListException;
 import laffy.Ui;
 
 public class IndexedCommand extends Command {
-    protected final int index;
-    public static final String COMMAND_WORD = "indexed";
+    private final int index;
+    private static final String COMMAND_WORD = "indexed";
 
     /**
      * Constructor for IndexedCommand. This constructor is called by child classes.
@@ -22,17 +22,17 @@ public class IndexedCommand extends Command {
         super(args);
         if (args.isEmpty()) {
             this.index = -1;
-            this.isValid = false;
+            this.setValid(false);
             throw new BlankArgument("Index cannot be empty.\n" + this.getUsage());
         }
         try {
             Integer.parseInt(args.trim());
         } catch (NumberFormatException e) {
             this.index = -1;
-            this.isValid = false;
+            this.setValid(false);
             throw new InvalidIndex("Expected an integer but got " + args);
         }
-        this.isValid = true;
+        this.setValid(true);
         this.index = Integer.parseInt(args.trim()) - 1;
     }
 
@@ -46,11 +46,15 @@ public class IndexedCommand extends Command {
      * @throws TaskListException If there is an error in the task list.
      */
     @Override
-    public String execute(TaskList taskList, Ui ui, Storage storage) throws TaskListException {
-        String result = "";
+    public void execute(TaskList taskList, Ui ui, Storage storage) throws TaskListException {
         super.execute(taskList, ui, storage);
-        return result;
     }
 
+    public int getIndex() {
+        return this.index;
+    }
 
+    public static String getCommandWord() {
+        return COMMAND_WORD;
+    }
 }

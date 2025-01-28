@@ -6,7 +6,7 @@ import laffy.Ui;
 import laffy.tasklist.exceptions.TaskListException;
 
 public class ExitCommand extends Command {
-    public static final String COMMAND_WORD = "bye";
+    private static final String COMMAND_WORD = "bye";
 
     /**
      * Constructor for ExitCommand.
@@ -15,13 +15,12 @@ public class ExitCommand extends Command {
      */
     public ExitCommand(String args) {
         super(args);
-        this.isValid = true;
     }
 
     @Override
-    public String execute(TaskList taskList, Ui ui, Storage storage) throws TaskListException {
+    public void execute(TaskList taskList, Ui ui, Storage storage) throws TaskListException {
         super.execute(taskList, ui, storage);
-        return "Bye. Hope to see you again soon!";
+        ui.echo("Bye. Hope to see you again soon!");
     }
 
     @Override
@@ -35,6 +34,10 @@ public class ExitCommand extends Command {
 
     public String getUsage() {
         return "Exits Application";
+    }
+
+    public static String getCommandWord() {
+        return COMMAND_WORD;
     }
 
 }

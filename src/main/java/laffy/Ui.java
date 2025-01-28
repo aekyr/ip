@@ -3,7 +3,7 @@ package laffy;
 import java.util.Scanner;
 
 public class Ui {
-    Scanner sc;
+    private final Scanner sc;
 
     public Ui() {
         this.sc = new Scanner(System.in);

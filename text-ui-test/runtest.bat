@@ -13,6 +13,7 @@ javac  -cp ..\src\main\java\laffy -Xlint:none -d ..\bin^
  ..\src\main\java\laffy\command\*.java^
  ..\src\main\java\laffy\command\exceptions\*.java^
  ..\src\main\java\laffy\tasklist\*.java^
+ ..\src\main\java\laffy\tasklist\tasks\*.java^
  ..\src\main\java\laffy\tasklist\exceptions\*.java
 IF ERRORLEVEL 1 (
     echo ********** BUILD FAILURE **********

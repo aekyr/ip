@@ -2,6 +2,10 @@ package laffy.tasklist;
 
 
 import laffy.tasklist.exceptions.IndexOutOfRange;
+import laffy.tasklist.tasks.Deadline;
+import laffy.tasklist.tasks.Event;
+import laffy.tasklist.tasks.Task;
+import laffy.tasklist.tasks.ToDo;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;

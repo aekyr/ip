@@ -1,4 +1,4 @@
-package laffy.tasklist;
+package laffy.tasklist.tasks;
 
 import java.util.ArrayList;
 

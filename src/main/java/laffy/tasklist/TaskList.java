@@ -1,11 +1,14 @@
-package laffy;
+package laffy.tasklist;
+
+
+import laffy.tasklist.exceptions.IndexOutOfRange;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class TaskList {
     //    stores the list of tasks
-    private ArrayList<Task> tasks;
+    private final ArrayList<Task> tasks;
 
     public TaskList() {
         this.tasks = new ArrayList<>();
@@ -39,7 +42,6 @@ public class TaskList {
     public ArrayList<ArrayList<String>> toTasksData() {
         ArrayList<ArrayList<String>> tasksData = new ArrayList<>();
         for (Task task : this.tasks) {
-            ArrayList<String> taskData = new ArrayList<>();
             tasksData.add(task.toTaskData());
         }
         return tasksData;
@@ -74,10 +76,9 @@ public class TaskList {
         return this.tasks.size();
     }
 
-    public String markAsDone(int index) {
-        if (!isValidIndex(index)) {
-            return "Index out of bounds.";
-        } else if (this.tasks.get(index).isDone()) {
+    public String markAsDone(int index) throws IndexOutOfRange {
+        checkIndexAndThrow(index);
+        if (this.tasks.get(index).isDone()) {
             return "Task is already marked as done!";
         } else {
             this.tasks.get(index).markAsDone();
@@ -86,10 +87,9 @@ public class TaskList {
         }
     }
 
-    public String markAsUndone(int index) {
-        if (!isValidIndex(index)) {
-            return "Index out of bounds.";
-        } else if (!this.tasks.get(index).isDone()) {
+    public String markAsUndone(int index) throws IndexOutOfRange {
+        checkIndexAndThrow(index);
+        if (!this.tasks.get(index).isDone()) {
             return "Task is already marked as not done!";
         } else {
             this.tasks.get(index).markAsUndone();
@@ -98,20 +98,23 @@ public class TaskList {
         }
     }
 
-    public String delete(int index) {
-        if (!isValidIndex(index)) {
-            return "Index out of bounds.";
-        } else {
-            Task task = this.tasks.get(index);
-            this.tasks.remove(index);
-            return "Noted. I've removed this task:\n  "
-                    + task.toString()
-                    + "\nNow you have " + this.tasks.size() + " tasks in the list.";
-        }
+    public String delete(int index) throws IndexOutOfRange {
+        checkIndexAndThrow(index);
+        Task task = this.tasks.get(index);
+        this.tasks.remove(index);
+        return "Noted. I've removed this task:\n  "
+                + task.toString()
+                + "\nNow you have " + this.tasks.size() + " tasks in the list.";
     }
 
     public boolean isValidIndex(int index) {
         return index >= 0 && index < this.tasks.size();
+    }
+
+    public void checkIndexAndThrow(int index) throws IndexOutOfRange {
+        if (!isValidIndex(index)) {
+            throw new IndexOutOfRange("Valid index range is 1 to " + this.tasks.size());
+        }
     }
 
     public String toString() {

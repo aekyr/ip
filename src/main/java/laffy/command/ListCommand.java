@@ -1,18 +1,19 @@
 package laffy.command;
 
 import laffy.Storage;
-import laffy.TaskList;
+import laffy.tasklist.TaskList;
 import laffy.Ui;
+import laffy.tasklist.exceptions.TasklistException;
 
 public class ListCommand extends Command {
     public static final String COMMAND_WORD = "list";
 
-    public ListCommand() {
-        super();
+    public ListCommand(String args) {
+        super(args);
     }
 
     @Override
-    public String execute(TaskList taskList, Ui ui, Storage storage) {
+    public String execute(TaskList taskList, Ui ui, Storage storage) throws TasklistException {
         String result = taskList.toString();
         super.execute(taskList, ui, storage);
         return result;
@@ -22,7 +23,7 @@ public class ListCommand extends Command {
         return COMMAND_WORD;
     }
 
-    public static String getUsage() {
-        return Command.getUsage() + getDescription() ;
+    public String getUsage() {
+        return super.getUsage() + getDescription() ;
     }
 }

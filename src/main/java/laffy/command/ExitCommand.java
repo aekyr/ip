@@ -1,19 +1,20 @@
 package laffy.command;
 
 import laffy.Storage;
-import laffy.TaskList;
+import laffy.tasklist.TaskList;
 import laffy.Ui;
+import laffy.tasklist.exceptions.TasklistException;
 
 public class ExitCommand extends Command {
     public static final String COMMAND_WORD = "bye";
 
-    public ExitCommand() {
-        super();
+    public ExitCommand(String args) {
+        super(args);
         this.isValid = true;
     }
 
     @Override
-    public String execute(TaskList taskList, Ui ui, Storage storage) {
+    public String execute(TaskList taskList, Ui ui, Storage storage) throws TasklistException {
         super.execute(taskList, ui, storage);
         return "Bye. Hope to see you again soon!";
     }
@@ -27,7 +28,7 @@ public class ExitCommand extends Command {
         return COMMAND_WORD;
     }
 
-    public static String getUsage() {
+    public String getUsage() {
         return "Exits Application";
     }
 

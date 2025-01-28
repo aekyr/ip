@@ -19,8 +19,9 @@ ____________________________________________________________
 There are no tasks in the list.
 ____________________________________________________________
 > ____________________________________________________________
-Description cannot be empty.
+[PARSE-ERROR]: Missing argument. Description cannot be empty.
 Usage: todo <description>
+
 ____________________________________________________________
 > ____________________________________________________________
 Got it. I've added this task:
@@ -44,40 +45,53 @@ Here are the tasks in your list:
 3. [T][ ] todotest3
 ____________________________________________________________
 > ____________________________________________________________
-Description, start time and end time cannot be empty.
+[PARSE-ERROR]: Missing keyword flag. Could not find flag "/from" in command.
 Usage: event <description> /from <start time: dd-MM-yy[ HHMM]> /to <end time: dd-MM-yy[ HHMM]>
+
 ____________________________________________________________
 > ____________________________________________________________
-Description, start time and end time cannot be empty.
+[PARSE-ERROR]: Missing argument. Description, from, and to cannot be empty.
 Usage: event <description> /from <start time: dd-MM-yy[ HHMM]> /to <end time: dd-MM-yy[ HHMM]>
+
 ____________________________________________________________
 > ____________________________________________________________
-Description, start time and end time cannot be empty.
+[PARSE-ERROR]: Missing argument. Description, from, and to cannot be empty.
 Usage: event <description> /from <start time: dd-MM-yy[ HHMM]> /to <end time: dd-MM-yy[ HHMM]>
+
 ____________________________________________________________
 > ____________________________________________________________
-Description, start time and end time cannot be empty.
+[PARSE-ERROR]: Missing argument. Description, from, and to cannot be empty.
 Usage: event <description> /from <start time: dd-MM-yy[ HHMM]> /to <end time: dd-MM-yy[ HHMM]>
+
 ____________________________________________________________
 > ____________________________________________________________
-Description, start time and end time cannot be empty.
+[PARSE-ERROR]: Missing argument. Description, from, and to cannot be empty.
 Usage: event <description> /from <start time: dd-MM-yy[ HHMM]> /to <end time: dd-MM-yy[ HHMM]>
+
 ____________________________________________________________
 > ____________________________________________________________
-Invalid start time or end time format. Please use dd-MM-yy[ HHMM].
-Usage: event <description> /from <start time: dd-MM-yy[ HHMM]> /to <end time: dd-MM-yy[ HHMM]>
+[PARSE-ERROR]: Invalid datetime format.
+Expected: dd-MM-yy [HHmm].
+Instead got: 234443 and 234443
+
 ____________________________________________________________
 > ____________________________________________________________
-Invalid start time or end time format. Please use dd-MM-yy[ HHMM].
-Usage: event <description> /from <start time: dd-MM-yy[ HHMM]> /to <end time: dd-MM-yy[ HHMM]>
+[PARSE-ERROR]: Invalid datetime format.
+Expected: dd-MM-yy [HHmm].
+Instead got: favre and 24554
+
 ____________________________________________________________
 > ____________________________________________________________
-Invalid start time or end time format. Please use dd-MM-yy[ HHMM].
-Usage: event <description> /from <start time: dd-MM-yy[ HHMM]> /to <end time: dd-MM-yy[ HHMM]>
+[PARSE-ERROR]: Invalid datetime format.
+Expected: dd-MM-yy [HHmm].
+Instead got: 6576 and ar
+
 ____________________________________________________________
 > ____________________________________________________________
-Invalid start time or end time format. Please use dd-MM-yy[ HHMM].
-Usage: event <description> /from <start time: dd-MM-yy[ HHMM]> /to <end time: dd-MM-yy[ HHMM]>
+[PARSE-ERROR]: Invalid datetime format.
+Expected: dd-MM-yy [HHmm].
+Instead got: 27-01-2025 1800 and 28-01-2025 1900
+
 ____________________________________________________________
 > ____________________________________________________________
 Got it. I've added this task:
@@ -100,32 +114,42 @@ Got it. I've added this task:
 Now you have 7 tasks in the list.
 ____________________________________________________________
 > ____________________________________________________________
-Description and deadline cannot be empty.
+[PARSE-ERROR]: Missing keyword flag. Could not find flag "/by" in command.
 Usage: deadline <description> /by <deadline: dd-MM-yy[ HHMM]>
+
 ____________________________________________________________
 > ____________________________________________________________
-Description and deadline cannot be empty.
+[PARSE-ERROR]: Missing argument. Description and deadline cannot be empty.
 Usage: deadline <description> /by <deadline: dd-MM-yy[ HHMM]>
+
 ____________________________________________________________
 > ____________________________________________________________
-Description and deadline cannot be empty.
+[PARSE-ERROR]: Missing argument. Description and deadline cannot be empty.
 Usage: deadline <description> /by <deadline: dd-MM-yy[ HHMM]>
+
 ____________________________________________________________
 > ____________________________________________________________
-Description and deadline cannot be empty.
+[PARSE-ERROR]: Missing argument. Description and deadline cannot be empty.
 Usage: deadline <description> /by <deadline: dd-MM-yy[ HHMM]>
+
 ____________________________________________________________
 > ____________________________________________________________
-Invalid deadline format. Please use dd-MM-yy[ HHMM].
-Usage: deadline <description> /by <deadline: dd-MM-yy[ HHMM]>
+[PARSE-ERROR]: Invalid datetime format.
+Expected: dd-MM-yy [HHmm].
+Instead got: 234443
+
 ____________________________________________________________
 > ____________________________________________________________
-Invalid deadline format. Please use dd-MM-yy[ HHMM].
-Usage: deadline <description> /by <deadline: dd-MM-yy[ HHMM]>
+[PARSE-ERROR]: Invalid datetime format.
+Expected: dd-MM-yy [HHmm].
+Instead got: favre
+
 ____________________________________________________________
 > ____________________________________________________________
-Invalid deadline format. Please use dd-MM-yy[ HHMM].
-Usage: deadline <description> /by <deadline: dd-MM-yy[ HHMM]>
+[PARSE-ERROR]: Invalid datetime format.
+Expected: dd-MM-yy [HHmm].
+Instead got: 27-01-2025 1800
+
 ____________________________________________________________
 > ____________________________________________________________
 Got it. I've added this task:
@@ -156,8 +180,9 @@ Here are the tasks in your list:
 10. [D][ ] deadlinetest3 (by: Monday, 27/01, 07:00pm)
 ____________________________________________________________
 > ____________________________________________________________
-Index must be an integer.
+[PARSE-ERROR]: Missing argument. Index cannot be empty.
 Usage: mark <index>
+
 ____________________________________________________________
 > ____________________________________________________________
 Nice! I've marked this task as done:
@@ -186,10 +211,12 @@ ____________________________________________________________
 Task is already marked as not done!
 ____________________________________________________________
 > ____________________________________________________________
-Index out of bounds.
+[TASKL-ERROR]: An error occurred while executing the command.
+Index out of range. Valid index range is 1 to 10
 ____________________________________________________________
 > ____________________________________________________________
-Index out of bounds.
+[TASKL-ERROR]: An error occurred while executing the command.
+Index out of range. Valid index range is 1 to 10
 ____________________________________________________________
 > ____________________________________________________________
 Nice! I've marked this task as done:
@@ -213,11 +240,13 @@ Here are the tasks in your list:
 10. [D][ ] deadlinetest3 (by: Monday, 27/01, 07:00pm)
 ____________________________________________________________
 > ____________________________________________________________
-Index must be an integer.
+[PARSE-ERROR]: Missing argument. Index cannot be empty.
 Usage: delete <index>
+
 ____________________________________________________________
 > ____________________________________________________________
-Index out of bounds.
+[TASKL-ERROR]: An error occurred while executing the command.
+Index out of range. Valid index range is 1 to 10
 ____________________________________________________________
 > ____________________________________________________________
 Noted. I've removed this task:

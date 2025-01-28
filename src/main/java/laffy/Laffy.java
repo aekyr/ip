@@ -1,6 +1,7 @@
 package laffy;
 
 import laffy.command.Command;
+import laffy.tasklist.TaskList;
 
 import java.io.IOException;
 import java.util.ArrayList;

@@ -1,33 +1,32 @@
 package laffy.command;
 
 import laffy.Storage;
-import laffy.TaskList;
+import laffy.command.exceptions.BlankArgument;
+import laffy.command.exceptions.InvalidIndex;
+import laffy.tasklist.TaskList;
 import laffy.Ui;
+import laffy.tasklist.exceptions.TasklistException;
 
 public class MarkCommand extends IndexedCommand {
     public static final String COMMAND_WORD = "mark";
 
-    public MarkCommand(String args) {
+    public MarkCommand(String args) throws InvalidIndex, BlankArgument {
         super(args);
     }
 
     @Override
-    public String execute(TaskList taskList, Ui ui, Storage storage) {
-        if (!isValid) {
-            return "Index must be an integer.\n" + getUsage();
-        } else {
-            String result = taskList.markAsDone(this.index);
-            super.execute(taskList, ui, storage);
-            return result;
-        }
+    public String execute(TaskList taskList, Ui ui, Storage storage) throws TasklistException {
+        String result = taskList.markAsDone(this.index);
+        super.execute(taskList, ui, storage);
+        return result;
     }
 
     public static String getDescription() {
         return COMMAND_WORD + " <index>";
     }
 
-    public static String getUsage() {
-        return Command.getUsage() + getDescription();
+    public String getUsage() {
+        return super.getUsage() + getDescription();
     }
 
 }

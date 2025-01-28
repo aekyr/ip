@@ -8,7 +8,12 @@ if exist ACTUAL.TXT del ACTUAL.TXT
 if exist data\laffy.txt del data\laffy.txt
 
 REM compile the code into the bin folder
-javac  -cp ..\src\main\java\laffy -Xlint:none -d ..\bin ..\src\main\java\laffy\*.java ..\src\main\java\laffy\command\*.java
+javac  -cp ..\src\main\java\laffy -Xlint:none -d ..\bin^
+ ..\src\main\java\laffy\*.java^
+ ..\src\main\java\laffy\command\*.java^
+ ..\src\main\java\laffy\command\exceptions\*.java^
+ ..\src\main\java\laffy\tasklist\*.java^
+ ..\src\main\java\laffy\tasklist\exceptions\*.java
 IF ERRORLEVEL 1 (
     echo ********** BUILD FAILURE **********
     exit /b 1

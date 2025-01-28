@@ -6,10 +6,10 @@ todo todotest2
 todo todotest3
 list
 event
-event /from /to
-event fail /from /to
-event /from fail /to
-event /from /to fail
+event  /from  /to
+event fail /from  /to
+event  /from fail /to
+event  /from  /to fail
 event failduetoinvaliddate /from 234443 /to 234443
 event failduetoinvaliddate /from favre /to 24554
 event failduetoinvaliddate /from 6576 /to ar
@@ -19,7 +19,7 @@ event eventtest2 /from 27-01-25 1800 /to 28-01-25 1900
 event eventtest3 /from 27-01-25 /to 28-01-25
 event eventtest4 /from 27-01-25 1900 /to 28-01-25
 deadline
-deadline /by
+deadline  /by
 deadline fail /by
 deadline /by fail
 deadline failduetoinvaliddate /by 234443

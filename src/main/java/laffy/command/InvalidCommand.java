@@ -1,21 +1,21 @@
 package laffy.command;
 
 import laffy.Storage;
-import laffy.TaskList;
+import laffy.tasklist.TaskList;
 import laffy.Ui;
 
 public class InvalidCommand extends Command {
     public static final String COMMAND_WORD = "invalid";
 
-    public InvalidCommand() {
-        super();
+    public InvalidCommand(String args) {
+        super(args);
         this.isValid = true;
     }
 
     @Override
     public String execute(TaskList taskList, Ui ui, Storage storage) {
         StringBuilder sb = new StringBuilder();
-        sb.append(InvalidCommand.getUsage());
+        sb.append(InvalidCommand.getDescription());
         sb.append("\n");
         sb.append("Here are the available commands:");
         sb.append("\n1. ");
@@ -34,16 +34,14 @@ public class InvalidCommand extends Command {
         sb.append(DeleteCommand.getDescription());
         sb.append("\n8. ");
         sb.append(ExitCommand.getDescription());
-
-
         return sb.toString();
     }
 
     public static String getDescription() {
-        return "";
+        return "Invalid command. Please enter a valid command.";
     }
 
-    public static String getUsage() {
-        return "Invalid command. Please enter a valid command.";
+    public String getUsage() {
+        return "";
     }
 }

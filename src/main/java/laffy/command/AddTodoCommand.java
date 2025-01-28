@@ -4,12 +4,18 @@ import laffy.Storage;
 import laffy.command.exceptions.BlankArgument;
 import laffy.tasklist.TaskList;
 import laffy.Ui;
-import laffy.tasklist.exceptions.TasklistException;
+import laffy.tasklist.exceptions.TaskListException;
 
 public class AddTodoCommand extends Command {
     public static final String COMMAND_WORD = "todo";
     private final String desc;
 
+    /**
+     * Constructor for AddTodoCommand.
+     *
+     * @param args The arguments to be parsed.
+     * @throws BlankArgument If the description is empty.
+     */
     public AddTodoCommand(String args) throws BlankArgument {
         super(args);
         if (args.isEmpty() || args.isBlank()) {
@@ -22,7 +28,7 @@ public class AddTodoCommand extends Command {
     }
 
     @Override
-    public String execute(TaskList taskList, Ui ui, Storage storage) throws TasklistException {
+    public String execute(TaskList taskList, Ui ui, Storage storage) throws TaskListException {
         String result =  "Got it. I've added this task:\n  "
                 + taskList.addTodo(desc)
                 + "\nNow you have " + taskList.size() + " tasks in the list.";

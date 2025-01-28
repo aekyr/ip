@@ -5,6 +5,15 @@ import laffy.command.exceptions.LaffyException;
 
 public class Parser {
 
+    /**
+     * Parses the first word in full command string, attempts to instantiate
+     * the corresponding Command object using the reaminder words in the full
+     * command string.
+     *
+     * @param fullCommand The full command string.
+     * @return The corresponding Command object.
+     * @throws LaffyException If the command is invalid.
+     */
     public static Command parse(String fullCommand)
             throws LaffyException {
         String[] cmdArgs = fullCommand.split(" ", 2);

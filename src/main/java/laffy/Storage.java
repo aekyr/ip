@@ -11,6 +11,12 @@ public class Storage {
     String filepath;
     ArrayList<ArrayList<String>> tasksData;
 
+    /**
+     * Constructor for Storage.
+     *
+     * @param filepath The file path to the data file.
+     * @throws IOException If an I/O error occurs.
+     */
     public Storage(String filepath) throws IOException {
         this.filepath = filepath;
         loadData();
@@ -40,6 +46,17 @@ public class Storage {
         return !to.isBlank() && !to.isEmpty();
     }
 
+    /**
+     * Loads data from the file. Called once when the class is instantiated.
+     * If the file does not exist, a new file is created.
+     * If the file is empty, an empty ArrayList is created.
+     * If the file is not empty, the data is loaded into the ArrayList.
+     * If the data is invalid, the data is not loaded. Instead, an empty ArrayList will be used.
+     * If an external source modifies the file's data, the data will not be reloaded.
+     * Instead, the loaded data will be used, and overwrite the modified data when saved.
+     *
+     * @throws IOException If an I/O error occurs.
+     */
     private void loadData() throws IOException {
 
         // load data from file
@@ -98,10 +115,20 @@ public class Storage {
         this.tasksData = tasksData;
     }
 
+    /**
+     * Gets the data from the file.
+     *
+     * @return The data from the file.
+     */
     public ArrayList<ArrayList<String>> getTasksData() {
         return this.tasksData;
     }
 
+    /**
+     * Saves data to the file.
+     *
+     * @param tasksData The data to be saved.
+     */
     public void saveData(ArrayList<ArrayList<String>> tasksData) {
         try {
             File file = new File(this.filepath);

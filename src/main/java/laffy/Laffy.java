@@ -12,6 +12,12 @@ public class Laffy {
     private final Storage storage;
     private final Ui ui;
 
+    /**
+     * Constructor for Laffy.
+     *
+     * @param filepath The file path to the data file.
+     * @throws IOException If an I/O error occurs.
+     */
     public Laffy(String filepath) throws IOException {
         this.storage = new Storage(filepath);
         this.ui = new Ui();
@@ -23,6 +29,9 @@ public class Laffy {
         }
     }
 
+    /**
+     * Runs the Laffy program.
+     */
     public void run() {
         Scanner sc = new Scanner(System.in);
         ui.greet();
@@ -43,6 +52,12 @@ public class Laffy {
         }
     }
 
+    /**
+     * Main method for Laffy. No args are expected.
+     *
+     * @param args The command line arguments.
+     * @throws IOException If an I/O error occurs.
+     */
     public static void main(String[] args) throws IOException {
         new Laffy("data/laffy.txt").run();
     }

@@ -33,7 +33,7 @@ public class Laffy {
                 String fullCommand = ui.readCommand();
                 ui.showLine(); // show the divider line ("_______")
                 Command c = Parser.parse(fullCommand);
-                ui.echo(c.execute(taskList, ui, storage));
+                c.execute(taskList, ui, storage);
                 isExit = c.isExit();
             } catch (Exception e) {
                 ui.showError(e.getMessage());

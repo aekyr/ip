@@ -12,9 +12,9 @@ import laffy.tasklist.exceptions.TasklistException;
 public class AddEventCommand extends Command {
     public static final String COMMAND_WORD = "event";
 
-    private String desc;
-    private String from;
-    private String to;
+    private final String desc;
+    private final String from;
+    private final String to;
 
     public AddEventCommand(String args) throws BlankArgument, MissingKeywordFlag, InvalidDatetimeFormat {
         super(args);
@@ -39,8 +39,7 @@ public class AddEventCommand extends Command {
         if (!this.isValid) {
             throw new BlankArgument("Description, from, and to cannot be empty.\n" + getUsage());
         }
-        this.isValid = isValid && TaskDateAPI.isValidDateTime(this.from)
-                && TaskDateAPI.isValidDateTime(this.to);
+        this.isValid = TaskDateAPI.isValidDateTime(this.from) && TaskDateAPI.isValidDateTime(this.to);
         if (!this.isValid) {
             throw new InvalidDatetimeFormat(this.from + " and " + this.to);
         }
@@ -48,12 +47,11 @@ public class AddEventCommand extends Command {
     }
 
     @Override
-    public String execute(TaskList taskList, Ui ui, Storage storage) throws TasklistException {
-        String result = "Got it. I've added this task:\n  "
+    public void execute(TaskList taskList, Ui ui, Storage storage) throws TasklistException {
+        ui.echo("Got it. I've added this task:\n  "
                 + taskList.addEvent(desc, from, to)
-                + "\nNow you have " + taskList.size() + " tasks in the list.";
+                + "\nNow you have " + taskList.size() + " tasks in the list.");
         super.execute(taskList, ui, storage);
-        return result;
     }
 
     public static String getDescription() {

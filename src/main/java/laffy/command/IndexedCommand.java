@@ -30,10 +30,8 @@ public class IndexedCommand extends Command {
     }
 
     @Override
-    public String execute(TaskList taskList, Ui ui, Storage storage) throws TasklistException {
-        String result = "";
+    public void execute(TaskList taskList, Ui ui, Storage storage) throws TasklistException {
         super.execute(taskList, ui, storage);
-        return result;
     }
 
 

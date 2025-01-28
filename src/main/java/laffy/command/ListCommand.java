@@ -13,10 +13,9 @@ public class ListCommand extends Command {
     }
 
     @Override
-    public String execute(TaskList taskList, Ui ui, Storage storage) throws TasklistException {
-        String result = taskList.toString();
+    public void execute(TaskList taskList, Ui ui, Storage storage) throws TasklistException {
+        ui.echo(taskList.toString());
         super.execute(taskList, ui, storage);
-        return result;
     }
 
     public static String getDescription() {

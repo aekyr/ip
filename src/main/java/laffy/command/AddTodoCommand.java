@@ -22,12 +22,11 @@ public class AddTodoCommand extends Command {
     }
 
     @Override
-    public String execute(TaskList taskList, Ui ui, Storage storage) throws TasklistException {
-        String result =  "Got it. I've added this task:\n  "
+    public void execute(TaskList taskList, Ui ui, Storage storage) throws TasklistException {
+        ui.echo("Got it. I've added this task:\n  "
                 + taskList.addTodo(desc)
-                + "\nNow you have " + taskList.size() + " tasks in the list.";
+                + "\nNow you have " + taskList.size() + " tasks in the list.");
         super.execute(taskList, ui, storage);
-        return result;
     }
 
     public static String getDescription() {

@@ -14,10 +14,9 @@ public abstract class Command {
         this.isValid = false;
     }
 
-    public String execute(TaskList taskList, Ui ui, Storage storage) throws TasklistException {
+    public void execute(TaskList taskList, Ui ui, Storage storage) throws TasklistException {
         // executes after all children have done so
         storage.saveData(taskList.toTasksData());
-        return "";
     };
 
     public boolean isExit() {

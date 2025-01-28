@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class Deadline extends Task {
     private final String type = "D";
-    private LocalDateTime by;
+    private final LocalDateTime by;
 
     public Deadline(String desc, LocalDateTime by) {
         super(desc);

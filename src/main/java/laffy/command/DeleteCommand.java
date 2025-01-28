@@ -15,10 +15,9 @@ public class DeleteCommand extends IndexedCommand {
     }
 
     @Override
-    public String execute(TaskList taskList, Ui ui, Storage storage) throws TasklistException {
-        String result = taskList.delete(this.index);
+    public void execute(TaskList taskList, Ui ui, Storage storage) throws TasklistException {
+        ui.echo(taskList.delete(this.index));
         super.execute(taskList, ui, storage);
-        return result;
     }
 
     public static String getDescription() {

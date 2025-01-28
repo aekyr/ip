@@ -14,9 +14,9 @@ public class ExitCommand extends Command {
     }
 
     @Override
-    public String execute(TaskList taskList, Ui ui, Storage storage) throws TasklistException {
+    public void execute(TaskList taskList, Ui ui, Storage storage) throws TasklistException {
         super.execute(taskList, ui, storage);
-        return "Bye. Hope to see you again soon!";
+        ui.echo("Bye. Hope to see you again soon!");
     }
 
     @Override

@@ -1,5 +1,6 @@
 package laffy.tasklist;
 
+
 import laffy.tasklist.exceptions.IndexOutOfRange;
 import laffy.tasklist.tasks.Deadline;
 import laffy.tasklist.tasks.Event;
@@ -48,6 +49,20 @@ public class TaskList {
                     break;
             }
         }
+    }
+
+    private static String tasklistToString(ArrayList<Task> listOfTasks) {
+        StringBuilder sb = new StringBuilder();
+        int sizeMagnitude = (int) Math.log10(listOfTasks.size()) + 1;
+        String space = " ";
+        for (int i = 0; i < listOfTasks.size(); i++) {
+            int iMagnitude = (int) Math.log10(i + 1) + 1;
+            sb.append(i + 1)
+                    .append(".").append(space.repeat(sizeMagnitude-iMagnitude + 1))
+                    .append(listOfTasks.get(i).toString());
+            if (i != listOfTasks.size() - 1) sb.append("\n");
+        }
+        return sb.toString();
     }
 
     /**
@@ -153,6 +168,22 @@ public class TaskList {
         }
     }
 
+    public String find(String keyword) {
+        ArrayList<Task> foundTasks = new ArrayList<>();
+        for (Task task : this.tasks) {
+            if (task.getDescription().contains(keyword)) {
+                foundTasks.add(task);
+            }
+        }
+        if (foundTasks.isEmpty()) {
+            return "No tasks found with the keyword: " + keyword;
+        }
+        StringBuilder sb = new StringBuilder();
+        sb.append("Here are the matching tasks in your list:\n");
+        sb.append(tasklistToString(foundTasks));
+        return sb.toString();
+    }
+
     /**
      * Deletes a task from the TaskList.
      *
@@ -168,7 +199,6 @@ public class TaskList {
                 + task.toString()
                 + "\nNow you have " + this.tasks.size() + " tasks in the list.";
     }
-
 
     public boolean isValidIndex(int index) {
         return index >= 0 && index < this.size();
@@ -192,15 +222,7 @@ public class TaskList {
         }
         StringBuilder sb = new StringBuilder();
         sb.append("Here are the tasks in your list:\n");
-        int sizeMagnitude = (int) Math.log10(this.tasks.size()) + 1;
-        String space = " ";
-        for (int i = 0; i < this.tasks.size(); i++) {
-            int iMagnitude = (int) Math.log10(i + 1) + 1;
-            sb.append(i + 1)
-                    .append(".").append(space.repeat(sizeMagnitude-iMagnitude + 1))
-                    .append(this.tasks.get(i).toString());
-            if (i != this.tasks.size() - 1) sb.append("\n");
-        }
+        sb.append(tasklistToString(this.tasks));
         return sb.toString();
     }
 

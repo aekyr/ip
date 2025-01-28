@@ -30,6 +30,7 @@ public class Parser {
         if (keyword.equals(AddDeadlineCommand.getCommandWord())) return new AddDeadlineCommand(args);
         if (keyword.equals(AddEventCommand.getCommandWord())) return new AddEventCommand(args);
         if (keyword.equals(DeleteCommand.getCommandWord())) return new DeleteCommand(args);
+        if (keyword.equals(FindCommand.getCommandWord())) return new FindCommand(args);
         return new InvalidCommand(args);
 
     }

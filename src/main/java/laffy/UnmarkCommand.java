@@ -1,7 +1,9 @@
-public class DeleteCommand extends IndexedCommand {
-    public static final String COMMAND_WORD = "delete";
+package laffy;
 
-    public DeleteCommand(String args) {
+class UnmarkCommand extends IndexedCommand {
+    public static final String COMMAND_WORD = "unmark";
+
+    public UnmarkCommand(String args) {
         super(args);
     }
 
@@ -10,7 +12,7 @@ public class DeleteCommand extends IndexedCommand {
         if (!isValid) {
             return "Index must be an integer.\n" + getUsage();
         } else {
-            String result = taskList.delete(this.index);
+            String result = taskList.markAsUndone(this.index);
             super.execute(taskList, ui, storage);
             return result;
         }

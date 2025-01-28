@@ -1,3 +1,5 @@
+package laffy;
+
 public class AddDeadlineCommand extends Command {
     public static final String COMMAND_WORD = "deadline";
     private String desc;

@@ -1,3 +1,5 @@
+package laffy;
+
 abstract class Command {
     public boolean isValid;
     public static final String COMMAND_WORD = "command";

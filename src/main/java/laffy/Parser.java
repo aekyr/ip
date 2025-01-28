@@ -1,3 +1,5 @@
+package laffy;
+
 public class Parser {
     private final TaskList taskList;
     private final Storage storage;

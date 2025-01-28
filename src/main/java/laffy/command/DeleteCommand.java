@@ -8,7 +8,7 @@ import laffy.Ui;
 import laffy.tasklist.exceptions.TasklistException;
 
 public class DeleteCommand extends IndexedCommand {
-    public static final String COMMAND_WORD = "delete";
+    private static final String COMMAND_WORD = "delete";
 
     public DeleteCommand(String args) throws InvalidIndex, BlankArgument {
         super(args);
@@ -16,7 +16,7 @@ public class DeleteCommand extends IndexedCommand {
 
     @Override
     public void execute(TaskList taskList, Ui ui, Storage storage) throws TasklistException {
-        ui.echo(taskList.delete(this.index));
+        ui.echo(taskList.delete(super.getIndex()));
         super.execute(taskList, ui, storage);
     }
 
@@ -27,4 +27,9 @@ public class DeleteCommand extends IndexedCommand {
     public String getUsage() {
         return super.getUsage() + getDescription();
     }
+
+    public static String getCommandWord() {
+        return COMMAND_WORD;
+    }
+
 }

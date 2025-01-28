@@ -13,16 +13,15 @@ public class Parser {
         if (cmdArgs.length == 2) {
             args = cmdArgs[1];
         }
-        return switch (keyword) {
-            case ExitCommand.COMMAND_WORD -> new ExitCommand(args);
-            case ListCommand.COMMAND_WORD -> new ListCommand(args);
-            case MarkCommand.COMMAND_WORD -> new MarkCommand(args);
-            case UnmarkCommand.COMMAND_WORD -> new UnmarkCommand(args);
-            case AddTodoCommand.COMMAND_WORD -> new AddTodoCommand(args);
-            case AddDeadlineCommand.COMMAND_WORD -> new AddDeadlineCommand(args);
-            case AddEventCommand.COMMAND_WORD -> new AddEventCommand(args);
-            case DeleteCommand.COMMAND_WORD -> new DeleteCommand(args);
-            default -> new InvalidCommand(args);
-        };
+        if (keyword.equals(ExitCommand.getCommandWord())) return new ExitCommand(args);
+        if (keyword.equals(ListCommand.getCommandWord())) return new ListCommand(args);
+        if (keyword.equals(MarkCommand.getCommandWord())) return new MarkCommand(args);
+        if (keyword.equals(UnmarkCommand.getCommandWord())) return new UnmarkCommand(args);
+        if (keyword.equals(AddTodoCommand.getCommandWord())) return new AddTodoCommand(args);
+        if (keyword.equals(AddDeadlineCommand.getCommandWord())) return new AddDeadlineCommand(args);
+        if (keyword.equals(AddEventCommand.getCommandWord())) return new AddEventCommand(args);
+        if (keyword.equals(DeleteCommand.getCommandWord())) return new DeleteCommand(args);
+        return new InvalidCommand(args);
+
     }
 }

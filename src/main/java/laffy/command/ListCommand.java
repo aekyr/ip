@@ -6,7 +6,7 @@ import laffy.Ui;
 import laffy.tasklist.exceptions.TasklistException;
 
 public class ListCommand extends Command {
-    public static final String COMMAND_WORD = "list";
+    private static final String COMMAND_WORD = "list";
 
     public ListCommand(String args) {
         super(args);
@@ -24,5 +24,9 @@ public class ListCommand extends Command {
 
     public String getUsage() {
         return super.getUsage() + getDescription() ;
+    }
+
+    public static String getCommandWord() {
+        return COMMAND_WORD;
     }
 }

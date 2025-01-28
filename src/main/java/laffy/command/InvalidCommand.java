@@ -9,7 +9,6 @@ public class InvalidCommand extends Command {
 
     public InvalidCommand(String args) {
         super(args);
-        this.isValid = true;
     }
 
     @Override
@@ -43,5 +42,9 @@ public class InvalidCommand extends Command {
 
     public String getUsage() {
         return "";
+    }
+
+    public static String getCommandWord() {
+        return COMMAND_WORD;
     }
 }

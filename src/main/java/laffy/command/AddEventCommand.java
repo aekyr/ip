@@ -22,25 +22,25 @@ public class AddEventCommand extends Command {
         super.checkKeywordFlagIsPresent(args, "/to");
         String[] arr = args.split(" /from ");
         if (arr.length != 2) {
-            this.isValid = false;
+            this.setValid(false);
             throw new BlankArgument("Description, from, and to cannot be empty.\n" + getUsage());
         }
         String[] arr2 = arr[1].split(" /to ");
         if (arr2.length != 2) {
-            this.isValid = false;
+            this.setValid(false);
             throw new BlankArgument("Description, from, and to cannot be empty.\n" + getUsage());
         }
         this.desc = arr[0].trim();
         this.from = arr2[0].trim();
         this.to = arr2[1].trim();
-        this.isValid = !this.desc.isBlank() && !this.desc.isEmpty()
+        this.setValid(!this.desc.isBlank() && !this.desc.isEmpty()
                 && !this.from.isBlank() && !this.from.isEmpty()
-                && !this.to.isBlank() && !this.to.isEmpty();
-        if (!this.isValid) {
+                && !this.to.isBlank() && !this.to.isEmpty());
+        if (!this.isValid()) {
             throw new BlankArgument("Description, from, and to cannot be empty.\n" + getUsage());
         }
-        this.isValid = TaskDateAPI.isValidDateTime(this.from) && TaskDateAPI.isValidDateTime(this.to);
-        if (!this.isValid) {
+        this.setValid(TaskDateAPI.isValidDateTime(this.from) && TaskDateAPI.isValidDateTime(this.to));
+        if (!this.isValid()) {
             throw new InvalidDatetimeFormat(this.from + " and " + this.to);
         }
 
@@ -60,5 +60,9 @@ public class AddEventCommand extends Command {
 
     public String getUsage() {
         return super.getUsage() + getDescription();
+    }
+
+    public static String getCommandWord() {
+        return COMMAND_WORD;
     }
 }

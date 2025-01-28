@@ -6,11 +6,10 @@ import laffy.Ui;
 import laffy.tasklist.exceptions.TasklistException;
 
 public class ExitCommand extends Command {
-    public static final String COMMAND_WORD = "bye";
+    private static final String COMMAND_WORD = "bye";
 
     public ExitCommand(String args) {
         super(args);
-        this.isValid = true;
     }
 
     @Override
@@ -30,6 +29,10 @@ public class ExitCommand extends Command {
 
     public String getUsage() {
         return "Exits Application";
+    }
+
+    public static String getCommandWord() {
+        return COMMAND_WORD;
     }
 
 }

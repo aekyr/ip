@@ -7,8 +7,8 @@ import laffy.Ui;
 import laffy.tasklist.exceptions.TasklistException;
 
 public abstract class Command {
-    public boolean isValid;
-    public static final String COMMAND_WORD = "command";
+    private boolean isValid;
+    private static final String COMMAND_WORD = "command";
 
     public Command (String args) {
         this.isValid = false;
@@ -27,6 +27,22 @@ public abstract class Command {
         if (!args.matches(keywordFlag + "|(.*)\\s" + keywordFlag + "|" + keywordFlag + "\\s(.*)|(.*)\\s" + keywordFlag + "\\s(.*)")) {
             throw new MissingKeywordFlag("Could not find flag \"" + keywordFlag + "\" in command.\n" + getUsage());
         }
+    }
+
+    public boolean matchesCommandWord(String word) {
+        return word.equals(COMMAND_WORD);
+    }
+
+    public static String getCommandWord() {
+        return COMMAND_WORD;
+    }
+
+    public boolean isValid() {
+        return this.isValid;
+    }
+
+    public void setValid(boolean bool) {
+        this.isValid = bool;
     }
 
     public static String getDescription() {

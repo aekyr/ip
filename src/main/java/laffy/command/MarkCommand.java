@@ -8,7 +8,7 @@ import laffy.Ui;
 import laffy.tasklist.exceptions.TasklistException;
 
 public class MarkCommand extends IndexedCommand {
-    public static final String COMMAND_WORD = "mark";
+    private static final String COMMAND_WORD = "mark";
 
     public MarkCommand(String args) throws InvalidIndex, BlankArgument {
         super(args);
@@ -16,7 +16,7 @@ public class MarkCommand extends IndexedCommand {
 
     @Override
     public void execute(TaskList taskList, Ui ui, Storage storage) throws TasklistException {
-        ui.echo(taskList.markAsDone(this.index));
+        ui.echo(taskList.markAsDone(super.getIndex()));
         super.execute(taskList, ui, storage);
     }
 
@@ -28,4 +28,7 @@ public class MarkCommand extends IndexedCommand {
         return super.getUsage() + getDescription();
     }
 
+    public static String getCommandWord() {
+        return COMMAND_WORD;
+    }
 }

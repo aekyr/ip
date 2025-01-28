@@ -11,7 +11,7 @@ import laffy.Ui;
 import laffy.tasklist.exceptions.TasklistException;
 
 public class AddDeadlineCommand extends Command {
-    public static final String COMMAND_WORD = "deadline";
+    private static final String COMMAND_WORD = "deadline";
 
     private final String desc;
     private final String by;
@@ -22,22 +22,22 @@ public class AddDeadlineCommand extends Command {
         super.checkKeywordFlagIsPresent(args, "/by");
         String[] arr = args.split(" /by ");
         if (arr.length < 2) {
-            this.isValid = false;
+            this.setValid(false);
             throw new BlankArgument("Description and deadline cannot be empty.\n" + getUsage());
         } else if (arr.length > 2) {
-            this.isValid = false;
+            this.setValid(false);
             throw new TooManyArguments("Expected one \"/by\" but got many instead.\n" + getUsage());
         } else {
             this.desc = arr[0].trim();
             this.by = arr[1].trim();
-            this.isValid = !this.desc.isBlank() && !this.desc.isEmpty()
-                    && !this.by.isBlank() && !this.by.isEmpty();
-            if (!this.isValid) {
+            this.setValid(!this.desc.isBlank() && !this.desc.isEmpty()
+                    && !this.by.isBlank() && !this.by.isEmpty());
+            if (!this.isValid()) {
                 throw new BlankArgument("Description and deadline cannot be empty.\n" + getUsage());
             }
         }
-        this.isValid = TaskDateAPI.isValidDateTime(this.by);
-        if (!this.isValid) {
+        this.setValid(TaskDateAPI.isValidDateTime(this.by));
+        if (!this.isValid()) {
             throw new InvalidDatetimeFormat(this.by);
         }
     }
@@ -57,5 +57,9 @@ public class AddDeadlineCommand extends Command {
 
     public String getUsage() {
         return super.getUsage() + getDescription();
+    }
+
+    public static String getCommandWord() {
+        return COMMAND_WORD;
     }
 }

@@ -1,6 +1,5 @@
 package laffy.tasklist;
 
-
 import laffy.tasklist.exceptions.IndexOutOfRange;
 import laffy.tasklist.tasks.Deadline;
 import laffy.tasklist.tasks.Event;

@@ -5,8 +5,11 @@ import laffy.tasklist.TaskList;
 import laffy.Ui;
 import laffy.tasklist.exceptions.TaskListException;
 
+/**
+ * Represents a command to exit the application.
+ */
 public class ExitCommand extends Command {
-    private static final String COMMAND_WORD = "bye";
+    private static final CommandWord COMMAND_WORD = CommandWord.EXIT;
 
     /**
      * Constructor for ExitCommand.
@@ -29,7 +32,7 @@ public class ExitCommand extends Command {
     }
 
     public static String getDescription() {
-        return COMMAND_WORD;
+        return getCommandWord();
     }
 
     public String getUsage() {
@@ -37,7 +40,7 @@ public class ExitCommand extends Command {
     }
 
     public static String getCommandWord() {
-        return COMMAND_WORD;
+        return COMMAND_WORD.toString();
     }
 
 }

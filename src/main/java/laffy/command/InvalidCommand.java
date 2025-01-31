@@ -4,8 +4,11 @@ import laffy.Storage;
 import laffy.tasklist.TaskList;
 import laffy.Ui;
 
+/**
+ * Represents a command that is invalid.
+ */
 public class InvalidCommand extends Command {
-    public static final String COMMAND_WORD = "invalid";
+    public static final CommandWord COMMAND_WORD = CommandWord.INVALID;
 
     /**
      * Constructor for InvalidCommand.
@@ -53,6 +56,6 @@ public class InvalidCommand extends Command {
     }
 
     public static String getCommandWord() {
-        return COMMAND_WORD;
+        return COMMAND_WORD.toString();
     }
 }

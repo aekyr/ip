@@ -6,9 +6,12 @@ import laffy.tasklist.TaskList;
 import laffy.Ui;
 import laffy.tasklist.exceptions.TaskListException;
 
+/**
+ * Represents a command that can be executed by the user.
+ */
 public abstract class Command {
     private boolean isValid;
-    private static final String COMMAND_WORD = "command";
+    private static final CommandWord COMMAND_WORD = CommandWord.INVALID;
 
     public Command (String args) {
         this.isValid = false;
@@ -41,12 +44,8 @@ public abstract class Command {
         }
     }
 
-    public boolean matchesCommandWord(String word) {
-        return word.equals(COMMAND_WORD);
-    }
-
     public static String getCommandWord() {
-        return COMMAND_WORD;
+        return COMMAND_WORD.toString();
     }
 
     public boolean isValid() {

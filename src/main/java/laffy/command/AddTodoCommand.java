@@ -6,8 +6,11 @@ import laffy.tasklist.TaskList;
 import laffy.Ui;
 import laffy.tasklist.exceptions.TaskListException;
 
+/**
+ * Represents a command to add a todo task.
+ */
 public class AddTodoCommand extends Command {
-    private static final String COMMAND_WORD = "todo";
+    private static final CommandWord COMMAND_WORD = CommandWord.TODO;
     private final String desc;
 
     /**
@@ -36,7 +39,7 @@ public class AddTodoCommand extends Command {
     }
 
     public static String getDescription() {
-        return COMMAND_WORD + " <description>";
+        return getCommandWord() + " <description>";
     }
 
     public String getUsage() {
@@ -44,6 +47,6 @@ public class AddTodoCommand extends Command {
     }
 
     public static String getCommandWord() {
-        return COMMAND_WORD;
+        return COMMAND_WORD.toString();
     }
 }

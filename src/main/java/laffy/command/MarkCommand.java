@@ -7,8 +7,11 @@ import laffy.tasklist.TaskList;
 import laffy.Ui;
 import laffy.tasklist.exceptions.TaskListException;
 
+/**
+ * Represents a command to mark a task as done.
+ */
 public class MarkCommand extends IndexedCommand {
-    private static final String COMMAND_WORD = "mark";
+    private static final CommandWord COMMAND_WORD = CommandWord.MARK;
 
     /**
      * Constructor for MarkCommand.
@@ -28,7 +31,7 @@ public class MarkCommand extends IndexedCommand {
     }
 
     public static String getDescription() {
-        return COMMAND_WORD + " <index>";
+        return getCommandWord() + " <index>";
     }
 
     public String getUsage() {
@@ -36,6 +39,6 @@ public class MarkCommand extends IndexedCommand {
     }
 
     public static String getCommandWord() {
-        return COMMAND_WORD;
+        return COMMAND_WORD.toString();
     }
 }

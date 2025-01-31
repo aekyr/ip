@@ -5,8 +5,11 @@ import laffy.tasklist.TaskList;
 import laffy.Ui;
 import laffy.tasklist.exceptions.TaskListException;
 
+/**
+ * Represents a command to list all tasks.
+ */
 public class ListCommand extends Command {
-    private static final String COMMAND_WORD = "list";
+    private static final CommandWord COMMAND_WORD = CommandWord.LIST;
 
     /**
      * Constructor for ListCommand.
@@ -24,7 +27,7 @@ public class ListCommand extends Command {
     }
 
     public static String getDescription() {
-        return COMMAND_WORD;
+        return getCommandWord();
     }
 
     public String getUsage() {
@@ -32,6 +35,6 @@ public class ListCommand extends Command {
     }
 
     public static String getCommandWord() {
-        return COMMAND_WORD;
+        return COMMAND_WORD.toString();
     }
 }

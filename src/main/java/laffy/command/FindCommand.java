@@ -6,10 +6,13 @@ import laffy.command.exceptions.BlankArgument;
 import laffy.tasklist.TaskList;
 import laffy.tasklist.exceptions.TaskListException;
 
+/**
+ * Represents a command to find tasks.
+ */
 public class FindCommand extends Command {
-    public static final String COMMAND_WORD = "find";
+    private static final CommandWord COMMAND_WORD = CommandWord.FIND;
 
-    private String toFind;
+    private final String toFind;
 
     /**
      * Constructor for FindCommand.
@@ -32,7 +35,7 @@ public class FindCommand extends Command {
     }
 
     public static String getDescription() {
-        return COMMAND_WORD + " <keyword>";
+        return getCommandWord() + " <keyword>";
     }
 
     public String getUsage() {
@@ -40,6 +43,6 @@ public class FindCommand extends Command {
     }
 
     public static String getCommandWord() {
-        return COMMAND_WORD;
+        return COMMAND_WORD.toString();
     }
 }

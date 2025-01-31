@@ -7,6 +7,10 @@ import laffy.tasklist.TaskList;
 import laffy.tasklist.exceptions.TaskListException;
 import laffy.Ui;
 
+/**
+ * Represents a command that requires an index to be executed
+ * and is a subclass of Command.
+ */
 public class IndexedCommand extends Command {
     private final int index;
     private static final String COMMAND_WORD = "indexed";

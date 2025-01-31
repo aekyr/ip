@@ -1,8 +1,12 @@
 package laffy;
 
 import laffy.command.*;
+
 import laffy.command.exceptions.LaffyException;
 
+/**
+ * Represents a parser that parses the full command string into a Command object.
+ */
 public class Parser {
 
     /**
@@ -22,16 +26,22 @@ public class Parser {
         if (cmdArgs.length == 2) {
             args = cmdArgs[1];
         }
-        if (keyword.equals(ExitCommand.getCommandWord())) return new ExitCommand(args);
-        if (keyword.equals(ListCommand.getCommandWord())) return new ListCommand(args);
-        if (keyword.equals(MarkCommand.getCommandWord())) return new MarkCommand(args);
-        if (keyword.equals(UnmarkCommand.getCommandWord())) return new UnmarkCommand(args);
-        if (keyword.equals(AddTodoCommand.getCommandWord())) return new AddTodoCommand(args);
-        if (keyword.equals(AddDeadlineCommand.getCommandWord())) return new AddDeadlineCommand(args);
-        if (keyword.equals(AddEventCommand.getCommandWord())) return new AddEventCommand(args);
-        if (keyword.equals(DeleteCommand.getCommandWord())) return new DeleteCommand(args);
-        if (keyword.equals(FindCommand.getCommandWord())) return new FindCommand(args);
-        return new InvalidCommand(args);
+        return switch (CommandWord.fromString(keyword)) {
+            case EXIT -> new ExitCommand(args);
+
+            case LIST -> new ListCommand(args);
+            case MARK -> new MarkCommand(args);
+            case UNMARK -> new UnmarkCommand(args);
+
+            case TODO -> new AddTodoCommand(args);
+            case DEADLINE -> new AddDeadlineCommand(args);
+            case EVENT -> new AddEventCommand(args);
+
+            case DELETE -> new DeleteCommand(args);
+            case FIND -> new FindCommand(args);
+
+            case INVALID -> new InvalidCommand(args);
+        };
 
     }
 }

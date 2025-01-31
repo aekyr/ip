@@ -9,8 +9,11 @@ import laffy.tasklist.TaskList;
 import laffy.Ui;
 import laffy.tasklist.exceptions.TaskListException;
 
+/**
+ * Represents a command to add an event.
+ */
 public class AddEventCommand extends Command {
-    public static final String COMMAND_WORD = "event";
+    public static final CommandWord COMMAND_WORD = CommandWord.EVENT;
 
     private final String desc;
     private final String from;
@@ -63,7 +66,7 @@ public class AddEventCommand extends Command {
     }
 
     public static String getDescription() {
-        return COMMAND_WORD + " <description> /from <start time: dd-MM-yy[ HHMM]> /to <end time: dd-MM-yy[ HHMM]>";
+        return getCommandWord() + " <description> /from <start time: dd-MM-yy[ HHMM]> /to <end time: dd-MM-yy[ HHMM]>";
     }
 
     public String getUsage() {
@@ -71,6 +74,6 @@ public class AddEventCommand extends Command {
     }
 
     public static String getCommandWord() {
-        return COMMAND_WORD;
+        return COMMAND_WORD.toString();
     }
 }

@@ -10,8 +10,11 @@ import laffy.tasklist.TaskList;
 import laffy.Ui;
 import laffy.tasklist.exceptions.TaskListException;
 
+/**
+ * Represents a command to add a deadline.
+ */
 public class AddDeadlineCommand extends Command {
-    private static final String COMMAND_WORD = "deadline";
+    private static final CommandWord COMMAND_WORD = CommandWord.DEADLINE;
 
     private final String desc;
     private final String by;
@@ -61,7 +64,7 @@ public class AddDeadlineCommand extends Command {
 
 
     public static String getDescription() {
-        return COMMAND_WORD + " <description> /by <deadline: dd-MM-yy[ HHMM]>";
+        return getCommandWord() + " <description> /by <deadline: dd-MM-yy[ HHMM]>";
     }
 
     public String getUsage() {
@@ -69,6 +72,6 @@ public class AddDeadlineCommand extends Command {
     }
 
     public static String getCommandWord() {
-        return COMMAND_WORD;
+        return COMMAND_WORD.toString();
     }
 }

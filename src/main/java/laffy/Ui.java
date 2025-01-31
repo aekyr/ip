@@ -2,6 +2,9 @@ package laffy;
 
 import java.util.Scanner;
 
+/**
+ * Represents the User Interface of the application.
+ */
 public class Ui {
     private final Scanner sc;
 

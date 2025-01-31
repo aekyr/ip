@@ -2,8 +2,11 @@ package laffy.tasklist.tasks;
 
 import java.util.ArrayList;
 
+/**
+ * Represents a task in the task list.
+ */
 public class Task {
-    private final String type = "I";
+    private final String TYPE = "I";
     private final String desc;
     private boolean isDone;
 
@@ -51,7 +54,7 @@ public class Task {
      */
     public ArrayList<String> toTaskData() {
         ArrayList<String> taskData = new ArrayList<>();
-        taskData.add(this.type);
+        taskData.add(this.TYPE);
         taskData.add(this.isDone ? "1" : "0");
         taskData.add(this.desc);
         return taskData;

@@ -10,6 +10,9 @@ import laffy.tasklist.tasks.ToDo;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
+/**
+ * Represents the list of tasks.
+ */
 public class TaskList {
     //    stores the list of tasks
     private final ArrayList<Task> tasks;

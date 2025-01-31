@@ -7,6 +7,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Represents the storage of the application.
+ */
 public class Storage {
     private final String filepath;
     private ArrayList<ArrayList<String>> tasksData;

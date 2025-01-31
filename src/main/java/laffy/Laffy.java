@@ -7,6 +7,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Represents the main class of the application.
+ */
 public class Laffy {
     private final TaskList taskList;
     private final Storage storage;

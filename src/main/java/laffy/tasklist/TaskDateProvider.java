@@ -3,12 +3,10 @@ package laffy.tasklist;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-import static java.time.format.DateTimeFormatter.ISO_LOCAL_DATE_TIME;
-
 /**
  * Represents the API for date time operations.
  */
-public class TaskDateAPI {
+public class TaskDateProvider {
     private static final DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern(
             "dd-MM-yy HHmm");
 
@@ -73,7 +71,7 @@ public class TaskDateAPI {
      * @return The formatted string.
      */
     public static String formatForStorage(LocalDateTime dateTime) {
-        return dateTime.format(ISO_LOCAL_DATE_TIME);
+        return dateTime.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME);
     }
 
     /**
@@ -84,6 +82,6 @@ public class TaskDateAPI {
      * @return The LocalDateTime object.
      */
     public static LocalDateTime parseFromStorage(String dateTime) {
-        return LocalDateTime.parse(dateTime, ISO_LOCAL_DATE_TIME);
+        return LocalDateTime.parse(dateTime, DateTimeFormatter.ISO_LOCAL_DATE_TIME);
     }
 }

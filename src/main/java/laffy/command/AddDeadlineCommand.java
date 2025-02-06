@@ -1,13 +1,13 @@
 package laffy.command;
 
 import laffy.Storage;
+import laffy.Ui;
 import laffy.command.exceptions.BlankArgument;
 import laffy.command.exceptions.InvalidDatetimeFormat;
 import laffy.command.exceptions.MissingKeywordFlag;
 import laffy.command.exceptions.TooManyArguments;
-import laffy.tasklist.TaskDateAPI;
+import laffy.tasklist.TaskDateProvider;
 import laffy.tasklist.TaskList;
-import laffy.Ui;
 import laffy.tasklist.exceptions.TaskListException;
 
 /**
@@ -48,7 +48,7 @@ public class AddDeadlineCommand extends Command {
                 throw new BlankArgument("Description and deadline cannot be empty.\n" + getUsage());
             }
         }
-        this.setValid(TaskDateAPI.isValidDateTime(this.by));
+        this.setValid(TaskDateProvider.isValidDateTime(this.by));
         if (!this.isValid()) {
             throw new InvalidDatetimeFormat(this.by);
         }

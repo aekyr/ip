@@ -1,7 +1,17 @@
 package laffy;
 
-import laffy.command.*;
-
+import laffy.command.AddDeadlineCommand;
+import laffy.command.AddEventCommand;
+import laffy.command.AddTodoCommand;
+import laffy.command.Command;
+import laffy.command.CommandWord;
+import laffy.command.DeleteCommand;
+import laffy.command.ExitCommand;
+import laffy.command.FindCommand;
+import laffy.command.InvalidCommand;
+import laffy.command.ListCommand;
+import laffy.command.MarkCommand;
+import laffy.command.UnmarkCommand;
 import laffy.command.exceptions.LaffyException;
 
 /**
@@ -27,20 +37,20 @@ public class Parser {
             args = cmdArgs[1];
         }
         return switch (CommandWord.fromString(keyword)) {
-            case EXIT -> new ExitCommand(args);
+        case EXIT -> new ExitCommand(args);
 
-            case LIST -> new ListCommand(args);
-            case MARK -> new MarkCommand(args);
-            case UNMARK -> new UnmarkCommand(args);
+        case LIST -> new ListCommand(args);
+        case MARK -> new MarkCommand(args);
+        case UNMARK -> new UnmarkCommand(args);
 
-            case TODO -> new AddTodoCommand(args);
-            case DEADLINE -> new AddDeadlineCommand(args);
-            case EVENT -> new AddEventCommand(args);
+        case TODO -> new AddTodoCommand(args);
+        case DEADLINE -> new AddDeadlineCommand(args);
+        case EVENT -> new AddEventCommand(args);
 
-            case DELETE -> new DeleteCommand(args);
-            case FIND -> new FindCommand(args);
+        case DELETE -> new DeleteCommand(args);
+        case FIND -> new FindCommand(args);
 
-            case INVALID -> new InvalidCommand(args);
+        case INVALID -> new InvalidCommand(args);
         };
 
     }

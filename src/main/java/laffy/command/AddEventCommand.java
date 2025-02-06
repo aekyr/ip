@@ -58,11 +58,17 @@ public class AddEventCommand extends Command {
     }
 
     @Override
-    public void execute(TaskList taskList, Ui ui, Storage storage) throws TaskListException {
-        ui.echo("Got it. I've added this task:\n  "
+    public String execute(TaskList taskList, Storage storage) throws TaskListException {
+        String output = "Got it. I've added this task:\n  "
                 + taskList.addEvent(desc, from, to)
-                + "\nNow you have " + taskList.size() + " tasks in the list.");
-        super.execute(taskList, ui, storage);
+                + "\nNow you have " + taskList.size() + " tasks in the list.";
+        super.execute(taskList, storage);
+        return output;
+    }
+
+    @Override
+    public void execute(TaskList taskList, Ui ui, Storage storage) throws TaskListException {
+        ui.echo(this.execute(taskList, storage));
     }
 
     public static String getDescription() {

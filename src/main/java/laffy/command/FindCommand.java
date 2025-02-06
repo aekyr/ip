@@ -29,9 +29,15 @@ public class FindCommand extends Command {
     }
 
     @Override
+    public String execute(TaskList taskList, Storage storage) throws TaskListException {
+        String output = taskList.find(this.toFind);
+        super.execute(taskList, storage);
+        return output;
+    }
+
+    @Override
     public void execute(TaskList taskList, Ui ui, Storage storage) throws TaskListException {
-        ui.echo(taskList.find(this.toFind));
-        super.execute(taskList, ui, storage);
+        ui.echo(this.execute(taskList, storage));
     }
 
     public static String getDescription() {

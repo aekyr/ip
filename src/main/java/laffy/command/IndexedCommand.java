@@ -40,6 +40,20 @@ public class IndexedCommand extends Command {
         this.index = Integer.parseInt(args.trim()) - 1;
     }
 
+
+    /**
+     * Executes the command. This method is overridden by the child classes.
+     *
+     * @param taskList The task list to be modified.
+     * @param storage The storage to save the task list.
+     * @throws TaskListException If there is an error in the task list.
+     */
+    @Override
+    public String execute(TaskList taskList, Storage storage) throws TaskListException {
+        super.execute(taskList, storage);
+        return "";
+    }
+
     /**
      * Executes the command. This method is overridden by the child classes.
      *

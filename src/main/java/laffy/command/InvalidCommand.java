@@ -21,7 +21,7 @@ public class InvalidCommand extends Command {
     }
 
     @Override
-    public void execute(TaskList taskList, Ui ui, Storage storage) {
+    public String execute(TaskList taskList, Storage storage) {
         StringBuilder sb = new StringBuilder();
         sb.append(InvalidCommand.getDescription());
         sb.append("\n");
@@ -44,7 +44,12 @@ public class InvalidCommand extends Command {
         sb.append(DeleteCommand.getDescription());
         sb.append("\n9. ");
         sb.append(ExitCommand.getDescription());
-        ui.echo(sb.toString());
+        return sb.toString();
+    }
+
+    @Override
+    public void execute(TaskList taskList, Ui ui, Storage storage) {
+        ui.echo(this.execute(taskList, storage));
     }
 
     public static String getDescription() {

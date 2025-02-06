@@ -12,6 +12,7 @@ import laffy.tasklist.TaskList;
  * Represents the main class of the application.
  */
 public class Laffy {
+    private static final String FILEPATH = "data/laffy.txt";
     private final TaskList taskList;
     private final Storage storage;
     private final Ui ui;
@@ -19,11 +20,11 @@ public class Laffy {
     /**
      * Constructor for Laffy.
      *
-     * @param filepath The file path to the data file.
      * @throws IOException If an I/O error occurs.
      */
-    public Laffy(String filepath) throws IOException {
-        this.storage = new Storage(filepath);
+    public Laffy() throws IOException {
+
+        this.storage = new Storage(FILEPATH);
         this.ui = new Ui();
         ArrayList<ArrayList<String>> loadedData = this.storage.getTasksData();
         if (loadedData.isEmpty()) {
@@ -63,7 +64,7 @@ public class Laffy {
      * @throws IOException If an I/O error occurs.
      */
     public static void main(String[] args) throws IOException {
-        new Laffy("data/laffy.txt").run();
+        new Laffy().run();
     }
 
     public String getResponse(String input) {

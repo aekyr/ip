@@ -1,5 +1,7 @@
 package laffy.tasklist;
 
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 import laffy.tasklist.exceptions.IndexOutOfRange;
 import laffy.tasklist.tasks.Deadline;
@@ -7,8 +9,6 @@ import laffy.tasklist.tasks.Event;
 import laffy.tasklist.tasks.Task;
 import laffy.tasklist.tasks.ToDo;
 
-import java.time.LocalDateTime;
-import java.util.ArrayList;
 
 /**
  * Represents the list of tasks.
@@ -36,20 +36,20 @@ public class TaskList {
             boolean isDone = taskData.get(1).equals("1");
             String desc = taskData.get(2);
             switch (taskType) {
-                case "T":
-                    this.tasks.add(new ToDo(desc, isDone));
-                    break;
-                case "D":
-                    LocalDateTime by = TaskDateAPI.parseFromStorage(taskData.get(3));
-                    this.tasks.add(new Deadline(desc, isDone, by));
-                    break;
-                case "E":
-                    LocalDateTime from = TaskDateAPI.parseFromStorage(taskData.get(3));
-                    LocalDateTime to = TaskDateAPI.parseFromStorage(taskData.get(4));
-                    this.tasks.add(new Event(desc, isDone, from, to));
-                    break;
-                default:
-                    break;
+            case "T":
+                this.tasks.add(new ToDo(desc, isDone));
+                break;
+            case "D":
+                LocalDateTime by = TaskDateProvider.parseFromStorage(taskData.get(3));
+                this.tasks.add(new Deadline(desc, isDone, by));
+                break;
+            case "E":
+                LocalDateTime from = TaskDateProvider.parseFromStorage(taskData.get(3));
+                LocalDateTime to = TaskDateProvider.parseFromStorage(taskData.get(4));
+                this.tasks.add(new Event(desc, isDone, from, to));
+                break;
+            default:
+                break;
             }
         }
     }
@@ -61,9 +61,11 @@ public class TaskList {
         for (int i = 0; i < listOfTasks.size(); i++) {
             int iMagnitude = (int) Math.log10(i + 1) + 1;
             sb.append(i + 1)
-                    .append(".").append(space.repeat(sizeMagnitude-iMagnitude + 1))
+                    .append(".").append(space.repeat(sizeMagnitude - iMagnitude + 1))
                     .append(listOfTasks.get(i).toString());
-            if (i != listOfTasks.size() - 1) sb.append("\n");
+            if (i != listOfTasks.size() - 1) {
+                sb.append("\n");
+            }
         }
         return sb.toString();
     }
@@ -107,7 +109,7 @@ public class TaskList {
      * @return The string representation of the task.
      */
     public String addDeadline(String desc, String byStr) {
-        LocalDateTime byDateTime = TaskDateAPI.parseDateTime(byStr);
+        LocalDateTime byDateTime = TaskDateProvider.parseDateTime(byStr);
         Deadline deadline = new Deadline(desc, byDateTime);
         this.tasks.add(new Deadline(desc, byDateTime));
         return deadline.toString();
@@ -122,8 +124,8 @@ public class TaskList {
      * @return The string representation of the task.
      */
     public String addEvent(String desc, String fromStr, String toStr) {
-        LocalDateTime fromDateTime = TaskDateAPI.parseDateTime(fromStr);
-        LocalDateTime toDateTime = TaskDateAPI.parseDateTime(toStr);
+        LocalDateTime fromDateTime = TaskDateProvider.parseDateTime(fromStr);
+        LocalDateTime toDateTime = TaskDateProvider.parseDateTime(toStr);
         Event event = new Event(desc, fromDateTime, toDateTime);
         this.tasks.add(new Event(desc, fromDateTime, toDateTime));
         return event.toString();
@@ -171,6 +173,12 @@ public class TaskList {
         }
     }
 
+    /**
+     * Finds tasks with the keyword in the description.
+     *
+     * @param keyword The keyword to be searched.
+     * @return The string representation of the tasks.
+     */
     public String find(String keyword) {
         ArrayList<Task> foundTasks = new ArrayList<>();
         for (Task task : this.tasks) {
@@ -219,6 +227,7 @@ public class TaskList {
         }
     }
 
+    @Override
     public String toString() {
         if (this.tasks.isEmpty()) {
             return "There are no tasks in the list.";

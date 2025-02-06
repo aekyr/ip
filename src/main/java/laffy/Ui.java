@@ -20,6 +20,9 @@ public class Ui {
         System.out.println("____________________________________________________________");
     }
 
+    /**
+     * Greets the user.
+     */
     public void greet() {
         showLine();
         System.out.println("Hello! I'm L.A.F.F.Y");

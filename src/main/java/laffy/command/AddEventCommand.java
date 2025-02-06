@@ -1,12 +1,12 @@
 package laffy.command;
 
 import laffy.Storage;
+import laffy.Ui;
 import laffy.command.exceptions.BlankArgument;
 import laffy.command.exceptions.InvalidDatetimeFormat;
 import laffy.command.exceptions.MissingKeywordFlag;
-import laffy.tasklist.TaskDateAPI;
+import laffy.tasklist.TaskDateProvider;
 import laffy.tasklist.TaskList;
-import laffy.Ui;
 import laffy.tasklist.exceptions.TaskListException;
 
 /**
@@ -50,7 +50,7 @@ public class AddEventCommand extends Command {
         if (!this.isValid()) {
             throw new BlankArgument("Description, from, and to cannot be empty.\n" + getUsage());
         }
-        this.setValid(TaskDateAPI.isValidDateTime(this.from) && TaskDateAPI.isValidDateTime(this.to));
+        this.setValid(TaskDateProvider.isValidDateTime(this.from) && TaskDateProvider.isValidDateTime(this.to));
         if (!this.isValid()) {
             throw new InvalidDatetimeFormat(this.from + " and " + this.to);
         }

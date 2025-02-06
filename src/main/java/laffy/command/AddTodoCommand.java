@@ -1,9 +1,9 @@
 package laffy.command;
 
 import laffy.Storage;
+import laffy.Ui;
 import laffy.command.exceptions.BlankArgument;
 import laffy.tasklist.TaskList;
-import laffy.Ui;
 import laffy.tasklist.exceptions.TaskListException;
 
 /**

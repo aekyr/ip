@@ -1,19 +1,19 @@
 package laffy.command;
 
 import laffy.Storage;
+import laffy.Ui;
 import laffy.command.exceptions.BlankArgument;
 import laffy.command.exceptions.InvalidIndex;
 import laffy.tasklist.TaskList;
 import laffy.tasklist.exceptions.TaskListException;
-import laffy.Ui;
 
 /**
  * Represents a command that requires an index to be executed
  * and is a subclass of Command.
  */
 public class IndexedCommand extends Command {
-    private final int index;
     private static final String COMMAND_WORD = "indexed";
+    private final int index;
 
     /**
      * Constructor for IndexedCommand. This constructor is called by child classes.
@@ -46,7 +46,6 @@ public class IndexedCommand extends Command {
      * @param taskList The task list to be modified.
      * @param ui The user interface to interact with the user.
      * @param storage The storage to save the task list.
-     * @return The result of the command.
      * @throws TaskListException If there is an error in the task list.
      */
     @Override

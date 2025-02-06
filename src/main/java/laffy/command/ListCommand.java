@@ -1,8 +1,8 @@
 package laffy.command;
 
 import laffy.Storage;
-import laffy.tasklist.TaskList;
 import laffy.Ui;
+import laffy.tasklist.TaskList;
 import laffy.tasklist.exceptions.TaskListException;
 
 /**
@@ -31,7 +31,7 @@ public class ListCommand extends Command {
     }
 
     public String getUsage() {
-        return super.getUsage() + getDescription() ;
+        return super.getUsage() + getDescription();
     }
 
     public static String getCommandWord() {

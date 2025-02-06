@@ -6,15 +6,26 @@ import java.util.ArrayList;
  * Represents a task in the task list.
  */
 public class Task {
-    private final String TYPE = "I";
+    private static final String TYPE = "I";
     private final String desc;
     private boolean isDone;
 
+    /**
+     * Constructor for Task.
+     *
+     * @param desc The description of the task.
+     */
     public Task(String desc) {
         this.desc = desc;
         this.isDone = false;
     }
 
+    /**
+     * Constructor for Task.
+     *
+     * @param desc The description of the task.
+     * @param isDone The status of the task.
+     */
     public Task(String desc, boolean isDone) {
         this.desc = desc;
         this.isDone = isDone;
@@ -54,7 +65,7 @@ public class Task {
      */
     public ArrayList<String> toTaskData() {
         ArrayList<String> taskData = new ArrayList<>();
-        taskData.add(this.TYPE);
+        taskData.add(TYPE);
         taskData.add(this.isDone ? "1" : "0");
         taskData.add(this.desc);
         return taskData;

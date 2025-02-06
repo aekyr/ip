@@ -65,4 +65,8 @@ public class Laffy {
     public static void main(String[] args) throws IOException {
         new Laffy("data/laffy.txt").run();
     }
+
+    public String getResponse(String input) {
+        return "Response: " + input;
+    }
 }

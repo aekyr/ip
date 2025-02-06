@@ -1,15 +1,17 @@
 package laffy.gui;
 
+import java.io.IOException;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-
 import laffy.Laffy;
 
-import java.io.IOException;
-
+/**
+ * A GUI for Laffy using FXML.
+ */
 public class Main extends Application {
 
     private Laffy laffy = new Laffy();

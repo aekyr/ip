@@ -67,7 +67,12 @@ public class Laffy {
         new Laffy().run();
     }
 
-    public String getResponse(String input) {
-        return "Response: " + input;
+    public String getResponse(String fullCommand) {
+        try {
+            Command c = Parser.parse(fullCommand);
+            return c.execute(taskList, storage);
+        } catch (Exception e) {
+            return e.getMessage();
+        }
     }
 }

@@ -49,5 +49,8 @@ public class MainWindow extends AnchorPane {
                 DialogBox.getLaffyDialog(response, laffyImage)
         );
         userInput.clear();
+        if (input.equals("bye")) {
+            System.exit(0);
+        }
     }
 }

@@ -19,15 +19,19 @@ public abstract class Command {
 
     /**
      * Executes the command.
-     * @param taskList
-     * @param ui
-     * @param storage
-     * @throws TaskListException
      */
     public void execute(TaskList taskList, Ui ui, Storage storage) throws TaskListException {
         // executes after all children have done so
         storage.saveData(taskList.toTasksData());
     };
+
+    /**
+     * Executes the command without UI
+     */
+    public String execute(TaskList taskList, Storage storage) throws TaskListException {
+        storage.saveData(taskList.toTasksData());
+        return "";
+    }
 
     public boolean isExit() {
         return false;

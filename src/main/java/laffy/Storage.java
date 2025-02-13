@@ -138,6 +138,7 @@ public class Storage {
             FileWriter fileWriter = new FileWriter(file);
             for (ArrayList<String> taskData : tasksData) {
                 String line = String.join(" | ", taskData);
+                assert line.split(" \\| ").length == taskData.size();
                 fileWriter.write(line + "\n");
             }
             fileWriter.close();

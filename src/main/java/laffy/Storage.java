@@ -81,15 +81,18 @@ public class Storage {
                     taskData.add(type);
                     taskData.add(isDone);
                     taskData.add(desc);
-                    if (type.equals("T") && task.length == 3) {
+                    if (type.equals("T")) {
+                        assert task.length == 3;
                         tasksData.add(taskData);
-                    } else if (type.equals("D") && task.length == 4) {
+                    } else if (type.equals("D")) {
+                        assert task.length == 4;
                         String by = task[3];
                         if (isValidBy(by)) {
                             taskData.add(by);
                             tasksData.add(taskData);
                         }
-                    } else if (type.equals("E") && task.length == 5) {
+                    } else if (type.equals("E")) {
+                        assert task.length == 5;
                         String from = task[3];
                         String to = task[4];
                         if (isValidFrom(from) && isValidTo(to)) {

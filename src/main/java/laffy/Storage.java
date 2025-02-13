@@ -79,6 +79,9 @@ public class Storage {
             taskData.add(from);
             taskData.add(to);
         }
+        default -> {
+            taskData.clear();
+        }
         }
         return taskData;
     }

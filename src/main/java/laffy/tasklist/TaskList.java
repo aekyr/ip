@@ -2,6 +2,7 @@ package laffy.tasklist;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import laffy.tasklist.exceptions.IndexOutOfRange;
 import laffy.tasklist.tasks.Deadline;
@@ -192,6 +193,26 @@ public class TaskList {
         StringBuilder sb = new StringBuilder();
         sb.append("Here are the matching tasks in your list:\n");
         sb.append(tasklistToString(foundTasks));
+        return sb.toString();
+    }
+
+    public String getUpcomingTasks() {
+        HashMap<LocalDateTime, Task> upcomingTasks = new HashMap<>();
+        for (Task task : this.tasks) {
+            if (task.isUpcoming()) {
+                upcomingTasks.put(task.getDeadline(), task);
+            }
+        }
+        if (upcomingTasks.isEmpty()) {
+            return "No upcoming tasks found!";
+        }
+        ArrayList<Task> sortedUpcomingTasks = new ArrayList<>();
+        upcomingTasks.keySet().stream()
+                .sorted()
+                .forEach(key -> sortedUpcomingTasks.add(upcomingTasks.get(key)));
+        StringBuilder sb = new StringBuilder();
+        sb.append("Here are the upcoming tasks in your list:\n");
+        sb.append(tasklistToString(sortedUpcomingTasks));
         return sb.toString();
     }
 

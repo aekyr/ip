@@ -12,6 +12,7 @@ import laffy.command.InvalidCommand;
 import laffy.command.ListCommand;
 import laffy.command.MarkCommand;
 import laffy.command.UnmarkCommand;
+import laffy.command.UpcomingCommand;
 import laffy.command.exceptions.LaffyException;
 
 /**
@@ -49,6 +50,7 @@ public class Parser {
 
         case DELETE -> new DeleteCommand(args);
         case FIND -> new FindCommand(args);
+        case UPCOMING -> new UpcomingCommand(args);
 
         default -> new InvalidCommand(args);
         };

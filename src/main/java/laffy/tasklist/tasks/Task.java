@@ -1,11 +1,12 @@
 package laffy.tasklist.tasks;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 /**
  * Represents a task in the task list.
  */
-public class Task {
+public abstract class Task {
     private static final String TYPE = "I";
     private final String desc;
     private boolean isDone;
@@ -56,6 +57,14 @@ public class Task {
         return "[" + this.getStatusIcon() + "] " + this.getDescription();
     }
 
+    public boolean isUpcoming() {
+        return false;
+    }
+
+    public LocalDateTime getDeadline() {
+        return null;
+    }
+
     /**
      * Converts the task to data format.
      * The data format is a list of strings, where each string
@@ -70,4 +79,5 @@ public class Task {
         taskData.add(this.desc);
         return taskData;
     }
+
 }

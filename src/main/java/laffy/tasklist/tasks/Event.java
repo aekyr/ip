@@ -57,4 +57,14 @@ public class Event extends Task {
         taskData.add(TaskDateProvider.formatForStorage(this.to));
         return taskData;
     }
+
+    @Override
+    public boolean isUpcoming() {
+        return LocalDateTime.now().isBefore(this.from);
+    }
+
+    @Override
+    public LocalDateTime getDeadline() {
+        return this.from;
+    }
 }

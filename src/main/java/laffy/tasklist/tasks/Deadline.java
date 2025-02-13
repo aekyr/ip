@@ -50,4 +50,14 @@ public class Deadline extends Task {
         taskData.add(TaskDateProvider.formatForStorage(this.by));
         return taskData;
     }
+
+    @Override
+    public boolean isUpcoming() {
+        return LocalDateTime.now().isBefore(this.by);
+    }
+
+    @Override
+    public LocalDateTime getDeadline() {
+        return this.by;
+    }
 }

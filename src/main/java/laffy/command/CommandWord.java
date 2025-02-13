@@ -16,6 +16,7 @@ public enum CommandWord {
 
     DELETE("delete"),
     FIND("find"),
+    UPCOMING("soon"),
 
     INVALID("");
 

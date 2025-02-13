@@ -49,6 +49,42 @@ public class Storage {
         return !to.isBlank() && !to.isEmpty();
     }
 
+    private ArrayList<String> parseTaskDataLine(String line) {
+        String[] task = line.split(" \\| ");
+        String type = task[0];
+        String isDone = task[1];
+        String desc = task[2];
+        assert isValidType(type) && isValidDone(isDone) && isValidDesc(desc);
+        
+        ArrayList<String> taskData = new ArrayList<>();
+        taskData.add(type);
+        taskData.add(isDone);
+        taskData.add(desc);
+
+        switch (type) {
+            case "T" -> {
+                assert task.length == 3;
+            }
+            case "D" -> {
+                assert task.length == 4;
+                String by = task[3];
+                if (isValidBy(by)) {
+                    taskData.add(by);
+                }
+            }
+            case "E" -> {
+                assert task.length == 5;
+                String from = task[3];
+                String to = task[4];
+                if (isValidFrom(from) && isValidTo(to)) {
+                    taskData.add(from);
+                    taskData.add(to);
+                }
+            }
+        }
+        return taskData;
+    }
+
     /**
      * Loads data from the file. Called once when the class is instantiated.
      * If the file does not exist, a new file is created.
@@ -61,9 +97,7 @@ public class Storage {
      * @throws IOException If an I/O error occurs.
      */
     private void loadData() throws IOException {
-
-        // load data from file
-        ArrayList<ArrayList<String>> tasksData = new ArrayList<>(); // [type, isDone, desc, by, from, to]
+        ArrayList<ArrayList<String>> tasksData = new ArrayList<>();
         try {
             File file = new File(this.filepath);
             Scanner sc = new Scanner(file);
@@ -72,39 +106,7 @@ public class Storage {
                 if (line.isBlank() || line.isEmpty()) {
                     break;
                 }
-                String[] task = line.split(" \\| ");
-                String type = task[0];
-                String isDone = task[1];
-                String desc = task[2];
-                ArrayList<String> taskData = new ArrayList<>();
-                assert isValidType(type) && isValidDone(isDone) && isValidDesc(desc);
-                taskData.add(type);
-                taskData.add(isDone);
-                taskData.add(desc);
-                switch (type) {
-                    case "T" -> {
-                        assert task.length == 3;
-                        tasksData.add(taskData);
-                    }
-                    case "D" -> {
-                        assert task.length == 4;
-                        String by = task[3];
-                        if (isValidBy(by)) {
-                            taskData.add(by);
-                            tasksData.add(taskData);
-                        }
-                    }
-                    case "E" -> {
-                        assert task.length == 5;
-                        String from = task[3];
-                        String to = task[4];
-                        if (isValidFrom(from) && isValidTo(to)) {
-                            taskData.add(from);
-                            taskData.add(to);
-                            tasksData.add(taskData);
-                        }
-                    }
-                }
+                tasksData.add(parseTaskDataLine(line));
             }
             sc.close();
             this.tasksData = tasksData;

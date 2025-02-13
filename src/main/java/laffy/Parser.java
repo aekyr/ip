@@ -50,7 +50,7 @@ public class Parser {
         case DELETE -> new DeleteCommand(args);
         case FIND -> new FindCommand(args);
 
-        case INVALID -> new InvalidCommand(args);
+        default -> new InvalidCommand(args);
         };
 
     }

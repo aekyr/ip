@@ -55,32 +55,30 @@ public class Storage {
         String isDone = task[1];
         String desc = task[2];
         assert isValidType(type) && isValidDone(isDone) && isValidDesc(desc);
-        
+
         ArrayList<String> taskData = new ArrayList<>();
         taskData.add(type);
         taskData.add(isDone);
         taskData.add(desc);
 
         switch (type) {
-            case "T" -> {
-                assert task.length == 3;
-            }
-            case "D" -> {
-                assert task.length == 4;
-                String by = task[3];
-                if (isValidBy(by)) {
-                    taskData.add(by);
-                }
-            }
-            case "E" -> {
-                assert task.length == 5;
-                String from = task[3];
-                String to = task[4];
-                if (isValidFrom(from) && isValidTo(to)) {
-                    taskData.add(from);
-                    taskData.add(to);
-                }
-            }
+        case "T" -> {
+            assert task.length == 3;
+        }
+        case "D" -> {
+            assert task.length == 4;
+            String by = task[3];
+            assert isValidBy(by);
+            taskData.add(by);
+        }
+        case "E" -> {
+            assert task.length == 5;
+            String from = task[3];
+            String to = task[4];
+            assert isValidFrom(from) && isValidTo(to);
+            taskData.add(from);
+            taskData.add(to);
+        }
         }
         return taskData;
     }

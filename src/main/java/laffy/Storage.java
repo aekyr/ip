@@ -77,19 +77,25 @@ public class Storage {
                 String isDone = task[1];
                 String desc = task[2];
                 ArrayList<String> taskData = new ArrayList<>();
-                if (isValidType(type) && isValidDone(isDone) && isValidDesc(desc)) {
-                    taskData.add(type);
-                    taskData.add(isDone);
-                    taskData.add(desc);
-                    if (type.equals("T") && task.length == 3) {
+                assert isValidType(type) && isValidDone(isDone) && isValidDesc(desc);
+                taskData.add(type);
+                taskData.add(isDone);
+                taskData.add(desc);
+                switch (type) {
+                    case "T" -> {
+                        assert task.length == 3;
                         tasksData.add(taskData);
-                    } else if (type.equals("D") && task.length == 4) {
+                    }
+                    case "D" -> {
+                        assert task.length == 4;
                         String by = task[3];
                         if (isValidBy(by)) {
                             taskData.add(by);
                             tasksData.add(taskData);
                         }
-                    } else if (type.equals("E") && task.length == 5) {
+                    }
+                    case "E" -> {
+                        assert task.length == 5;
                         String from = task[3];
                         String to = task[4];
                         if (isValidFrom(from) && isValidTo(to)) {
@@ -132,6 +138,7 @@ public class Storage {
             FileWriter fileWriter = new FileWriter(file);
             for (ArrayList<String> taskData : tasksData) {
                 String line = String.join(" | ", taskData);
+                assert line.split(" \\| ").length == taskData.size();
                 fileWriter.write(line + "\n");
             }
             fileWriter.close();

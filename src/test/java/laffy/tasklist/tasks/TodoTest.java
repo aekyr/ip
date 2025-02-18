@@ -8,27 +8,27 @@ import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
 
-public class TaskTest {
+public class TodoTest {
     @Test
     public void task_desc_taskWithDesc() {
-        Task task = new Task("task desc");
+        ToDo task = new ToDo("task desc");
         assertEquals("task desc", task.getDescription());
     }
 
     @Test
     public void task_descAndIsDone_taskWithDescAndIsDone() {
-        Task task = new Task("task desc", true);
+        ToDo task = new ToDo("task desc", true);
         assertEquals("task desc", task.getDescription());
         assertTrue(task.isDone());
 
-        Task task2 = new Task("task desc", false);
+        ToDo task2 = new ToDo("task desc", false);
         assertEquals("task desc", task2.getDescription());
         assertFalse(task2.isDone());
     }
 
     @Test
     public void markAsDone_task_taskIsDone() {
-        Task task = new Task("task desc");
+        ToDo task = new ToDo("task desc");
         assertFalse(task.isDone());
         task.markAsDone();
         assertTrue(task.isDone());
@@ -36,7 +36,7 @@ public class TaskTest {
 
     @Test
     public void markAsUndone_task_taskIsUndone() {
-        Task task = new Task("task desc", true);
+        ToDo task = new ToDo("task desc", true);
         assertTrue(task.isDone());
         task.markAsUndone();
         assertFalse(task.isDone());
@@ -44,24 +44,24 @@ public class TaskTest {
 
     @Test
     public void toString_task_taskString() {
-        Task task = new Task("task desc");
-        assertEquals("[ ] task desc", task.toString());
+        ToDo task = new ToDo("task desc");
+        assertEquals("[T][ ] task desc", task.toString());
 
-        Task task2 = new Task("task desc", true);
-        assertEquals("[X] task desc", task2.toString());
+        ToDo task2 = new ToDo("task desc", true);
+        assertEquals("[T][X] task desc", task2.toString());
     }
 
     @Test
-    public void toTaskData_task_taskData() {
-        Task task = new Task("task desc");
+    public void toToDoData_task_taskData() {
+        ToDo task = new ToDo("task desc");
         ArrayList<String> taskData = task.toTaskData();
-        assertEquals("I", taskData.get(0));
+        assertEquals("T", taskData.get(0));
         assertEquals("0", taskData.get(1));
         assertEquals("task desc", taskData.get(2));
 
-        Task task2 = new Task("task desc", true);
+        ToDo task2 = new ToDo("task desc", true);
         ArrayList<String> taskData2 = task2.toTaskData();
-        assertEquals("I", taskData2.get(0));
+        assertEquals("T", taskData2.get(0));
         assertEquals("1", taskData2.get(1));
         assertEquals("task desc", taskData2.get(2));
     }

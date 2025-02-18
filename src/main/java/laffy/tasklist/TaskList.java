@@ -196,6 +196,11 @@ public class TaskList {
         return sb.toString();
     }
 
+    /**
+     * Gets the upcoming tasks in the TaskList.
+     *
+     * @return The string representation of the upcoming tasks.
+     */
     public String getUpcomingTasks() {
         HashMap<LocalDateTime, Task> upcomingTasks = new HashMap<>();
         for (Task task : this.tasks) {

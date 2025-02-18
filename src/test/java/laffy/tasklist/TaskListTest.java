@@ -2,6 +2,7 @@ package laffy.tasklist;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import laffy.tasklist.exceptions.IndexOutOfRange;
 import org.junit.jupiter.api.Test;
 
 import laffy.tasklist.tasks.Task;
@@ -20,6 +21,16 @@ public class TaskListTest {
         Task task = new ToDo("task desc");
         taskList.addTodo("task desc");
         assertEquals(1, taskList.size());
+    }
+
+    @Test
+    public void taskList_deleteTask_taskListWithoutTask() throws IndexOutOfRange {
+        TaskList taskList = new TaskList();
+        Task task = new ToDo("task desc");
+        taskList.addTodo("task desc");
+        assertEquals(1, taskList.size());
+        taskList.delete(0);
+        assertEquals(0, taskList.size());
     }
 
 

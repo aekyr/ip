@@ -2,9 +2,10 @@ package laffy.tasklist;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import org.junit.jupiter.api.Test;
+
 import laffy.tasklist.tasks.Task;
 import laffy.tasklist.tasks.ToDo;
-import org.junit.jupiter.api.Test;
 
 public class TaskListTest {
     @Test

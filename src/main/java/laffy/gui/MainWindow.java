@@ -34,6 +34,9 @@ public class MainWindow extends AnchorPane {
     /** Injects the Laffy instance */
     public void setLaffy(Laffy d) {
         laffy = d;
+        dialogContainer.getChildren().add(
+                DialogBox.getLaffyDialog(laffy.greet(), laffyImage)
+        );
     }
 
     /**

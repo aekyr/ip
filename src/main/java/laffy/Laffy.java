@@ -75,4 +75,8 @@ public class Laffy {
             return e.getMessage();
         }
     }
+
+    public String greet() {
+        return "Hello! I'm L.A.F.F.Y\nWhat can I do for you?";
+    }
 }

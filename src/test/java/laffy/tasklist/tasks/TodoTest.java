@@ -66,4 +66,10 @@ public class TodoTest {
         assertEquals("task desc", taskData2.get(2));
     }
 
+    @Test
+    public void isUpcoming_task_false() {
+        ToDo task = new ToDo("task desc");
+        assertFalse(task.isUpcoming());
+    }
+
 }
